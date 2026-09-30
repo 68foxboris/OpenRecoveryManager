@@ -102,11 +102,11 @@ static int load_lines(const char *path, char ***out)
 	*out = lines;
 	if (!lines)
 		return 0;
-	file = fopen(path, "r");
+	file = fopen(path, "r");  /* NOSONAR a log of enigma2 */
 	if (!file)
 		return 0;
 	while (fgets(buffer, sizeof(buffer), file)) {
-		buffer[strcspn(buffer, "\r\n")] = '\0';
+		text_cut(buffer, "\r\n");
 		if (count == LOG_MAX_LINES) {
 			free(lines[0]);
 			memmove(lines, lines + 1, (LOG_MAX_LINES - 1) * sizeof(*lines));
@@ -173,7 +173,7 @@ static int wrap_lines(char ***lines, int count)
 #define MAX_CRASH_LOGS 100
 
 /* The crash logs, the newest first; OK returns the one chosen, BACK -1. */
-static int choose_crash_log(struct ui_context *ui, struct input_context *input, const struct log_file *logs,
+static int choose_crash_log(const struct ui_context *ui, struct input_context *input, const struct log_file *logs,
 	int count, int current)
 {
 	char (*rows)[640] = malloc((size_t)count * sizeof(*rows));
@@ -269,7 +269,7 @@ static int load_crash_log(const char *path, char ***lines, int *first, char *tit
 
 /* The newest crash log, YELLOW chooses another one.
  * BLUE switches to the messages enigma2 sent to the socket of ORM at its last start. */
-static void show_logs(struct ui_context *ui, struct input_context *input)
+static void show_logs(const struct ui_context *ui, struct input_context *input)
 {
 	struct log_file *logs = malloc(MAX_CRASH_LOGS * sizeof(*logs));
 	char title[192];
@@ -346,7 +346,7 @@ static const int actions[] = {ACTION_START, ACTION_CRASH_LOG, ACTION_CRASH_REPOR
 static void system_info(char *text, size_t size);
 
 /* What the chosen entry does, on the right of the menu. */
-static void preview(struct ui_context *ui, int item, const struct watch_result *result, const char *info,
+static void preview(const struct ui_context *ui, int item, const struct watch_result *result, const char *info,
 	const char *footer)
 {
 	static const char *const texts[] = {
@@ -595,7 +595,10 @@ static void system_info(char *text, size_t size)
 	char revision[64];
 	FILE *file = fopen("/usr/lib/enigma.info", "r");
 	if (file) {
-		info[fread(info + 1, 1, sizeof(info) - 2, file) + 1] = '\0';
+		size_t got = fread(info + 1, 1, sizeof(info) - 2, file);
+		if (got > sizeof(info) - 2)
+			got = sizeof(info) - 2;
+		info[got + 1] = '\0';
 		fclose(file);
 	}
 	info_value(info, "displaybrand", brand, sizeof(brand));

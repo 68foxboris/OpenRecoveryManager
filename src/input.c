@@ -169,7 +169,7 @@ static enum input_key read_device(const struct input_context *ctx, int i)
 	return INPUT_NONE;
 }
 
-enum input_key input_wait(struct input_context *ctx, int timeout_ms)
+enum input_key input_wait(const struct input_context *ctx, int timeout_ms)
 {
 	fd_set read_set;
 	struct timeval timeout;

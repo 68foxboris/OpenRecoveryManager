@@ -19,6 +19,6 @@ struct flash_slot {
 void flash_running_slot(struct flash_slot *slot);
 /* Flashes an image of a feed or a local zip into the running slot, like the FlashManager of enigma2. */
 void flash_image(struct ui_context *ui, struct input_context *input,
-	volatile sig_atomic_t *stop);
+	const volatile sig_atomic_t *stop);
 
 #endif

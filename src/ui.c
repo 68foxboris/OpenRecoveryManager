@@ -169,7 +169,7 @@ static uint32_t milliseconds(void)
 
 static void flush(lv_display_t *disp, const lv_area_t *area, uint8_t *pixels)
 {
-	struct ui_context *ui = active;
+	const struct ui_context *ui = active;
 	if (ui && ui->screen) {
 		size_t width = (size_t)lv_area_get_width(area) * 4;
 		for (int32_t y = area->y1; y <= area->y2; ++y) {
@@ -446,9 +446,11 @@ void ui_key_pressed(const char *key)
 	lv_obj_t *pair = NULL;
 	if (!display || !key)
 		return;
-	for (int i = 0; i < footer_key_count && !pair; ++i)
-		if (footer_key_matches(footer_pairs[i].name, key))
+	for (int i = 0; i < footer_key_count; ++i)
+		if (footer_key_matches(footer_pairs[i].name, key)) {
 			pair = footer_pairs[i].pair;
+			break;
+		}
 	if (!pair)
 		return;
 	lv_obj_set_style_bg_opa(pair, LV_OPA_COVER, 0);
@@ -905,7 +907,7 @@ void ui_sidebar_select(const struct ui_context *ui, int selected, int focused)
 		sidebar_style();
 }
 
-int ui_sidebar_focus(struct ui_context *ui, int focused)
+int ui_sidebar_focus(const struct ui_context *ui, int focused)
 {
 	int was = side_focused;
 	ui_sidebar_select(ui, side_selected, focused);
@@ -953,14 +955,14 @@ void ui_screen(const struct ui_context *ui, const char *title, const char *body,
 	render();
 }
 
-void ui_menu(struct ui_context *ui, const char *title, const char *body,
+void ui_menu(const struct ui_context *ui, const char *title, const char *body,
 	const char *const items[], int item_count, int selected,
 	const char *footer_keys)
 {
 	ui_menu_marked(ui, title, body, items, item_count, selected, -1, footer_keys);
 }
 
-void ui_menu_marked(struct ui_context *ui, const char *title, const char *body,
+void ui_menu_marked(const struct ui_context *ui, const char *title, const char *body,
 	const char *const items[], int item_count, int selected, int marked,
 	const char *footer_keys)
 {
@@ -1089,6 +1091,8 @@ static void list(lv_obj_t *root, const struct list_items *l)
 		list_heights(area, l, widths, height, heights);
 	if (!modal && heights)
 		list_page(lv_obj_get_content_height(area) + gap, heights, l->count, l->selected, gap, &first, &visible);
+	if (first < 0 || first >= l->count)  /* list_page keeps it within the items. */
+		first = 0;
 	menu_rows = visible > 0 ? visible : 1;
 	rows = column(area, gap);
 	lv_obj_set_width(rows, LV_SIZE_CONTENT);
@@ -1122,7 +1126,7 @@ static void menu_table(const char *title, const char *info, const char *body, co
 	render();
 }
 
-void ui_menu_table(struct ui_context *ui, const char *title, const char *body,
+void ui_menu_table(const struct ui_context *ui, const char *title, const char *body,
 	const char *header_text, const char *const items[], int item_count, int selected,
 	const char *marks, int marked, const char *align, const char *footer_keys)
 {
@@ -1131,7 +1135,7 @@ void ui_menu_table(struct ui_context *ui, const char *title, const char *body,
 	menu_table(title, NULL, body, &l, footer_keys);
 }
 
-void ui_menu_info(struct ui_context *ui, const char *title, const char *info, const char *body,
+void ui_menu_info(const struct ui_context *ui, const char *title, const char *info, const char *body,
 	const char *const items[], int item_count, int selected, const char *marks, const char *footer_keys)
 {
 	const struct list_items l = {NULL, items, item_count, selected, marks, -1, NULL};

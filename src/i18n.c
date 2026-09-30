@@ -24,7 +24,7 @@ static int setting(const char *key, char *value, size_t size)
 		return 0;
 	while (fgets(line, sizeof(line), file))
 		if (strncmp(line, key, length) == 0 && line[length] == '=') {
-			line[strcspn(line, "\r\n")] = '\0';
+			text_cut(line, "\r\n");
 			snprintf(value, size, "%s", line + length + 1);
 			found = value[0] != '\0';
 		}

@@ -6,6 +6,13 @@
 #include <stdio.h>
 #include <string.h>
 
+void text_cut(char *text, const char *chars)
+{
+	char *end = strpbrk(text, chars);
+	if (end)
+		*end = '\0';
+}
+
 void boxinfo_value(const char *key, char *value, size_t size)
 {
 	char line[256];
@@ -17,10 +24,10 @@ void boxinfo_value(const char *key, char *value, size_t size)
 	while (fgets(line, sizeof(line), file))
 		if (strncmp(line, key, length) == 0 && line[length] == '=') {
 			char *start = line + length + 1;
-			start[strcspn(start, "\r\n")] = '\0';
+			text_cut(start, "\r\n");
 			if (*start == '\'' || *start == '"')
 				start++;
-			start[strcspn(start, "'\"")] = '\0';
+			text_cut(start, "'\"");
 			snprintf(value, size, "%s", start);
 		}
 	fclose(file);

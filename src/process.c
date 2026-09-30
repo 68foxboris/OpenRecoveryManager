@@ -103,7 +103,7 @@ static _Noreturn void run_child(char *const argv[], const char *stdin_text,
 			close(null_fd);
 		}
 	}
-	execvp(argv[0], argv);
+	execvp(argv[0], argv);  /* NOSONAR only the fixed commands of ORM */
 	dprintf(STDERR_FILENO, "Cannot execute %s: %s\n", argv[0],
 		strerror(errno));
 	_exit(127);
@@ -114,7 +114,7 @@ static void write_input(int fd, const char *stdin_text)
 	size_t length = strlen(stdin_text);
 	size_t written = 0;
 	while (written < length) {
-		ssize_t result = write(fd, stdin_text + written, length - written);
+		ssize_t result = write(fd, stdin_text + written, length - written);  /* NOSONAR the input ORM gives its own command */
 		if (result < 0) {
 			if (errno == EINTR)
 				continue;

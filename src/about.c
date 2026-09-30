@@ -42,7 +42,7 @@ static int wrap_lines(const char *text, char ***out)
 	return count;
 }
 
-static void show_license(struct ui_context *ui, struct input_context *input, volatile sig_atomic_t *stop,
+static void show_license(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
 	const struct license *license)
 {
 	char **lines;
@@ -60,7 +60,7 @@ static void show_license(struct ui_context *ui, struct input_context *input, vol
 	free(lines);
 }
 
-void about(struct ui_context *ui, struct input_context *input, volatile sig_atomic_t *stop)
+void about(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop)
 {
 	char rows[COUNT][160];
 	const char *items[COUNT];

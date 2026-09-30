@@ -42,7 +42,7 @@ int remote_support_available(void)
 	return !unavailable;
 }
 
-static void handle_line(struct console *console, const char *line)
+static void handle_line(const struct console *console, const char *line)
 {
 	struct session *s = console->data;
 	/* The QR code of the command line consists of block characters. */
@@ -50,7 +50,7 @@ static void handle_line(struct console *console, const char *line)
 		snprintf(s->status, sizeof(s->status), "%.255s", line);
 }
 
-static void handle_question(struct console *console, const char *question, int seconds)
+static void handle_question(const struct console *console, const char *question, int seconds)
 {
 	const struct session *s = console->data;
 	if (s->ending)
@@ -80,7 +80,7 @@ static void poll_background(void)
 	background->polling = 0;
 }
 
-static int confirm_end(struct session *s)
+static int confirm_end(const struct session *s)
 {
 	return ask(s->console.ui, s->console.input, s->console.stop, TITLE,
 		_("End the Remote Support session? The supporter can then no longer work on the receiver."), 1);
@@ -88,9 +88,9 @@ static int confirm_end(struct session *s)
 
 static int terminals(void);
 
-static void show_screen(struct session *s)
+static void show_screen(const struct session *s)
 {
-	struct console *c = &s->console;
+	const struct console *c = &s->console;
 	char body[1024];
 	char summary[256];
 	char footer[160];
@@ -120,7 +120,7 @@ static void show_screen(struct session *s)
 		_("Scan to open the support session"), footer);
 }
 
-static void show_end(struct ui_context *ui, struct input_context *input,
+static void show_end(const struct ui_context *ui, struct input_context *input,
 	const volatile sig_atomic_t *stop, const char *message)
 {
 	enum input_key key;
@@ -239,13 +239,13 @@ static int write_opkg_conf(void)
 	if ((conf = fopen("/var/lib/opkg/status", "r"))) {
 		size_t length;
 		while ((length = fread(line, 1, sizeof(line), conf)) > 0)
-			fwrite(line, 1, length, status);
+			fwrite(line, 1, length, status);  /* NOSONAR a copy of the opkg status */
 		fclose(conf);
 	}
 	return fclose(status) == 0;
 }
 
-static int install_into_ram(struct ui_context *ui, struct input_context *input,
+static int install_into_ram(const struct ui_context *ui, struct input_context *input,
 	const volatile sig_atomic_t *stop)
 {
 	char *const update[] = {"opkg", "-f", RAM_ROOT "/opkg.conf", "update", NULL};
@@ -297,8 +297,8 @@ static int start_in_ram(struct console *console)
 	return console_start(console, "/usr/bin/env", argv);
 }
 
-static struct session *start_session(struct ui_context *ui, struct input_context *input,
-	volatile sig_atomic_t *stop, int in_ram)
+static struct session *start_session(const struct ui_context *ui, struct input_context *input,
+	const volatile sig_atomic_t *stop, int in_ram)
 {
 	static char *const argv[] = {"remotesupport", "start", NULL};
 	struct session *s;
@@ -317,7 +317,7 @@ static struct session *start_session(struct ui_context *ui, struct input_context
 	return s;
 }
 
-static void start_failed(struct ui_context *ui, struct input_context *input,
+static void start_failed(const struct ui_context *ui, struct input_context *input,
 	const volatile sig_atomic_t *stop)
 {
 	unavailable = 1;
@@ -325,7 +325,7 @@ static void start_failed(struct ui_context *ui, struct input_context *input,
 }
 
 /* 1: end the session, -1: back to the menu, 0: nothing. */
-static int screen_action(struct session *s, enum input_key key)
+static int screen_action(const struct session *s, enum input_key key)
 {
 	if (console_stopped(&s->console) || ((key == INPUT_OK) && confirm_end(s)))
 		return 1;
@@ -360,8 +360,8 @@ static int run_screen(struct session *s, struct input_context *input)
 
 /* The installed plugin first, then its copy in RAM, installed from the feed when missing. One
  * that ends without a link did not start; when none starts, BLUE is left out. */
-void remote_support(struct ui_context *ui, struct input_context *input,
-	volatile sig_atomic_t *stop)
+void remote_support(const struct ui_context *ui, struct input_context *input,
+	const volatile sig_atomic_t *stop)
 {
 	struct session *s = background;
 	int in_ram = access(REMOTESUPPORT, X_OK) != 0;

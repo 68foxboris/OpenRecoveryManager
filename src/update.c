@@ -41,8 +41,8 @@ static void wait_key(struct input_context *input, const volatile sig_atomic_t *s
 	} while (key != INPUT_OK && key != INPUT_BACK && key != INPUT_RED && !(stop && *stop));
 }
 
-static void message(struct ui_context *ui, struct input_context *input,
-	volatile sig_atomic_t *stop, const char *text, int error)
+static void message(const struct ui_context *ui, struct input_context *input,
+	const volatile sig_atomic_t *stop, const char *text, int error)
 {
 	char footer[64];
 	ui_keys(footer, sizeof(footer), NULL, NULL, NULL, _("Menu"), NULL, NULL, NULL, NULL, NULL);
@@ -103,7 +103,7 @@ static void read_settings(struct packages *p)
 	if (!file)
 		return;
 	while (fgets(line, sizeof(line), file)) {
-		line[strcspn(line, "\r\n")] = '\0';
+		text_cut(line, "\r\n");
 		if (strncmp(line, "config.plugins.softwaremanager.", 31) != 0)
 			continue;
 		for (i = 0; i < 7; ++i) {
@@ -277,8 +277,8 @@ static void free_packages(struct packages *p)
 	free(p);
 }
 
-static int confirm(struct ui_context *ui, struct input_context *input,
-	volatile sig_atomic_t *stop, const struct packages *p, enum feed feed)
+static int confirm(const struct ui_context *ui, struct input_context *input,
+	const volatile sig_atomic_t *stop, const struct packages *p, enum feed feed)
 {
 	static const char *const feeds[] = {N_("feed status unknown"), N_("feed disabled"), N_("feed unstable"),
 		N_("feed stable")};
@@ -312,8 +312,8 @@ static int confirm(struct ui_context *ui, struct input_context *input,
 	return key == INPUT_OK;
 }
 
-void update_packages(struct ui_context *ui, struct input_context *input,
-	volatile sig_atomic_t *stop)
+void update_packages(const struct ui_context *ui, struct input_context *input,
+	const volatile sig_atomic_t *stop)
 {
 	struct live_output output = {.ui = ui};
 	struct packages *p;
@@ -364,7 +364,7 @@ void update_packages(struct ui_context *ui, struct input_context *input,
 		free_packages(p);
 		return;
 	}
-	qsort(&p->upgrade[0], (size_t)p->upgrade_count, sizeof(*p->upgrade), by_name);
+	qsort(p->upgrade, (size_t)p->upgrade_count, sizeof(p->upgrade[0]), by_name);
 	if (!confirm(ui, input, stop, p, feed)) {
 		free_packages(p);
 		return;

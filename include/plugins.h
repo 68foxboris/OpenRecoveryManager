@@ -11,7 +11,7 @@
  * back. */
 #define DISABLED_ROOT "/usr/lib/enigma2/python/Plugins.disabled"
 
-void disable_plugins(struct ui_context *ui, struct input_context *input,
-	volatile sig_atomic_t *stop);
+void disable_plugins(const struct ui_context *ui, struct input_context *input,
+	const volatile sig_atomic_t *stop);
 
 #endif

@@ -27,7 +27,7 @@ struct log_file {
 /* The crash logs of enigma2 in its log folders, the newest first, at most max. Returns their count. */
 int crash_logs(struct log_file *logs, int max);
 
-void crash_report(struct ui_context *ui, struct input_context *input,
-	volatile sig_atomic_t *stop);
+void crash_report(const struct ui_context *ui, struct input_context *input,
+	const volatile sig_atomic_t *stop);
 
 #endif

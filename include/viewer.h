@@ -8,9 +8,9 @@
 #include "ui.h"
 
 /* Scrolls lines until a key that is no scroll key, which it returns. */
-enum input_key text_view(struct ui_context *ui, struct input_context *input,
+enum input_key text_view(const struct ui_context *ui, struct input_context *input,
 	const volatile sig_atomic_t *stop, const char *title, const char *header,
-	char **lines, int count, int *first, const char *align, const char *empty,
+	char *const *lines, int count, int *first, const char *align, const char *empty,
 	const char *footer);
 
 /* UP and DOWN move one item and wrap, LEFT and RIGHT a page of the menu drawn last and stop at
@@ -18,7 +18,7 @@ enum input_key text_view(struct ui_context *ui, struct input_context *input,
 int list_move(enum input_key key, int selected, int count);
 
 /* Yes or No in a dialog over the screen, yes chosen at first or no; BACK is no. Returns 1 for yes. */
-int ask(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop, const char *title,
+int ask(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop, const char *title,
 	const char *question, int yes);
 
 /* The output of a command as it comes, the newest lines at the bottom. The
@@ -28,7 +28,7 @@ int ask(struct ui_context *ui, struct input_context *input, const volatile sig_a
 size_t text_break(const char *text, size_t *skip);
 
 struct live_output {
-	struct ui_context *ui;
+	const struct ui_context *ui;
 	const char *title;
 	const char *footer;
 	FILE *log;  /* A copy of every line, may be NULL. */
@@ -43,7 +43,7 @@ void live_output_line(const char *line, void *opaque);
 void live_output_add(struct live_output *output, const char *line);
 void live_output_tick(void *opaque);
 /* The finished output to scroll through until OK or BACK, the note below its title in green or red. */
-void live_output_view(struct live_output *output, struct input_context *input, volatile sig_atomic_t *stop,
+void live_output_view(const struct live_output *output, struct input_context *input, const volatile sig_atomic_t *stop,
 	const char *note, int ok);
 void live_output_free(struct live_output *output);
 

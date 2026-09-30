@@ -38,7 +38,7 @@ struct input_context {
 
 int input_open(struct input_context *ctx);
 void input_close(struct input_context *ctx);
-enum input_key input_wait(struct input_context *ctx, int timeout_ms);
+enum input_key input_wait(const struct input_context *ctx, int timeout_ms);
 /* Like input_wait, opens the devices again when none is left, e.g. after an unplugged keyboard. */
 enum input_key input_next(struct input_context *ctx, int timeout_ms);
 /* Runs before and after every input_next, e.g. for the questions of a remote

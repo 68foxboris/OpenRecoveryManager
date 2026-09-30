@@ -11,9 +11,9 @@
 
 #define LIVE_MAX_LINES 4000
 
-enum input_key text_view(struct ui_context *ui, struct input_context *input,
+enum input_key text_view(const struct ui_context *ui, struct input_context *input,
 	const volatile sig_atomic_t *stop, const char *title, const char *header,
-	char **lines, int count, int *first, const char *align, const char *empty,
+	char *const *lines, int count, int *first, const char *align, const char *empty,
 	const char *footer)
 {
 	const char *const nothing[] = {empty};
@@ -58,7 +58,7 @@ int list_move(enum input_key key, int selected, int count)
 	return selected;
 }
 
-int ask(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop, const char *title,
+int ask(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop, const char *title,
 	const char *question, int yes)
 {
 	const char *items[2];
@@ -162,7 +162,7 @@ void live_output_tick(void *opaque)
 		output->count ? output->count : 1, first, NULL, output->footer);
 }
 
-void live_output_view(struct live_output *output, struct input_context *input, volatile sig_atomic_t *stop,
+void live_output_view(const struct live_output *output, struct input_context *input, const volatile sig_atomic_t *stop,
 	const char *note, int ok)
 {
 	char footer[128];

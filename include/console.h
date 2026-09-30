@@ -15,9 +15,9 @@
  * still works. The first https link becomes a QR code, unless a line
  * "QR: <url>" names another one. */
 struct console {
-	struct ui_context *ui;
+	const struct ui_context *ui;
 	struct input_context *input;
-	volatile sig_atomic_t *stop;
+	const volatile sig_atomic_t *stop;
 	pid_t pid;
 	int master;
 	char buffer[16384];
@@ -26,8 +26,8 @@ struct console {
 	uint8_t qrcode[qrcodegen_BUFFER_LEN_MAX];
 	int has_qrcode;
 	int qrcode_own;  /* The QR code is of the "QR:" line. */
-	void (*line)(struct console *console, const char *line);  /* Every complete line but the link. */
-	void (*question)(struct console *console, const char *question, int seconds);
+	void (*line)(const struct console *console, const char *line);  /* Every complete line but the link. */
+	void (*question)(const struct console *console, const char *question, int seconds);
 	void *data;
 };
 
@@ -39,7 +39,7 @@ void console_interrupt(const struct console *console);  /* Ctrl+C */
 void console_close(struct console *console);
 /* Yes or No on the TV with the countdown of the question, answers it and
  * returns the answer; no answer in time is no, like on the command line. */
-int console_ask(struct console *console, const char *title, const char *question, int seconds);
+int console_ask(const struct console *console, const char *title, const char *question, int seconds);
 int console_stopped(const struct console *console);
 
 #endif

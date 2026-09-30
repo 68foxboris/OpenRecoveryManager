@@ -27,7 +27,7 @@ static void debug_path(char *path, size_t size)
 		return;
 	while (fgets(line, sizeof(line), file))
 		if (strncmp(line, key, sizeof(key) - 1) == 0) {
-			line[strcspn(line, "\r\n")] = '\0';
+			text_cut(line, "\r\n");
 			snprintf(path, size, "%.200s", line + sizeof(key) - 1);
 		}
 	fclose(file);
@@ -62,6 +62,16 @@ static int add_log(struct log_file *logs, int count, int max, const char *path, 
 	return count + 1;
 }
 
+/* The output of ORM itself, e.g. the debug log enigma2.sh writes when ORM runs instead of enigma2. */
+static int own_output(const struct stat *info)
+{
+	struct stat out;
+	for (int fd = STDOUT_FILENO; fd <= STDERR_FILENO; ++fd)
+		if (fstat(fd, &out) == 0 && out.st_dev == info->st_dev && out.st_ino == info->st_ino)
+			return 1;
+	return 0;
+}
+
 static int list_logs(int (*matches)(const char *), struct log_file *logs, int max)
 {
 	char folders[3][256];
@@ -70,7 +80,7 @@ static int list_logs(int (*matches)(const char *), struct log_file *logs, int ma
 	snprintf(folders[1], sizeof(folders[1]), "/home/root/logs/");
 	snprintf(folders[2], sizeof(folders[2]), "/tmp/");
 	for (int i = 0; i < 3; ++i) {
-		DIR *dir = folders[i][0] ? opendir(folders[i]) : NULL;
+		DIR *dir = folders[i][0] ? opendir(folders[i]) : NULL;  /* NOSONAR the log folders of enigma2 */
 		struct dirent *entry;
 		if (!dir)
 			continue;
@@ -81,7 +91,7 @@ static int list_logs(int (*matches)(const char *), struct log_file *logs, int ma
 				continue;
 			snprintf(candidate, sizeof(candidate), "%.250s%s%.250s", folders[i],
 				folders[i][strlen(folders[i]) - 1] == '/' ? "" : "/", entry->d_name);
-			if (lstat(candidate, &info) == 0 && S_ISREG(info.st_mode))
+			if (lstat(candidate, &info) == 0 && S_ISREG(info.st_mode) && !own_output(&info))
 				count = add_log(logs, count, max, candidate, &info);
 		}
 		closedir(dir);
@@ -127,7 +137,7 @@ struct report {
 	int answered;
 };
 
-static void handle_line(struct console *console, const char *line)
+static void handle_line(const struct console *console, const char *line)
 {
 	struct report *r = console->data;
 	size_t used = strlen(r->context);
@@ -140,7 +150,7 @@ static void handle_line(struct console *console, const char *line)
 	snprintf(r->status, sizeof(r->status), "%.255s", line);
 }
 
-static void handle_question(struct console *console, const char *question, int seconds)
+static void handle_question(const struct console *console, const char *question, int seconds)
 {
 	struct report *r = console->data;
 	char body[2600];
@@ -158,7 +168,7 @@ static void wait_key(struct input_context *input, const volatile sig_atomic_t *s
 }
 
 /* Only the crash log by default, the debug log and the diagnostics follow the settings of the plugin. */
-static int choose_logs(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop)
+static int choose_logs(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop)
 {
 	const char *items[2];
 	char footer[128];
@@ -185,8 +195,8 @@ static int choose_logs(struct ui_context *ui, struct input_context *input, const
 	return -1;
 }
 
-void crash_report(struct ui_context *ui, struct input_context *input,
-	volatile sig_atomic_t *stop)
+void crash_report(const struct ui_context *ui, struct input_context *input,
+	const volatile sig_atomic_t *stop)
 {
 	static char *const only_crash[] = {"crashreport", "--no-debug", "--no-diagnostics", NULL};
 	static char *const everything[] = {"crashreport", NULL};

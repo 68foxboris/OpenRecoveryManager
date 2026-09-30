@@ -2,6 +2,8 @@
 
 #include "watch.h"
 
+#include "boxinfo.h"
+
 #include <dirent.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -104,8 +106,10 @@ static void drain(int fd, struct watch_state *state)
 	char message[256];
 	ssize_t length;
 	while ((length = recv(fd, message, sizeof(message) - 1, MSG_DONTWAIT)) > 0) {
+		if ((size_t)length >= sizeof(message))
+			length = sizeof(message) - 1;
 		message[length] = '\0';
-		message[strcspn(message, "\r\n")] = '\0';
+		text_cut(message, "\r\n");
 		handle_message(state, message);
 	}
 }
@@ -292,7 +296,7 @@ int watch_read_result(const char *path, struct watch_result *result)
 		if (!value)
 			continue;
 		*value++ = '\0';
-		value[strcspn(value, "\n")] = '\0';
+		text_cut(value, "\n");
 		if (strcmp(line, "failed") == 0)
 			result->failed = atoi(value);
 		else if (strcmp(line, "ready") == 0)

@@ -65,7 +65,7 @@ static void wait_key(struct input_context *input, const volatile sig_atomic_t *s
 	} while (key != INPUT_OK && key != INPUT_BACK && !(stop && *stop));
 }
 
-static void message(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
+static void message(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
 	const char *text)
 {
 	ui_error(ui, TITLE, text);
@@ -474,7 +474,7 @@ static int write_script(const struct plan *p, const char *media)
 	return fclose(f) == 0;
 }
 
-static int choose_medium(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
+static int choose_medium(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
 	struct medium *media, int count, long long need)
 {
 	char rows[MAX_MEDIA][320];
@@ -522,7 +522,7 @@ static int choose_medium(struct ui_context *ui, struct input_context *input, con
 struct running {
 	struct live_output output;
 	struct input_context *input;
-	volatile sig_atomic_t *stop;
+	const volatile sig_atomic_t *stop;
 	int cancelled;
 };
 
@@ -542,7 +542,7 @@ static void backup_line(const char *line, void *opaque)
 	live_output_line(line, &((struct running *)opaque)->output);
 }
 
-void image_backup(struct ui_context *ui, struct input_context *input, volatile sig_atomic_t *stop)
+void image_backup(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop)
 {
 	struct medium media[MAX_MEDIA];
 	struct running run = {.output = {.ui = ui}, .input = input, .stop = stop};

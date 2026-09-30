@@ -81,7 +81,7 @@ static void wait_key(struct input_context *input, const volatile sig_atomic_t *s
 	} while (key != INPUT_OK && key != INPUT_BACK && key != INPUT_RED && !(stop && *stop));
 }
 
-static void message(struct ui_context *ui, struct input_context *input,
+static void message(const struct ui_context *ui, struct input_context *input,
 	const volatile sig_atomic_t *stop, const char *text)
 {
 	ui_error(ui, TITLE, text);
@@ -950,6 +950,8 @@ static char *read_file(const char *path, size_t *length)
 		text = malloc((size_t)size + 1);
 	if (text) {
 		*length = fread(text, 1, (size_t)size, file);
+		if (*length > (size_t)size)
+			*length = (size_t)size;
 		text[*length] = '\0';
 	}
 	fclose(file);
@@ -1136,7 +1138,7 @@ static void build_rows(struct listing *l)
 	}
 }
 
-static void load_images(struct ui_context *ui, struct listing *l, const struct feed *feed)
+static void load_images(const struct ui_context *ui, struct listing *l, const struct feed *feed)
 {
 	char text[128];
 	snprintf(text, sizeof(text), _("Loading the images of %s."), feed->name);
@@ -1152,7 +1154,7 @@ static void load_images(struct ui_context *ui, struct listing *l, const struct f
 	build_rows(l);
 }
 
-static int choose_feed(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
+static int choose_feed(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
 	const struct feed *feeds, int count, int current)
 {
 	const char *items[MAX_FEEDS];
@@ -1203,16 +1205,16 @@ static pid_t start_download(const char *tool, int curl, const char *part, const 
 			dup2(null, STDERR_FILENO);
 		}
 		if (curl)
-			execl(tool, tool, "-fsSL", "-A", USER_AGENT, "--connect-timeout", "30", "-o", part, url, (char *)NULL);
+			execl(tool, tool, "-fsSL", "-A", USER_AGENT, "--connect-timeout", "30", "-o", part, url, (char *)NULL);  /* NOSONAR the link of the image chosen from the feed */
 		else
-			execl(tool, tool, "-q", "-U", USER_AGENT, "-T", "30", "-O", part, url, (char *)NULL);
+			execl(tool, tool, "-q", "-U", USER_AGENT, "-T", "30", "-O", part, url, (char *)NULL);  /* NOSONAR the link of the image chosen from the feed */
 		_exit(127);
 	}
 	return pid;
 }
 
 /* The progress until the download ends, -1 when it was stopped. */
-static int wait_download(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
+static int wait_download(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
 	const struct image *image, const char *part, pid_t pid, int *status)
 {
 	char body[256];
@@ -1257,7 +1259,7 @@ static int has_size(const char *part, long long size)
 }
 
 /* A download with progress, BACK stops it. */
-static int fetch_image(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
+static int fetch_image(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
 	const struct image *image, const char *path)
 {
 	char url[640];
@@ -1288,7 +1290,7 @@ static int fetch_image(struct ui_context *ui, struct input_context *input, const
 }
 
 struct unzip_state {
-	struct ui_context *ui;
+	const struct ui_context *ui;
 	char body[256];
 	char last[160];
 	int files;
@@ -1309,7 +1311,7 @@ static void unzip_line(const char *line, void *opaque)
 
 static void unzip_tick(void *opaque)
 {
-	struct unzip_state *u = opaque;
+	const struct unzip_state *u = opaque;
 	ui_progress(u->ui, TITLE, u->body, u->files * 100 / 6, u->last[0] ? u->last : _("Please wait..."),
 		_("Please wait..."));
 }
@@ -1386,7 +1388,7 @@ static void drop_tar_beside_ubi(const char *dir)  /* startUnzip() of the FlashMa
 		unlink(tar);
 }
 
-static int unzip_image(struct ui_context *ui, const char *zip, const char *dir, const char *name)
+static int unzip_image(const struct ui_context *ui, const char *zip, const char *dir, const char *name)
 {
 	struct unzip_state u = {.ui = ui};
 	char source[600];
@@ -1415,7 +1417,7 @@ static void keep_line(const char *line, void *opaque)
 }
 
 struct check_state {
-	struct ui_context *ui;
+	const struct ui_context *ui;
 	struct kept_lines lines;
 };
 
@@ -1491,19 +1493,16 @@ static void slot_text(const struct target *t, char *text, size_t size)
 
 static void add_log_lines(struct live_output *output, char *text)  /* Every line as it is, empty ones too. */
 {
-	char *line = text;
-	char *end;
-	while ((end = strchr(line, '\n'))) {
-		*end = '\0';
-		live_output_add(output, line);
-		line = end + 1;
+	char *rest = text;
+	while (rest) {
+		const char *line = strsep(&rest, "\n");
+		if (rest || *line)  /* Not the empty rest after the last newline. */
+			live_output_add(output, line);
 	}
-	if (*line)
-		live_output_add(output, line);
 }
 
-static void show_flash_log(struct ui_context *ui, struct input_context *input, volatile sig_atomic_t *stop,
-	struct live_output *output, int ok)
+static void show_flash_log(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
+	const struct live_output *output, int ok)
 {
 	int first = output->count;  /* The end, text_view stops at the last page. */
 	char note[160];
@@ -1522,7 +1521,7 @@ static void show_flash_log(struct ui_context *ui, struct input_context *input, v
 
 /* Like the fbClass lock of the FlashManager the screen belongs to ofgwrite: it stops enigma2.sh and
  * with it ORM by init 2, flashes from a new root and restarts the receiver. */
-static void flash_now(struct ui_context *ui, struct input_context *input, volatile sig_atomic_t *stop,
+static void flash_now(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
 	const struct target *t, const char *dir)
 {
 	struct live_output output;
@@ -1547,7 +1546,7 @@ static void flash_now(struct ui_context *ui, struct input_context *input, volati
 			dup2(log, STDOUT_FILENO);
 			dup2(log, STDERR_FILENO);
 		}
-		execv(OFGWRITE, command.argv);
+		execv(OFGWRITE, command.argv);  /* NOSONAR the ofgwrite command of the FlashManager */
 		_exit(127);
 	}
 	while (pid > 0 && waitpid(pid, &status, 0) < 0 && errno == EINTR)
@@ -1622,7 +1621,7 @@ static void confirm_rows(const struct target *t, const struct image *image, cons
 }
 
 /* The check with ofgwrite -n, after a successful one OK flashes; 1 when it flashed. */
-static int check_image(struct ui_context *ui, struct input_context *input, volatile sig_atomic_t *stop,
+static int check_image(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
 	const struct target *t, const char *dir)
 {
 	struct live_output output;
@@ -1650,7 +1649,7 @@ static int check_image(struct ui_context *ui, struct input_context *input, volat
 	return 0;
 }
 
-static void confirm(struct ui_context *ui, struct input_context *input, volatile sig_atomic_t *stop,
+static void confirm(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
 	const struct target *t, const struct image *image, const char *source, const char *dir)
 {
 	char rows[5][640];
@@ -1677,7 +1676,7 @@ static void confirm(struct ui_context *ui, struct input_context *input, volatile
 	}
 }
 
-static void prepare(struct ui_context *ui, struct input_context *input, volatile sig_atomic_t *stop,
+static void prepare(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
 	const struct target *t, const struct image *image, const char *feed, const char *media)
 {
 	char folder[300];
@@ -1727,7 +1726,7 @@ static void prepare(struct ui_context *ui, struct input_context *input, volatile
 }
 
 /* The feeds at the start, current gets the one of the running distribution; returns their count. */
-static int start_feeds(struct ui_context *ui, struct feed *feeds, const char *distro, int *current)
+static int start_feeds(const struct ui_context *ui, struct feed *feeds, const char *distro, int *current)
 {
 	int feed_count;
 	if (strcasecmp(distro, "openatv") && distro[0]) {  /* The feed of the running distribution. */
@@ -1777,7 +1776,7 @@ static int move_selection(const struct listing *l, enum input_key key, int selec
 	return next;
 }
 
-static int pick_feed(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
+static int pick_feed(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
 	struct feed *feeds, int *feed_count, int *current, const char *distro)
 {
 	if (*feed_count == 1) {  /* Only OpenATV so far, which stays the chosen one. */
@@ -1788,7 +1787,7 @@ static int pick_feed(struct ui_context *ui, struct input_context *input, const v
 }
 
 void flash_image(struct ui_context *ui, struct input_context *input,
-	volatile sig_atomic_t *stop)
+	const volatile sig_atomic_t *stop)
 {
 	struct feed feeds[MAX_FEEDS];
 	struct listing l = {0};

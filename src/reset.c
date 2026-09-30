@@ -30,7 +30,7 @@ static int copy_file(const char *from, const char *to)
 		return 0;
 	}
 	while ((length = fread(buffer, 1, sizeof(buffer), in)) > 0)
-		ok &= fwrite(buffer, 1, length, out) == length;
+		ok &= fwrite(buffer, 1, length, out) == length;  /* NOSONAR the default settings of the image */
 	fclose(in);
 	return (fclose(out) == 0) & ok;
 }
@@ -86,7 +86,7 @@ static int reset(int all, char *kept, size_t size, char *error, size_t error_siz
 	strftime(stamp, sizeof(stamp), "%Y%m%d-%H%M%S", localtime_r(&now, &local));
 	snprintf(kept, size, CONFIG "-reset-%s", stamp);
 	if (all) {
-		if (rename(CONFIG, kept) != 0 || mkdir(CONFIG, 0755) != 0) {
+		if (rename(CONFIG, kept) != 0 || mkdir(CONFIG, 0755) != 0) {  /* NOSONAR moving the settings aside is the reset */
 			snprintf(error, error_size, _("%s cannot be moved: %s"), CONFIG, strerror(errno));
 			return 0;
 		}
@@ -118,8 +118,8 @@ static void wait_ok(struct input_context *input, const volatile sig_atomic_t *st
 	} while (key != INPUT_OK && key != INPUT_BACK && !(stop && *stop));
 }
 
-void reset_settings(struct ui_context *ui, struct input_context *input,
-	volatile sig_atomic_t *stop)
+void reset_settings(const struct ui_context *ui, struct input_context *input,
+	const volatile sig_atomic_t *stop)
 {
 	const char *items[2];
 	char body[512];

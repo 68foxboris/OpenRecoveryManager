@@ -19,7 +19,7 @@ void remote_support_summary(char *text, size_t size);
 /* 1 while a session runs, with its users and open terminals. */
 int remote_support_counts(int *users, int *open);
 
-void remote_support(struct ui_context *ui, struct input_context *input,
-	volatile sig_atomic_t *stop);
+void remote_support(const struct ui_context *ui, struct input_context *input,
+	const volatile sig_atomic_t *stop);
 
 #endif

@@ -97,7 +97,7 @@ static int find(const char *locale)
 	return 0;
 }
 
-void language_choose(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop)
+void language_choose(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop)
 {
 	const char *items[LANGUAGE_COUNT];
 	int index[LANGUAGE_COUNT];

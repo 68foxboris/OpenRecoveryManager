@@ -26,7 +26,7 @@ struct slot {
 };
 
 struct listing {
-	struct ui_context *ui;
+	const struct ui_context *ui;
 	struct slot slots[MAX_SLOTS];
 	int count;
 	int current;  /* The running slot, -1 when the script marks none. */
@@ -115,7 +115,7 @@ static void wait_key(struct input_context *input, const volatile sig_atomic_t *s
 	} while (key != INPUT_OK && key != INPUT_BACK && key != INPUT_RED && !(stop && *stop));
 }
 
-static void message(struct ui_context *ui, struct input_context *input,
+static void message(const struct ui_context *ui, struct input_context *input,
 	const volatile sig_atomic_t *stop, const char *text)
 {
 	ui_error(ui, TITLE, text);
@@ -166,7 +166,7 @@ static int is_script(const char *path)
 }
 
 /* The script of the newest release, never a work in progress of the main branch. */
-static int fetch_selector(struct ui_context *ui, char *path, size_t size)
+static int fetch_selector(const struct ui_context *ui, char *path, size_t size)
 {
 	char release[8192];
 	char tag[64] = "";
@@ -234,12 +234,12 @@ static void handle_line(const char *line, void *opaque)
 
 static void tick(void *opaque)
 {
-	struct listing *l = opaque;
+	const struct listing *l = opaque;
 	ui_progress(l->ui, TITLE, _("Looking for the images in the slots."), 50,
 		l->status[0] ? l->status : _("Please wait..."), _("Please wait..."));
 }
 
-static int choose(struct ui_context *ui, struct input_context *input,
+static int choose(const struct ui_context *ui, struct input_context *input,
 	const volatile sig_atomic_t *stop, const struct listing *l)
 {
 	char labels[MAX_SLOTS][176];
@@ -265,8 +265,8 @@ static int choose(struct ui_context *ui, struct input_context *input,
 	return -1;
 }
 
-int boot_slot(struct ui_context *ui, struct input_context *input,
-	volatile sig_atomic_t *stop)
+int boot_slot(const struct ui_context *ui, struct input_context *input,
+	const volatile sig_atomic_t *stop)
 {
 	char selector[128] = DOWNLOADED;
 	struct listing *l;

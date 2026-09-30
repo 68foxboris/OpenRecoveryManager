@@ -2,6 +2,7 @@
 
 #include "plugins.h"
 
+#include "boxinfo.h"
 #include "crash.h"
 #include "i18n.h"
 #include "viewer.h"
@@ -218,12 +219,14 @@ static int missing_disabled(const struct list *l, const char *error)
 static char *log_error(char *end)
 {
 	char *error = strchr(end + 1, '(');
-	if (error) {
-		error++;
-		error[strcspn(error, "\r\n")] = '\0';
-		if (*error && error[strlen(error) - 1] == ')')
-			error[strlen(error) - 1] = '\0';
-	}
+	char *close;
+	if (!error)
+		return NULL;
+	error++;
+	text_cut(error, "\r\n");
+	close = strrchr(error, ')');
+	if (close && !close[1])  /* Only the last one. */
+		*close = '\0';
 	return error;
 }
 
@@ -249,7 +252,7 @@ static void debug_log_problems(struct list *l)
 	FILE *file;
 	if (!debug_log_path(path, sizeof(path)))
 		return;
-	file = fopen(path, "r");
+	file = fopen(path, "r");  /* NOSONAR the debug log of enigma2 */
 	if (!file)
 		return;
 	while (fgets(line, sizeof(line), file)) {
@@ -288,7 +291,7 @@ static void crash_log_problems(struct list *l)
 	FILE *file;
 	if (!crash_log_path(path, sizeof(path)))
 		return;
-	file = fopen(path, "r");
+	file = fopen(path, "r");  /* NOSONAR the crash log of enigma2 */
 	if (!file)
 		return;
 	while (fgets(line, sizeof(line), file)) {
@@ -326,7 +329,7 @@ static int move(const char *from, const char *to, char *error, size_t size)
 		snprintf(error, size, _("%s is there twice, remove one of them first."), to);
 		return 0;
 	}
-	if (rename(from, to) != 0) {
+	if (rename(from, to) != 0) {  /* NOSONAR moving a plugin folder is the purpose */
 		snprintf(error, size, _("%s cannot be moved: %s"), from, strerror(errno));
 		return 0;
 	}
@@ -415,7 +418,7 @@ static int has_module(const char *data, size_t size, const char *module)
 
 static int file_uses(const char *path, const struct needle *n)
 {
-	FILE *file = fopen(path, "rb");
+	FILE *file = fopen(path, "rb");  /* NOSONAR a file of an installed plugin */
 	struct stat info;
 	char *data;
 	int used = 0;
@@ -448,7 +451,7 @@ static int ends_with(const char *text, const char *end)
 /* The .py, .pyc and .xml files below folder. */
 static int folder_uses(const char *folder, const struct needle *n, int depth)
 {
-	DIR *dir = opendir(folder);
+	DIR *dir = opendir(folder);  /* NOSONAR a folder of the installed plugins */
 	int used = 0;
 	if (!dir)
 		return 0;
@@ -591,7 +594,7 @@ static int mark_problems(const struct list *l, char *marks, int *selected)
 	return problems;
 }
 
-static void show_list(struct ui_context *ui, const struct list *l, char (*labels)[300], const char **items,
+static void show_list(const struct ui_context *ui, const struct list *l, char (*labels)[300], const char **items,
 	char *marks, int problems, int selected)
 {
 	char footer[128];
@@ -634,7 +637,7 @@ static void show_list(struct ui_context *ui, const struct list *l, char (*labels
 }
 
 /* 1 when nothing enabled uses item index or the user disables it anyway. */
-static int confirm_disable(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
+static int confirm_disable(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
 	const struct list *l, int index)
 {
 	char by[480];
@@ -651,7 +654,7 @@ static int confirm_disable(struct ui_context *ui, struct input_context *input, c
 	return wait_ok(input, stop) == INPUT_OK;
 }
 
-static void toggle_item(struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
+static void toggle_item(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop,
 	struct list *l, int index)
 {
 	char error[320];
@@ -665,8 +668,8 @@ static void toggle_item(struct ui_context *ui, struct input_context *input, cons
 	}
 }
 
-void disable_plugins(struct ui_context *ui, struct input_context *input,
-	volatile sig_atomic_t *stop)
+void disable_plugins(const struct ui_context *ui, struct input_context *input,
+	const volatile sig_atomic_t *stop)
 {
 	struct list *l = calloc(1, sizeof(*l));
 	char (*labels)[300] = calloc(MAX_ITEMS, sizeof(*labels));

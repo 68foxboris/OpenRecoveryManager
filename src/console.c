@@ -2,6 +2,7 @@
 
 #include "console.h"
 
+#include "boxinfo.h"
 #include "i18n.h"
 
 #include <fcntl.h>
@@ -73,7 +74,7 @@ void console_close(struct console *c)
 	c->master = -1;
 }
 
-int console_ask(struct console *c, const char *title, const char *question, int seconds)
+int console_ask(const struct console *c, const char *title, const char *question, int seconds)
 {
 	const char *items[2];
 	char heading[96];
@@ -122,10 +123,10 @@ static void encode_qrcode(struct console *c, const char *text)
 static void handle_line(struct console *c, char *line)
 {
 	char *link;
-	line[strcspn(line, "\r")] = '\0';
+	text_cut(line, "\r");
 	if (!strncmp(line, "QR: ", 4)) {  /* Before or after the link, it wins over the link. */
 		link = line + 4 + strspn(line + 4, " \t");
-		link[strcspn(link, " \t")] = '\0';
+		text_cut(link, " \t");
 		if (*link) {
 			encode_qrcode(c, link);
 			c->qrcode_own = c->has_qrcode;
@@ -134,7 +135,7 @@ static void handle_line(struct console *c, char *line)
 	}
 	link = strstr(line, "https://");
 	if (!c->link[0] && link) {
-		link[strcspn(link, " \t")] = '\0';
+		text_cut(link, " \t");
 		snprintf(c->link, sizeof(c->link), "%s", link);
 		if (!c->qrcode_own)
 			encode_qrcode(c, c->link);
@@ -150,7 +151,9 @@ static void handle_output(struct console *c)
 	char *start = c->buffer;
 	char *newline;
 	const char *mark;
-	c->buffer[c->used] = '\0';
+	if (c->used >= sizeof(c->buffer))
+		c->used = sizeof(c->buffer) - 1;
+	c->buffer[c->used] = '\0';  /* NOSONAR used is limited to the buffer just above */
 	while ((newline = strchr(start, '\n'))) {
 		*newline = '\0';
 		handle_line(c, start);
@@ -160,7 +163,7 @@ static void handle_output(struct console *c)
 	if (mark && strstr(mark, " s)")) {
 		char question[512];
 		int seconds = atoi(mark + strlen(QUESTION_MARK));
-		start[strcspn(start, "\r")] = '\0';
+		text_cut(start, "\r");
 		snprintf(question, sizeof(question), "%.*s", (int)(mark - start), start);
 		c->used = 0;
 		if (c->question)
