@@ -234,6 +234,13 @@ void input_set_clock(void (*clock)(void))
 	clock_task = clock;
 }
 
+static void (*press_task)(enum input_key key);
+
+void input_set_press(void (*pressed)(enum input_key key))
+{
+	press_task = pressed;
+}
+
 enum input_key input_next(struct input_context *ctx, int timeout_ms)
 {
 	enum input_key key;
@@ -246,6 +253,8 @@ enum input_key input_next(struct input_context *ctx, int timeout_ms)
 		input_close(ctx);
 		input_open(ctx);
 	}
+	if (key != INPUT_NONE && press_task)
+		press_task(key);
 	if (key != INPUT_NONE && global_task && global_task(key))
 		key = INPUT_NONE;
 	if (idle_task)

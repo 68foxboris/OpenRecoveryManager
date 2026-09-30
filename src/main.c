@@ -652,6 +652,11 @@ static int global_key(enum input_key key)
 	return 1;
 }
 
+static void key_pressed(enum input_key key)
+{
+	ui_key_pressed(input_key_name(key));
+}
+
 static int run_menu(const struct watch_result *watch, int countdown)
 {
 	struct sigaction action;
@@ -673,6 +678,7 @@ static int run_menu(const struct watch_result *watch, int countdown)
 	input_set_clock(clock_tick);
 	input_set_global(global_key);
 	input_set_jump(jump_pending);
+	input_set_press(key_pressed);
 	ui_set_remote(remote_support_counts);
 	result = recovery_menu(&screen, &input, watch, countdown);
 	input_close(&input);

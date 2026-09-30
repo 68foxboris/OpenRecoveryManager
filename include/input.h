@@ -53,6 +53,8 @@ void input_set_jump(int (*pending)(void));
 int input_jumping(void);
 /* Runs after every input_next, e.g. to update the clock of the screen. */
 void input_set_clock(void (*clock)(void));
+/* Gets every key input_next reads, before the global keys, e.g. to show it in the footer. */
+void input_set_press(void (*pressed)(enum input_key key));
 const char *input_key_name(enum input_key key);
 
 #endif

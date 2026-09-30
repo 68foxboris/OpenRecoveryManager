@@ -85,6 +85,8 @@ void ui_redraw(const struct ui_context *ui);
 void ui_busy(const struct ui_context *ui, int on);
 /* 1 when the footer drawn last offers OK, so nothing runs that a key could interrupt. */
 int ui_offers_ok(void);
+/* Lights up the key of the footer, named like "OK" or "UP", for a moment. */
+void ui_key_pressed(const char *key);
 /* The screen without a window of width x height in the middle, which another program draws. */
 void ui_embed(const struct ui_context *ui, const char *title, const char *footer, int width, int height);
 /* Draws the header again when its clock is a minute behind. */

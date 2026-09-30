@@ -70,6 +70,12 @@ static lv_obj_t *menu;
 static lv_obj_t *detail;
 static lv_obj_t *footer;
 static lv_obj_t *modal;
+#define MAX_FOOTER_KEYS 16
+static struct {
+	lv_obj_t *pair;
+	char name[16];
+} footer_pairs[MAX_FOOTER_KEYS];  /* The keys of the footer, for ui_key_pressed(). */
+static int footer_key_count;
 /* While something long runs: a spinner at the top right and the time in the footer. */
 static int footer_has_keys;
 static int footer_has_ok;
@@ -421,6 +427,33 @@ int ui_offers_ok(void)
 	return footer_has_ok;
 }
 
+/* Whether the footer key named name stands for the key named key: ARROWS for the arrows, 1-9 for a digit. */
+static int footer_key_matches(const char *name, const char *key)
+{
+	if (!strcmp(name, key))
+		return 1;
+	if (!strcmp(name, "ARROWS"))
+		return !strcmp(key, "UP") || !strcmp(key, "DOWN") || !strcmp(key, "LEFT") || !strcmp(key, "RIGHT");
+	return key[0] >= '0' && key[0] <= '9' && !key[1] && name[0] >= '0' && name[0] <= '9';
+}
+
+void ui_key_pressed(const char *key)
+{
+	const struct timespec moment = {0, 120 * 1000000L};
+	lv_obj_t *pair = NULL;
+	if (!display || !key)
+		return;
+	for (int i = 0; i < footer_key_count && !pair; ++i)
+		if (footer_key_matches(footer_pairs[i].name, key))
+			pair = footer_pairs[i].pair;
+	if (!pair)
+		return;
+	lv_obj_set_style_bg_opa(pair, LV_OPA_COVER, 0);
+	lv_refr_now(display);
+	nanosleep(&moment, NULL);
+	lv_obj_set_style_bg_opa(pair, LV_OPA_TRANSP, 0);  /* Drawn with the next screen. */
+}
+
 void ui_busy(const struct ui_context *ui, int on)
 {
 	(void)ui;
@@ -490,6 +523,7 @@ static void build_base(void)
 	lv_obj_clean(screen);
 	spinner = NULL;
 	elapsed = NULL;
+	footer_key_count = 0;
 	lv_obj_remove_style_all(screen);
 	fill(screen, COLOR_GROUND);
 	lv_obj_set_flex_flow(screen, LV_FLEX_FLOW_COLUMN);
@@ -519,9 +553,9 @@ static void build_base(void)
 	lv_obj_set_style_pad_hor(detail, px(72), 0);
 	lv_obj_set_style_pad_ver(detail, px(56), 0);
 
-	footer = row(screen, px(42));
+	footer = row(screen, px(22));  /* With the padding of the keys 42 between them. */
 	lv_obj_set_height(footer, px(84));
-	lv_obj_set_style_pad_hor(footer, px(60), 0);
+	lv_obj_set_style_pad_hor(footer, px(50), 0);
 	fill(footer, COLOR_SUNKEN);
 
 	modal = NULL;
@@ -563,8 +597,17 @@ static void footer_part(char *text)
 			uint32_t color = key_color(text, name);
 			lv_obj_set_flex_flow(pair, LV_FLEX_FLOW_ROW);
 			lv_obj_set_style_pad_column(pair, px(10), 0);
+			lv_obj_set_style_pad_hor(pair, px(10), 0);  /* Room for the light of ui_key_pressed(). */
+			lv_obj_set_style_pad_ver(pair, px(6), 0);
+			lv_obj_set_style_radius(pair, px(10), 0);
+			lv_obj_set_style_bg_color(pair, lv_color_hex(COLOR_FOCUS_IDLE), 0);
 			lv_obj_set_size(pair, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
 			text[name] = '\0';
+			if (footer_key_count < MAX_FOOTER_KEYS) {
+				footer_pairs[footer_key_count].pair = pair;
+				snprintf(footer_pairs[footer_key_count].name, sizeof(footer_pairs[0].name), "%s", text);
+				footer_key_count++;
+			}
 			ltr(label(pair, text, FONT_SMALL, color));  /* E.g. 1-8 as it is. */
 			label(pair, text + name + 1 + strspn(text + name + 1, " "), FONT_SMALL, 0x9fb0c2);
 		} else if (*text)  /* No key, e.g. "Please wait...". */
@@ -586,6 +629,7 @@ static void footer_set(const char *text)
 	snprintf(footer_text, sizeof(footer_text), "%s", text);
 	lv_obj_clean(footer);
 	elapsed = NULL;  /* Cleaned with it; a new object may get its address. */
+	footer_key_count = 0;
 	footer_has_keys = 0;
 	footer_has_ok = 0;
 	snprintf(copy, sizeof(copy), "%s", text);
