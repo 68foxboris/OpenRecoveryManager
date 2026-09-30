@@ -120,6 +120,8 @@ The texts are marked with `_()` and `N_()` for gettext. `make pot` collects them
 into `po/orm.pot` and updates every `po/<language>.po`; `make` turns these into
 catalogs, `make install` puts them into `/usr/share/locale/<language>/LC_MESSAGES/orm.mo`.
 A new language is a new `po/<language>.po`, with its name in `src/language.c`.
+On master a workflow updates `po/orm.pot` after every change of the sources;
+the translations are made on Weblate, which merges the `.po` files with it.
 The fonts hold Latin, modern Greek, Cyrillic, Arabic and Persian; a language written
 from the right mirrors the screen.
 

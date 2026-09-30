@@ -1,0 +1,50 @@
+name: updatepot
+
+# Writes po/orm.pot from the sources. Weblate translates po/*.po and merges them with the pot itself
+# (add-on "Update PO files to match POT"), so only the pot is committed here.
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - "src/**"
+      - "include/**"
+      - "Makefile"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: updatepot
+
+jobs:
+  pot:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install gettext
+        run: |
+          sudo apt-get -q update
+          sudo apt-get install -y gettext
+
+      - name: Write po/orm.pot
+        run: |
+          make pot
+          git checkout -- po/*.po
+
+      - name: Commit po/orm.pot
+        run: |
+          if git diff --quiet -I '^"POT-Creation-Date:' po/orm.pot; then
+            exit 0
+          fi
+          git config user.email "bot@oe-alliance.com"
+          git config user.name "oe-alliance po bot"
+          git add po/orm.pot
+          git commit -m "pot update"
+          for attempt in 1 2 3; do  # Weblate may push at the same time.
+            git pull --rebase --quiet origin master && git push --quiet origin HEAD:master && exit 0
+            sleep 15
+          done
+          exit 1
