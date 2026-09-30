@@ -24,7 +24,9 @@
 #define FBIO_BLIT 0x22
 #endif
 
+LV_FONT_DECLARE(orm_font_14)
 LV_FONT_DECLARE(orm_font_16)
+LV_FONT_DECLARE(orm_font_18)
 LV_FONT_DECLARE(orm_font_20)
 LV_FONT_DECLARE(orm_font_24)
 LV_FONT_DECLARE(orm_font_28)
@@ -139,7 +141,8 @@ static int px(int value)
 static const lv_font_t *font(enum font_role role)
 {
 	static const lv_font_t *const full[] = {&orm_font_20, &orm_font_20, &orm_font_24, &orm_font_28, &orm_font_32};
-	static const lv_font_t *const small[] = {&orm_font_16, &orm_font_16, &orm_font_16, &orm_font_20, &orm_font_24};
+	/* About two thirds for 1280 x 720, so the longer translations fit as well. */
+	static const lv_font_t *const small[] = {&orm_font_14, &orm_font_14, &orm_font_16, &orm_font_18, &orm_font_24};
 	return screen_width >= 1600 ? full[role] : small[role];
 }
 
