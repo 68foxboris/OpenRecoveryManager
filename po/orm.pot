@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ORM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-30 20:59+0000\n"
+"POT-Creation-Date: 2026-09-30 22:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,7 +64,7 @@ msgstr ""
 msgid "unknown"
 msgstr ""
 
-#: src/main.c:199 src/ui.c:928
+#: src/main.c:199 src/ui.c:972
 #, c-format
 msgid "%s (current)"
 msgstr ""
@@ -97,7 +97,7 @@ msgid "Show"
 msgstr ""
 
 #: src/main.c:209 src/flash.c:1637 src/flash.c:1639 src/plugins.c:649
-#: src/about.c:53 src/about.c:80 src/language.c:119 src/ui.c:1165
+#: src/about.c:53 src/about.c:80 src/language.c:119 src/ui.c:1209
 msgid "Back"
 msgstr ""
 
@@ -1129,11 +1129,11 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: src/ui.c:1163
+#: src/ui.c:1207
 msgid "Error"
 msgstr ""
 
-#: src/ui.c:1164
+#: src/ui.c:1208
 msgid "ERROR"
 msgstr ""
 
