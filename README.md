@@ -107,7 +107,8 @@ git submodule update --init
 make CC=<cross compiler>
 ```
 
-The version is `ORM_VERSION` in `include/version.h`.
+The version is `ORM_VERSION` in `include/version.h`; a push of a new
+version to master tags and releases it as `v<version>`.
 
 The fonts in `src/fonts` are rendered by `tools/mkfonts.sh`, see
 `tools/fonts/README.md`, and the licenses of the About screen in
