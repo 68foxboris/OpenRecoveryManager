@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ORM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-30 22:03+0000\n"
+"POT-Creation-Date: 2026-09-30 22:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,285 +18,280 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: src/main.c:67
+#: src/main.c
 msgid "REQUESTED"
 msgstr ""
 
-#: src/main.c:68
+#: src/main.c
 msgid "Enigma2 is stopped"
 msgstr ""
 
-#: src/main.c:68
+#: src/main.c
 msgid "The Open Recovery Manager was started on request."
 msgstr ""
 
-#: src/main.c:72
+#: src/main.c
 msgid "ENIGMA2 STOPPED RESPONDING WHILE STARTING"
 msgstr ""
 
-#: src/main.c:74
+#: src/main.c
 msgid "ENIGMA2 STOPPED WITH A PYTHON ERROR SHORTLY AFTER THE START"
 msgstr ""
 
-#: src/main.c:75
+#: src/main.c
 msgid "ENIGMA2 STOPPED WITH A PYTHON ERROR WHILE STARTING"
 msgstr ""
 
-#: src/main.c:77
+#: src/main.c
 msgid "ENIGMA2 CRASHED SHORTLY AFTER THE START"
 msgstr ""
 
-#: src/main.c:78
+#: src/main.c
 msgid "ENIGMA2 CRASHED WHILE STARTING"
 msgstr ""
 
-#: src/main.c:82
+#: src/main.c
 #, c-format
 msgid "Signal %s"
 msgstr ""
 
-#: src/main.c:84
+#: src/main.c
 #, c-format
 msgid "Last step: %s"
 msgstr ""
 
-#: src/main.c:84 src/main.c:610 src/crash.c:224
+#: src/main.c src/crash.c
 msgid "unknown"
 msgstr ""
 
-#: src/main.c:199 src/ui.c:972
+#: src/main.c src/ui.c
 #, c-format
 msgid "%s (current)"
 msgstr ""
 
-#: src/main.c:205
+#: src/main.c
 #, c-format
 msgid "Crash logs (%d)"
 msgstr ""
 
-#: src/main.c:206
+#: src/main.c
 msgid "Date"
 msgstr ""
 
-#: src/main.c:206
+#: src/main.c
 msgid "File"
 msgstr ""
 
-#: src/main.c:206 src/flash.c:1839
+#: src/main.c src/flash.c
 msgid "Size"
 msgstr ""
 
-#: src/main.c:209 src/reset.c:134 src/flash.c:1166 src/flash.c:1835
-#: src/backup.c:505 src/crash.c:173 src/console.c:90 src/slots.c:251
-#: src/plugins.c:602 src/about.c:80 src/language.c:119 src/viewer.c:73
+#: src/main.c src/reset.c src/flash.c src/backup.c src/crash.c src/console.c
+#: src/slots.c src/plugins.c src/about.c src/language.c src/viewer.c
 msgid "Select"
 msgstr ""
 
-#: src/main.c:209
+#: src/main.c
 msgid "Show"
 msgstr ""
 
-#: src/main.c:209 src/flash.c:1637 src/flash.c:1639 src/plugins.c:649
-#: src/about.c:53 src/about.c:80 src/language.c:119 src/ui.c:1209
+#: src/main.c src/flash.c src/plugins.c src/about.c src/language.c src/ui.c
 msgid "Back"
 msgstr ""
 
-#: src/main.c:210
+#: src/main.c
 msgid "Which crash log should be shown? The newest is at the top."
 msgstr ""
 
-#: src/main.c:265
+#: src/main.c
 #, c-format
 msgid "Crash log, %s (%d line)"
 msgid_plural "Crash log, %s (%d lines)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/main.c:266
+#: src/main.c
 msgid "none"
 msgstr ""
 
-#: src/main.c:290
+#: src/main.c
 #, c-format
 msgid "Socket log (%d line)"
 msgid_plural "Socket log (%d lines)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/main.c:292
+#: src/main.c
 msgid "Time"
 msgstr ""
 
-#: src/main.c:292
+#: src/main.c
 msgid "Duration"
 msgstr ""
 
-#: src/main.c:292
+#: src/main.c
 msgid "Message"
 msgstr ""
 
-#: src/main.c:293 src/main.c:295 src/flash.c:1516 src/flash.c:1637
-#: src/flash.c:1639 src/update.c:307 src/about.c:53 src/viewer.c:173
+#: src/main.c src/flash.c src/update.c src/about.c src/viewer.c
 msgid "Scroll"
 msgstr ""
 
-#: src/main.c:294
+#: src/main.c
 msgid "Switch log"
 msgstr ""
 
-#: src/main.c:294
+#: src/main.c
 msgid "Socket log"
 msgstr ""
 
-#: src/main.c:294 src/main.c:295 src/remote.c:114 src/remote.c:272
-#: src/reset.c:134 src/reset.c:155 src/flash.c:1516 src/flash.c:1836
-#: src/backup.c:505 src/crash.c:173 src/crash.c:196 src/slots.c:251
-#: src/plugins.c:603 src/update.c:48 src/update.c:307 src/viewer.c:173
+#: src/main.c src/remote.c src/reset.c src/flash.c src/backup.c src/crash.c
+#: src/slots.c src/plugins.c src/update.c src/viewer.c
 msgid "Menu"
 msgstr ""
 
-#: src/main.c:295
+#: src/main.c
 msgid "Crash log"
 msgstr ""
 
-#: src/main.c:300
+#: src/main.c
 msgid "There is no log of the last start."
 msgstr ""
 
-#: src/main.c:302 src/main.c:381
+#: src/main.c
 msgid "There is no crash log."
 msgstr ""
 
-#: src/main.c:330
+#: src/main.c
 msgid "Restart Enigma2"
 msgstr ""
 
-#: src/main.c:331
+#: src/main.c
 msgid "Show crash log"
 msgstr ""
 
-#: src/main.c:332
+#: src/main.c
 msgid "Send crash report"
 msgstr ""
 
-#: src/main.c:333 src/plugins.c:19
+#: src/main.c src/plugins.c
 msgid "Disable plugins"
 msgstr ""
 
-#: src/main.c:334 src/update.c:18
+#: src/main.c src/update.c
 msgid "Software update"
 msgstr ""
 
-#: src/main.c:335 src/reset.c:16
+#: src/main.c src/reset.c
 msgid "Reset settings"
 msgstr ""
 
-#: src/main.c:336 src/backup.c:21
+#: src/main.c src/backup.c
 msgid "Back up image"
 msgstr ""
 
-#: src/main.c:337 src/flash.c:25
+#: src/main.c src/flash.c
 msgid "Flash online/local"
 msgstr ""
 
-#: src/main.c:338 src/slots.c:18
+#: src/main.c src/slots.c
 msgid "Boot another slot"
 msgstr ""
 
-#: src/main.c:353
+#: src/main.c
 msgid ""
 "Starts Enigma2 again. If a plugin keeps it from starting, disable the plugin "
 "first."
 msgstr ""
 
-#: src/main.c:354
+#: src/main.c
 msgid ""
 "Shows the newest crash log of Enigma2. BLUE shows the steps of the last "
 "start."
 msgstr ""
 
-#: src/main.c:356
+#: src/main.c
 msgid ""
 "Moves a plugin to Plugins.disabled, so Enigma2 neither loads nor removes it, "
 "and back again. The plugin of the last start step is chosen at first."
 msgstr ""
 
-#: src/main.c:358
+#: src/main.c
 msgid ""
 "Installs the latest updates for your receiver. You see the list and confirm "
 "before anything is installed."
 msgstr ""
 
-#: src/main.c:360
+#: src/main.c
 msgid ""
 "Resets Enigma2 to the state of a new installation. Your old settings are "
 "moved aside, so nothing is deleted for good."
 msgstr ""
 
-#: src/main.c:362
+#: src/main.c
 msgid ""
 "Saves the running image as a zip file on a USB stick or hard disk, so it can "
 "be flashed again later."
 msgstr ""
 
-#: src/main.c:363
+#: src/main.c
 msgid ""
 "Flashes an image into the running slot, from the feed of the running "
 "distribution or from the media. A check with ofgwrite tests the image before "
 "anything is written."
 msgstr ""
 
-#: src/main.c:365
+#: src/main.c
 msgid "Restarts the receiver with the image of another slot."
 msgstr ""
 
-#: src/main.c:379
+#: src/main.c
 #, c-format
 msgid "Newest crash log: %s"
 msgstr ""
 
 #. TRANSLATORS: %s is the distribution, e.g. OpenATV.
-#: src/main.c:387
+#: src/main.c
 #, c-format
 msgid ""
 "Sends the crash report to the %s ticket system, so the developers can find "
 "the error. You see everything before it is sent."
 msgstr ""
 
-#: src/main.c:412
+#: src/main.c
 #, c-format
 msgid "Restart in %d s, any key cancels"
 msgstr ""
 
-#: src/main.c:415 src/language.c:120
+#: src/main.c src/language.c
 msgid "Language"
 msgstr ""
 
-#: src/main.c:417 src/flash.c:1752
+#: src/main.c src/flash.c
 msgid "Open"
 msgstr ""
 
-#: src/main.c:417 src/flash.c:1166 src/flash.c:1749 src/language.c:119
+#: src/main.c src/flash.c src/language.c
 msgid "Choose"
 msgstr ""
 
-#: src/main.c:418 src/remote.c:18
+#: src/main.c src/remote.c
 msgid "Remote Support"
 msgstr ""
 
-#: src/main.c:419 src/about.c:14
+#: src/main.c src/about.c
 msgid "About"
 msgstr ""
 
-#: src/main.c:419
+#: src/main.c
 msgid "Reboot"
 msgstr ""
 
-#: src/main.c:419
+#: src/main.c
 msgid "Shutdown"
 msgstr ""
 
-#: src/main.c:609
+#: src/main.c
 #, c-format
 msgid ""
 "%s %s (%s)\n"
@@ -304,130 +299,130 @@ msgid ""
 "Enigma2 revision %s"
 msgstr ""
 
-#: src/remote.c:86
+#: src/remote.c
 msgid ""
 "End the Remote Support session? The supporter can then no longer work on the "
 "receiver."
 msgstr ""
 
-#: src/remote.c:99 src/flash.c:1233 src/backup.c:573
+#: src/remote.c src/flash.c src/backup.c
 msgid "Cancel"
 msgstr ""
 
-#: src/remote.c:100
+#: src/remote.c
 msgid "Starting the Remote Support session."
 msgstr ""
 
-#: src/remote.c:101
+#: src/remote.c
 msgid "Connecting to the support server, this takes a few seconds."
 msgstr ""
 
-#: src/remote.c:107
+#: src/remote.c
 msgid ""
 "Scan the QR code with your phone and send the link to your supporter from "
 "there."
 msgstr ""
 
-#: src/remote.c:108
+#: src/remote.c
 msgid "Send the link below to your supporter or let them scan the QR code."
 msgstr ""
 
-#: src/remote.c:109
+#: src/remote.c
 msgid ""
 "Approved users can open terminals. Everybody who joins later has to be "
 "approved as well."
 msgstr ""
 
-#: src/remote.c:110
+#: src/remote.c
 msgid ""
 "When somebody joins the session, you have to approve the access with the "
 "remote control."
 msgstr ""
 
-#: src/remote.c:111
+#: src/remote.c
 msgid "The session keeps running in the menu and ends when Enigma2 starts."
 msgstr ""
 
-#: src/remote.c:112
+#: src/remote.c
 msgid "The session keeps running in the menu and after Enigma2 starts."
 msgstr ""
 
-#: src/remote.c:113
+#: src/remote.c
 msgid "Ending the session..."
 msgstr ""
 
-#: src/remote.c:114
+#: src/remote.c
 msgid "End session"
 msgstr ""
 
-#: src/remote.c:116
+#: src/remote.c
 msgid ""
 "Do not post the link or a screenshot of it in public forums: everybody who "
 "has it can try to join and sees the terminals until you deny the access."
 msgstr ""
 
-#: src/remote.c:119
+#: src/remote.c
 msgid "Scan with your phone to send the link to your supporter"
 msgstr ""
 
-#: src/remote.c:120
+#: src/remote.c
 msgid "Scan to open the support session"
 msgstr ""
 
-#: src/remote.c:196
+#: src/remote.c
 #, c-format
 msgid ""
 "Users: %s\n"
 "Terminals: %d"
 msgstr ""
 
-#: src/remote.c:256
+#: src/remote.c
 msgid ""
 "Not installed, it goes into RAM until the next restart, the flash stays as "
 "it is. Please wait..."
 msgstr ""
 
-#: src/remote.c:258
+#: src/remote.c
 msgid "Installing into RAM"
 msgstr ""
 
-#: src/remote.c:272
+#: src/remote.c
 msgid "Remote Support could not be installed."
 msgstr ""
 
-#: src/remote.c:324
+#: src/remote.c
 msgid "Remote Support cannot be started."
 msgstr ""
 
-#: src/remote.c:369
+#: src/remote.c
 msgid ""
 "Start Remote Support? A supporter can then work on the receiver from the "
 "internet."
 msgstr ""
 
-#: src/remote.c:397
+#: src/remote.c
 msgid "The Remote Support session ended."
 msgstr ""
 
-#: src/reset.c:90 src/reset.c:105 src/plugins.c:330
+#: src/reset.c src/plugins.c
 #, c-format
 msgid "%s cannot be moved: %s"
 msgstr ""
 
-#: src/reset.c:100
+#: src/reset.c
 #, c-format
 msgid "%s cannot be created: %s"
 msgstr ""
 
-#: src/reset.c:130
+#: src/reset.c
 msgid "Only the settings (channel lists and timers stay)"
 msgstr ""
 
-#: src/reset.c:131
+#: src/reset.c
 msgid "Everything, including channel lists and timers"
 msgstr ""
 
-#: src/reset.c:132
+#: src/reset.c
 #, c-format
 msgid ""
 "What should be reset? Enigma2 then starts with the wizard, which offers to "
@@ -435,377 +430,373 @@ msgid ""
 "settings stay."
 msgstr ""
 
-#: src/reset.c:134
+#: src/reset.c
 msgid "Reset"
 msgstr ""
 
-#: src/reset.c:141
+#: src/reset.c
 msgid ""
 "Reset everything now? Enigma2 then starts like new, without channel lists "
 "and timers. Your old files are kept."
 msgstr ""
 
-#: src/reset.c:142
+#: src/reset.c
 msgid ""
 "Reset the settings now? Your channel lists and timers stay, all other "
 "settings start from the beginning. Your old settings are kept."
 msgstr ""
 
-#: src/reset.c:151
+#: src/reset.c
 #, c-format
 msgid "The files of Enigma2 were reset, the old ones are kept in %s."
 msgstr ""
 
-#: src/reset.c:152
+#: src/reset.c
 #, c-format
 msgid "The settings were reset, the old file is kept in %s."
 msgstr ""
 
-#: src/reset.c:154
+#: src/reset.c
 msgid "Restart Enigma2 in the menu to start with the wizard."
 msgstr ""
 
-#: src/flash.c:654
+#: src/flash.c
 msgid "Backup images"
 msgstr ""
 
-#: src/flash.c:655
+#: src/flash.c
 msgid "Local images"
 msgstr ""
 
-#: src/flash.c:1099
+#: src/flash.c
 #, c-format
 msgid "%d image"
 msgid_plural "%d images"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/flash.c:1132
+#: src/flash.c
 msgid "No images found"
 msgstr ""
 
-#: src/flash.c:1142
+#: src/flash.c
 #, c-format
 msgid "Loading the images of %s."
 msgstr ""
 
-#: src/flash.c:1143 src/flash.c:1148 src/flash.c:1313 src/flash.c:1314
-#: src/flash.c:1734 src/flash.c:1815 src/backup.c:557 src/crash.c:219
-#: src/slots.c:177 src/slots.c:193 src/slots.c:239 src/slots.c:311
-#: src/update.c:328 src/update.c:337 src/update.c:357 src/viewer.c:153
-#: src/viewer.c:176
+#: src/flash.c src/backup.c src/crash.c src/slots.c src/update.c src/viewer.c
 msgid "Please wait..."
 msgstr ""
 
-#: src/flash.c:1148
+#: src/flash.c
 msgid "Looking for images on the media."
 msgstr ""
 
-#: src/flash.c:1166 src/flash.c:1668
+#: src/flash.c
 msgid "Images"
 msgstr ""
 
-#: src/flash.c:1167 src/flash.c:1836
+#: src/flash.c
 msgid "Distribution"
 msgstr ""
 
-#: src/flash.c:1168
+#: src/flash.c
 msgid "Which distribution should the images come from?"
 msgstr ""
 
-#: src/flash.c:1219
+#: src/flash.c
 #, c-format
 msgid "Downloading %s"
 msgstr ""
 
-#: src/flash.c:1230
+#: src/flash.c
 #, c-format
 msgid "%lld of %lld MB"
 msgstr ""
 
-#: src/flash.c:1232
+#: src/flash.c
 #, c-format
 msgid "%lld MB"
 msgstr ""
 
-#: src/flash.c:1400
+#: src/flash.c
 #, c-format
 msgid "Unzipping %s"
 msgstr ""
 
-#: src/flash.c:1430 src/flash.c:1634 src/flash.c:1668
+#: src/flash.c
 msgid "Check"
 msgstr ""
 
-#: src/flash.c:1431
+#: src/flash.c
 msgid "Please wait, ofgwrite checks the image..."
 msgstr ""
 
-#: src/flash.c:1484
+#: src/flash.c
 msgid "the running image"
 msgstr ""
 
-#: src/flash.c:1486
+#: src/flash.c
 #, c-format
 msgid "%s (%s on %s), the running image"
 msgstr ""
 
-#: src/flash.c:1489
+#: src/flash.c
 #, c-format
 msgid "%s (%s), the running image"
 msgstr ""
 
-#: src/flash.c:1513
+#: src/flash.c
 msgid "Flashing finished, restart the receiver in the menu."
 msgstr ""
 
-#: src/flash.c:1515
+#: src/flash.c
 #, c-format
 msgid "Flashing failed, see %s."
 msgstr ""
 
-#: src/flash.c:1519 src/flash.c:1642
+#: src/flash.c
 msgid "ofgwrite wrote nothing."
 msgstr ""
 
-#: src/flash.c:1570
+#: src/flash.c
 msgid "Flashing"
 msgstr ""
 
-#: src/flash.c:1588
+#: src/flash.c
 msgid "flashed too, kernel A of all slots"
 msgstr ""
 
-#: src/flash.c:1590 src/flash.c:1592 src/flash.c:1594
+#: src/flash.c
 #, c-format
 msgid "flashed too (%s)"
 msgstr ""
 
-#: src/flash.c:1596
+#: src/flash.c
 msgid "flashed too"
 msgstr ""
 
-#: src/flash.c:1599
+#: src/flash.c
 msgid "stays as it is"
 msgstr ""
 
-#: src/flash.c:1608 src/flash.c:1839
+#: src/flash.c
 msgid "Image"
 msgstr ""
 
-#: src/flash.c:1611 src/flash.c:1614
+#: src/flash.c
 msgid "Location"
 msgstr ""
 
-#: src/flash.c:1615
+#: src/flash.c
 msgid "Slot"
 msgstr ""
 
-#: src/flash.c:1617
+#: src/flash.c
 msgid "Kernel"
 msgstr ""
 
-#: src/flash.c:1618
+#: src/flash.c
 msgid "Command"
 msgstr ""
 
-#: src/flash.c:1635
+#: src/flash.c
 msgid "The check was successful"
 msgstr ""
 
-#: src/flash.c:1635
+#: src/flash.c
 msgid "The check failed"
 msgstr ""
 
-#: src/flash.c:1637
+#: src/flash.c
 msgid "Flash now"
 msgstr ""
 
-#: src/flash.c:1645
+#: src/flash.c
 msgid ""
 "Flash the image now? The running image is replaced and the receiver "
 "restarts. Do not switch it off while it flashes."
 msgstr ""
 
-#: src/flash.c:1665
+#: src/flash.c
 msgid ""
 "Clean flash: all settings are lost, after the restart the most recent backup "
 "can be restored."
 msgstr ""
 
-#: src/flash.c:1666
+#: src/flash.c
 msgid ""
 "The check only tests the image and writes nothing. After a successful check, "
 "OK starts flashing."
 msgstr ""
 
-#: src/flash.c:1705
+#: src/flash.c
 #, c-format
 msgid "There is not enough free space on %s, it needs %lld MB."
 msgstr ""
 
-#: src/flash.c:1716
+#: src/flash.c
 msgid "The image could not be downloaded."
 msgstr ""
 
-#: src/flash.c:1722
+#: src/flash.c
 msgid "The image could not be unzipped or holds no image for ofgwrite."
 msgstr ""
 
-#: src/flash.c:1734
+#: src/flash.c
 msgid "Loading the list of distributions."
 msgstr ""
 
-#: src/flash.c:1751
+#: src/flash.c
 msgid "Close"
 msgstr ""
 
-#: src/flash.c:1759
+#: src/flash.c
 msgid "The chosen image replaces the running image."
 msgstr ""
 
-#: src/flash.c:1761
+#: src/flash.c
 #, c-format
 msgid "The chosen image replaces the running image in slot %s (%s on %s)."
 msgstr ""
 
-#: src/flash.c:1764
+#: src/flash.c
 #, c-format
 msgid "The chosen image replaces the running image in slot %s (%s)."
 msgstr ""
 
-#: src/flash.c:1766
+#: src/flash.c
 #, c-format
 msgid "%s%s Downloaded images are saved on the USB stick (%s/images)."
 msgstr ""
 
-#: src/flash.c:1767
+#: src/flash.c
 #, c-format
 msgid "%s%s Downloaded images are saved on the hard disk (%s/images)."
 msgstr ""
 
-#: src/flash.c:1768
+#: src/flash.c
 msgid "The images of the distribution could not be loaded. "
 msgstr ""
 
-#: src/flash.c:1804
+#: src/flash.c
 msgid "ofgwrite is not installed, an image cannot be flashed."
 msgstr ""
 
-#: src/flash.c:1808
+#: src/flash.c
 msgid ""
 "Neither /media/hdd nor /media/usb is mounted, the image needs one of them. "
 "Please attach a USB stick or a hard disk."
 msgstr ""
 
-#: src/flash.c:1815
+#: src/flash.c
 msgid "Looking for the running slot."
 msgstr ""
 
-#: src/backup.c:488
+#: src/backup.c
 #, c-format
 msgid "%s\t%lld MB"
 msgstr ""
 
-#: src/backup.c:495
+#: src/backup.c
 #, c-format
 msgid ""
 "There is not enough free space on any medium. The backup needs about %lld MB."
 msgstr ""
 
-#: src/backup.c:500
+#: src/backup.c
 #, c-format
 msgid ""
 "Saves the running image as a zip file, which Flash online/local can flash "
 "again. It needs about %lld MB. Where should it be saved?"
 msgstr ""
 
-#: src/backup.c:502
+#: src/backup.c
 msgid "Medium"
 msgstr ""
 
-#: src/backup.c:502
+#: src/backup.c
 msgid "Free"
 msgstr ""
 
-#: src/backup.c:505
+#: src/backup.c
 msgid "Back up"
 msgstr ""
 
-#: src/backup.c:534
+#: src/backup.c
 msgid "Cancel the backup? What is done so far is deleted."
 msgstr ""
 
-#: src/backup.c:557
+#: src/backup.c
 msgid "Measuring the running image."
 msgstr ""
 
-#: src/backup.c:563
+#: src/backup.c
 msgid "No medium is mounted, the backup needs a USB stick or a hard disk."
 msgstr ""
 
-#: src/backup.c:569
+#: src/backup.c
 msgid "The backup cannot be prepared."
 msgstr ""
 
-#: src/backup.c:573 src/update.c:374
+#: src/backup.c src/update.c
 msgid "Please wait, do not switch off the receiver..."
 msgstr ""
 
-#: src/backup.c:584
+#: src/backup.c
 #, c-format
 msgid "The backup is saved as %s/images/%s."
 msgstr ""
 
-#: src/backup.c:586
+#: src/backup.c
 msgid "The backup was cancelled."
 msgstr ""
 
-#: src/backup.c:586
+#: src/backup.c
 msgid "The backup failed."
 msgstr ""
 
-#: src/crash.c:17
+#: src/crash.c
 msgid "Crash report"
 msgstr ""
 
-#: src/crash.c:171
+#: src/crash.c
 msgid "Crash log only"
 msgstr ""
 
-#: src/crash.c:172
+#: src/crash.c
 msgid "Crash log and more details (recommended)"
 msgstr ""
 
-#: src/crash.c:173 src/viewer.c:73
+#: src/crash.c src/viewer.c
 msgid "Confirm"
 msgstr ""
 
 #. TRANSLATORS: %s is the distribution, e.g. OpenATV.
-#: src/crash.c:175
+#: src/crash.c
 #, c-format
 msgid ""
 "Which information should be sent to the %s ticket system? You see everything "
 "before it is sent."
 msgstr ""
 
-#: src/crash.c:198
+#: src/crash.c
 msgid "Crash reports are not installed. The CrashReport plugin provides them."
 msgstr ""
 
-#: src/crash.c:211
+#: src/crash.c
 msgid "crashreport cannot be started."
 msgstr ""
 
-#: src/crash.c:218
+#: src/crash.c
 msgid "Sending the crash report."
 msgstr ""
 
-#: src/crash.c:218
+#: src/crash.c
 msgid "Preparing the crash report."
 msgstr ""
 
-#: src/crash.c:222
+#: src/crash.c
 #, c-format
 msgid ""
 "Tracking number: %s\n"
@@ -815,164 +806,164 @@ msgid ""
 "hours."
 msgstr ""
 
-#: src/crash.c:228
+#: src/crash.c
 msgid "The crash report was not sent."
 msgstr ""
 
-#: src/console.c:88 src/viewer.c:71
+#: src/console.c src/viewer.c
 msgid "Yes"
 msgstr ""
 
-#: src/console.c:89 src/viewer.c:72
+#: src/console.c src/viewer.c
 msgid "No"
 msgstr ""
 
-#: src/console.c:90
+#: src/console.c
 msgid "Answer"
 msgstr ""
 
-#: src/slots.c:176 src/slots.c:193
+#: src/slots.c
 msgid "Loading the multiboot selector from GitHub."
 msgstr ""
 
-#: src/slots.c:177
+#: src/slots.c
 msgid "Looking for the newest release..."
 msgstr ""
 
-#: src/slots.c:238
+#: src/slots.c
 msgid "Looking for the images in the slots."
 msgstr ""
 
-#: src/slots.c:251
+#: src/slots.c
 msgid "Boot"
 msgstr ""
 
-#: src/slots.c:253
+#: src/slots.c
 #, c-format
 msgid "Slot %s: %s"
 msgstr ""
 
-#: src/slots.c:256
+#: src/slots.c
 msgid "Which slot should the receiver start?"
 msgstr ""
 
-#: src/slots.c:280
+#: src/slots.c
 msgid ""
 "The multiboot selector could not be loaded from GitHub. The receiver needs a "
 "network connection for it."
 msgstr ""
 
-#: src/slots.c:297
+#: src/slots.c
 msgid "The slots could not be read."
 msgstr ""
 
-#: src/slots.c:302
+#: src/slots.c
 msgid "There is no slot to boot."
 msgstr ""
 
-#: src/slots.c:311
+#: src/slots.c
 msgid "Switching to the slot."
 msgstr ""
 
-#: src/slots.c:318
+#: src/slots.c
 msgid "The slot could not be switched."
 msgstr ""
 
-#: src/plugins.c:33
+#: src/plugins.c
 msgid "Plugin"
 msgstr ""
 
-#: src/plugins.c:34
+#: src/plugins.c
 msgid "System plugin"
 msgstr ""
 
-#: src/plugins.c:35
+#: src/plugins.c
 msgid "Screen"
 msgstr ""
 
-#: src/plugins.c:36
+#: src/plugins.c
 msgid "Tool"
 msgstr ""
 
-#: src/plugins.c:37
+#: src/plugins.c
 msgid "Converter"
 msgstr ""
 
-#: src/plugins.c:38
+#: src/plugins.c
 msgid "Renderer"
 msgstr ""
 
-#: src/plugins.c:181
+#: src/plugins.c
 msgid "Stopped responding while loading"
 msgstr ""
 
-#: src/plugins.c:183
+#: src/plugins.c
 msgid "Python error while loading"
 msgstr ""
 
-#: src/plugins.c:185
+#: src/plugins.c
 #, c-format
 msgid "Crashed while loading (%s)"
 msgstr ""
 
-#: src/plugins.c:187
+#: src/plugins.c
 msgid "Crashed while loading"
 msgstr ""
 
-#: src/plugins.c:238
+#: src/plugins.c
 #, c-format
 msgid "Needed by %.63s"
 msgstr ""
 
-#: src/plugins.c:274
+#: src/plugins.c
 #, c-format
 msgid "Needs %s (%s), which is disabled"
 msgstr ""
 
-#: src/plugins.c:277
+#: src/plugins.c
 #, c-format
 msgid "Failed to load: %.140s"
 msgstr ""
 
-#: src/plugins.c:277
+#: src/plugins.c
 msgid "unknown error"
 msgstr ""
 
-#: src/plugins.c:306
+#: src/plugins.c
 msgid "In the traceback of the crash"
 msgstr ""
 
-#: src/plugins.c:326
+#: src/plugins.c
 #, c-format
 msgid "%s is there twice, remove one of them first."
 msgstr ""
 
-#: src/plugins.c:381
+#: src/plugins.c
 #, c-format
 msgid "No file of %s was found."
 msgstr ""
 
-#: src/plugins.c:547
+#: src/plugins.c
 #, c-format
 msgid "the skin %s"
 msgstr ""
 
-#: src/plugins.c:552
+#: src/plugins.c
 #, c-format
 msgid " and %d more"
 msgid_plural " and %d more"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/plugins.c:603
+#: src/plugins.c
 msgid "Enable"
 msgstr ""
 
-#: src/plugins.c:603 src/plugins.c:649
+#: src/plugins.c
 msgid "Disable"
 msgstr ""
 
-#: src/plugins.c:605
+#: src/plugins.c
 msgid ""
 "The plugin that caused the problem is marked. Changes take effect when "
 "Enigma2 starts again."
@@ -982,39 +973,39 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/plugins.c:609
+#: src/plugins.c
 msgid "Changes take effect when Enigma2 starts again."
 msgstr ""
 
-#: src/plugins.c:610
+#: src/plugins.c
 msgid "Name"
 msgstr ""
 
-#: src/plugins.c:610
+#: src/plugins.c
 msgid "Type"
 msgstr ""
 
-#: src/plugins.c:610
+#: src/plugins.c
 msgid "Problem"
 msgstr ""
 
-#: src/plugins.c:614
+#: src/plugins.c
 #, c-format
 msgid "%s (disabled)"
 msgstr ""
 
-#: src/plugins.c:630
+#: src/plugins.c
 #, c-format
 msgid "%s (%d disabled)"
 msgid_plural "%s (%d disabled)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/plugins.c:643
+#: src/plugins.c
 msgid "Checking what uses it..."
 msgstr ""
 
-#: src/plugins.c:647
+#: src/plugins.c
 #, c-format
 msgid ""
 "%s is used by %s.\n"
@@ -1022,137 +1013,137 @@ msgid ""
 "They will not load while it is disabled. Disable anyway?"
 msgstr ""
 
-#: src/plugins.c:692
+#: src/plugins.c
 msgid "No plugins were found."
 msgstr ""
 
-#: src/update.c:283
+#: src/update.c
 msgid "feed status unknown"
 msgstr ""
 
-#: src/update.c:283
+#: src/update.c
 msgid "feed disabled"
 msgstr ""
 
-#: src/update.c:283
+#: src/update.c
 msgid "feed unstable"
 msgstr ""
 
-#: src/update.c:284
+#: src/update.c
 msgid "feed stable"
 msgstr ""
 
-#: src/update.c:297
+#: src/update.c
 #, c-format
 msgid "Warning: more than %d packages, flashing a new image is safer."
 msgstr ""
 
-#: src/update.c:304
+#: src/update.c
 #, c-format
 msgid "%d package"
 msgid_plural "%d packages"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/update.c:306
+#: src/update.c
 msgid "Package"
 msgstr ""
 
-#: src/update.c:306
+#: src/update.c
 msgid "Installed"
 msgstr ""
 
-#: src/update.c:306
+#: src/update.c
 msgid "New"
 msgstr ""
 
-#: src/update.c:307
+#: src/update.c
 msgid "Update now"
 msgstr ""
 
-#: src/update.c:328
+#: src/update.c
 msgid "Checking the status of the feed."
 msgstr ""
 
-#: src/update.c:331
+#: src/update.c
 msgid ""
 "The feed of this image is being updated or is disabled right now. Please try "
 "the update again later."
 msgstr ""
 
-#: src/update.c:335
+#: src/update.c
 msgid "Updating the package lists"
 msgstr ""
 
-#: src/update.c:348
+#: src/update.c
 msgid "The package lists could not be updated."
 msgstr ""
 
-#: src/update.c:357
+#: src/update.c
 msgid "Looking for updates."
 msgstr ""
 
-#: src/update.c:363
+#: src/update.c
 msgid "There are no updates available."
 msgstr ""
 
-#: src/update.c:372
+#: src/update.c
 msgid "Updating"
 msgstr ""
 
-#: src/update.c:397
+#: src/update.c
 msgid "The update is finished, restart the receiver in the menu."
 msgstr ""
 
-#: src/update.c:399
+#: src/update.c
 #, c-format
 msgid "The update failed, see %s."
 msgstr ""
 
-#: src/about.c:55
+#: src/about.c
 msgid "The license is empty."
 msgstr ""
 
-#: src/about.c:78
+#: src/about.c
 msgid "Free software under the GPLv3. OK shows the full license of each part."
 msgstr ""
 
-#: src/about.c:79
+#: src/about.c
 msgid "Component"
 msgstr ""
 
-#: src/about.c:79
+#: src/about.c
 msgid "Part"
 msgstr ""
 
-#: src/about.c:79 src/about.c:80
+#: src/about.c
 msgid "License"
 msgstr ""
 
-#: src/ui.c:1207
+#: src/ui.c
 msgid "Error"
 msgstr ""
 
-#: src/ui.c:1208
+#: src/ui.c
 msgid "ERROR"
 msgstr ""
 
-#: include/licenses.h:13
+#: include/licenses.h
 msgid "this application"
 msgstr ""
 
-#: include/licenses.h:688
+#: include/licenses.h
 msgid "the graphics library"
 msgstr ""
 
-#: include/licenses.h:697
+#: include/licenses.h
 msgid "by Project Nayuki, part of LVGL"
 msgstr ""
 
-#: include/licenses.h:706
+#: include/licenses.h
 msgid "the font"
 msgstr ""
 
-#: include/licenses.h:808
+#: include/licenses.h
 msgid "the icons"
 msgstr ""

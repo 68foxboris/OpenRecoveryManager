@@ -5,6 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ORM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-30 22:30+0000\n"
 "PO-Revision-Date: 2026-09-30 09:30+0200\n"
 "Last-Translator: OE-Alliance Open Recovery Manager contributors\n"
 "Language-Team: Arabic\n"
@@ -12,96 +14,95 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 
-#: src/main.c:67
+#: src/main.c
 msgid "REQUESTED"
 msgstr "بناءً على الطلب"
 
-#: src/main.c:68
+#: src/main.c
 msgid "Enigma2 is stopped"
 msgstr "Enigma2 متوقف"
 
-#: src/main.c:68
+#: src/main.c
 msgid "The Open Recovery Manager was started on request."
 msgstr "تم تشغيل Open Recovery Manager بناءً على الطلب."
 
-#: src/main.c:72
+#: src/main.c
 msgid "ENIGMA2 STOPPED RESPONDING WHILE STARTING"
 msgstr "توقف Enigma2 عن الاستجابة أثناء التشغيل"
 
-#: src/main.c:74
+#: src/main.c
 msgid "ENIGMA2 STOPPED WITH A PYTHON ERROR SHORTLY AFTER THE START"
 msgstr "توقف Enigma2 بسبب خطأ Python بعد التشغيل بقليل"
 
-#: src/main.c:75
+#: src/main.c
 msgid "ENIGMA2 STOPPED WITH A PYTHON ERROR WHILE STARTING"
 msgstr "توقف Enigma2 بسبب خطأ Python أثناء التشغيل"
 
-#: src/main.c:77
+#: src/main.c
 msgid "ENIGMA2 CRASHED SHORTLY AFTER THE START"
 msgstr "تعطّل Enigma2 بعد التشغيل بقليل"
 
-#: src/main.c:78
+#: src/main.c
 msgid "ENIGMA2 CRASHED WHILE STARTING"
 msgstr "تعطّل Enigma2 أثناء التشغيل"
 
-#: src/main.c:82
+#: src/main.c
 #, c-format
 msgid "Signal %s"
 msgstr "الإشارة %s"
 
-#: src/main.c:84
+#: src/main.c
 #, c-format
 msgid "Last step: %s"
 msgstr "آخر خطوة: %s"
 
-#: src/main.c:84 src/main.c:610 src/crash.c:224
+#: src/main.c src/crash.c
 msgid "unknown"
 msgstr "غير معروف"
 
-#: src/main.c:199 src/ui.c:928
+#: src/main.c src/ui.c
 #, c-format
 msgid "%s (current)"
 msgstr "%s (الحالية)"
 
-#: src/main.c:205
+#: src/main.c
 #, c-format
 msgid "Crash logs (%d)"
 msgstr "سجلات الأعطال (%d)"
 
-#: src/main.c:206
+#: src/main.c
 msgid "Date"
 msgstr "التاريخ"
 
-#: src/main.c:206
+#: src/main.c
 msgid "File"
 msgstr "الملف"
 
-#: src/main.c:206 src/flash.c:1839
+#: src/main.c src/flash.c
 msgid "Size"
 msgstr "الحجم"
 
-#: src/main.c:209 src/reset.c:134 src/flash.c:1166 src/flash.c:1835
-#: src/backup.c:505 src/crash.c:173 src/console.c:90 src/slots.c:251
-#: src/plugins.c:602 src/about.c:80 src/language.c:119 src/viewer.c:73
+#: src/main.c src/reset.c src/flash.c src/backup.c src/crash.c src/console.c
+#: src/slots.c src/plugins.c src/about.c src/language.c src/viewer.c
 msgid "Select"
 msgstr "تحديد"
 
-#: src/main.c:209
+#: src/main.c
 msgid "Show"
 msgstr "عرض"
 
-#: src/main.c:209 src/flash.c:1637 src/flash.c:1639 src/plugins.c:649
-#: src/about.c:53 src/about.c:80 src/language.c:119 src/ui.c:1165
+#: src/main.c src/flash.c src/plugins.c src/about.c src/language.c src/ui.c
 msgid "Back"
 msgstr "رجوع"
 
-#: src/main.c:210
+#: src/main.c
 msgid "Which crash log should be shown? The newest is at the top."
 msgstr "أي سجل أعطال تريد عرضه؟ الأحدث في الأعلى."
 
-#: src/main.c:265
+#: src/main.c
 #, c-format
 msgid "Crash log, %s (%d line)"
 msgid_plural "Crash log, %s (%d lines)"
@@ -112,11 +113,11 @@ msgstr[3] "سجل الأعطال، %s (%d أسطر)"
 msgstr[4] "سجل الأعطال، %s (%d سطرًا)"
 msgstr[5] "سجل الأعطال، %s (%d سطر)"
 
-#: src/main.c:266
+#: src/main.c
 msgid "none"
 msgstr "لا يوجد"
 
-#: src/main.c:290
+#: src/main.c
 #, c-format
 msgid "Socket log (%d line)"
 msgid_plural "Socket log (%d lines)"
@@ -127,314 +128,384 @@ msgstr[3] "سجل Socket (%d أسطر)"
 msgstr[4] "سجل Socket (%d سطرًا)"
 msgstr[5] "سجل Socket (%d سطر)"
 
-#: src/main.c:292
+#: src/main.c
 msgid "Time"
 msgstr "الوقت"
 
-#: src/main.c:292
+#: src/main.c
 msgid "Duration"
 msgstr "المدة"
 
-#: src/main.c:292
+#: src/main.c
 msgid "Message"
 msgstr "الرسالة"
 
-#: src/main.c:293 src/main.c:295 src/flash.c:1516 src/flash.c:1637
-#: src/flash.c:1639 src/update.c:307 src/about.c:53 src/viewer.c:173
+#: src/main.c src/flash.c src/update.c src/about.c src/viewer.c
 msgid "Scroll"
 msgstr "تمرير"
 
-#: src/main.c:294
+#: src/main.c
 msgid "Switch log"
 msgstr "تبديل السجل"
 
-#: src/main.c:294
+#: src/main.c
 msgid "Socket log"
 msgstr "سجل Socket"
 
-#: src/main.c:294 src/main.c:295 src/remote.c:114 src/remote.c:272
-#: src/reset.c:134 src/reset.c:155 src/flash.c:1516 src/flash.c:1836
-#: src/backup.c:505 src/crash.c:173 src/crash.c:196 src/slots.c:251
-#: src/plugins.c:603 src/update.c:48 src/update.c:307 src/viewer.c:173
+#: src/main.c src/remote.c src/reset.c src/flash.c src/backup.c src/crash.c
+#: src/slots.c src/plugins.c src/update.c src/viewer.c
 msgid "Menu"
 msgstr "القائمة"
 
-#: src/main.c:295
+#: src/main.c
 msgid "Crash log"
 msgstr "سجل الأعطال"
 
-#: src/main.c:300
+#: src/main.c
 msgid "There is no log of the last start."
 msgstr "لا يوجد سجل لآخر تشغيل."
 
-#: src/main.c:302 src/main.c:381
+#: src/main.c
 msgid "There is no crash log."
 msgstr "لا يوجد سجل أعطال."
 
-#: src/main.c:330
+#: src/main.c
 msgid "Restart Enigma2"
 msgstr "إعادة تشغيل Enigma2"
 
-#: src/main.c:331
+#: src/main.c
 msgid "Show crash log"
 msgstr "عرض سجل الأعطال"
 
-#: src/main.c:332
+#: src/main.c
 msgid "Send crash report"
 msgstr "إرسال تقرير العطل"
 
-#: src/main.c:333 src/plugins.c:19
+#: src/main.c src/plugins.c
 msgid "Disable plugins"
 msgstr "تعطيل الإضافات"
 
-#: src/main.c:334 src/update.c:18
+#: src/main.c src/update.c
 msgid "Software update"
 msgstr "تحديث البرامج"
 
-#: src/main.c:335 src/reset.c:16
+#: src/main.c src/reset.c
 msgid "Reset settings"
 msgstr "إعادة ضبط الإعدادات"
 
-#: src/main.c:336 src/backup.c:21
+#: src/main.c src/backup.c
 msgid "Back up image"
 msgstr "نسخ الصورة احتياطيًا"
 
-#: src/main.c:337 src/flash.c:25
+#: src/main.c src/flash.c
 msgid "Flash online/local"
 msgstr "تثبيت صورة عبر الإنترنت/محليًا"
 
-#: src/main.c:338 src/slots.c:18
+#: src/main.c src/slots.c
 msgid "Boot another slot"
 msgstr "الإقلاع من فتحة أخرى"
 
-#: src/main.c:353
-msgid "Starts Enigma2 again. If a plugin keeps it from starting, disable the plugin first."
+#: src/main.c
+msgid ""
+"Starts Enigma2 again. If a plugin keeps it from starting, disable the plugin "
+"first."
 msgstr "يعيد تشغيل Enigma2. إذا كانت إضافة تمنع التشغيل، فعطّلها أولاً."
 
-#: src/main.c:354
-msgid "Shows the newest crash log of Enigma2. BLUE shows the steps of the last start."
+#: src/main.c
+msgid ""
+"Shows the newest crash log of Enigma2. BLUE shows the steps of the last "
+"start."
 msgstr "يعرض أحدث سجل أعطال لـ Enigma2. يعرض BLUE خطوات آخر تشغيل."
 
-#: src/main.c:356
-msgid "Moves a plugin to Plugins.disabled, so Enigma2 neither loads nor removes it, and back again. The plugin of the last start step is chosen at first."
-msgstr "ينقل الإضافة إلى Plugins.disabled، فلا يحمّلها Enigma2 ولا يحذفها، ويعيدها مرة أخرى. تكون إضافة آخر خطوة تشغيل محددة مسبقًا."
+#: src/main.c
+msgid ""
+"Moves a plugin to Plugins.disabled, so Enigma2 neither loads nor removes it, "
+"and back again. The plugin of the last start step is chosen at first."
+msgstr ""
+"ينقل الإضافة إلى Plugins.disabled، فلا يحمّلها Enigma2 ولا يحذفها، ويعيدها "
+"مرة أخرى. تكون إضافة آخر خطوة تشغيل محددة مسبقًا."
 
-#: src/main.c:358
-msgid "Installs the latest updates for your receiver. You see the list and confirm before anything is installed."
+#: src/main.c
+msgid ""
+"Installs the latest updates for your receiver. You see the list and confirm "
+"before anything is installed."
 msgstr "يثبّت أحدث التحديثات لجهازك. سترى القائمة وتؤكد قبل تثبيت أي شيء."
 
-#: src/main.c:360
-msgid "Resets Enigma2 to the state of a new installation. Your old settings are moved aside, so nothing is deleted for good."
-msgstr "يعيد Enigma2 إلى حالة التثبيت الجديد. يتم نقل إعداداتك القديمة جانبًا، فلا يُحذف شيء نهائيًا."
+#: src/main.c
+msgid ""
+"Resets Enigma2 to the state of a new installation. Your old settings are "
+"moved aside, so nothing is deleted for good."
+msgstr ""
+"يعيد Enigma2 إلى حالة التثبيت الجديد. يتم نقل إعداداتك القديمة جانبًا، فلا "
+"يُحذف شيء نهائيًا."
 
-#: src/main.c:362
-msgid "Saves the running image as a zip file on a USB stick or hard disk, so it can be flashed again later."
-msgstr "يحفظ الصورة الحالية كملف zip على ذاكرة USB أو قرص صلب، ليمكن تثبيتها مجددًا لاحقًا."
+#: src/main.c
+msgid ""
+"Saves the running image as a zip file on a USB stick or hard disk, so it can "
+"be flashed again later."
+msgstr ""
+"يحفظ الصورة الحالية كملف zip على ذاكرة USB أو قرص صلب، ليمكن تثبيتها مجددًا "
+"لاحقًا."
 
-#: src/main.c:363
-msgid "Flashes an image into the running slot, from the feed of the running distribution or from the media. A check with ofgwrite tests the image before anything is written."
-msgstr "يثبّت صورة نظام في الفتحة الحالية، من مصدر التوزيعة الحالية أو من وسائط التخزين. يختبر فحص بواسطة ofgwrite الصورة قبل كتابة أي شيء."
+#: src/main.c
+msgid ""
+"Flashes an image into the running slot, from the feed of the running "
+"distribution or from the media. A check with ofgwrite tests the image before "
+"anything is written."
+msgstr ""
+"يثبّت صورة نظام في الفتحة الحالية، من مصدر التوزيعة الحالية أو من وسائط "
+"التخزين. يختبر فحص بواسطة ofgwrite الصورة قبل كتابة أي شيء."
 
-#: src/main.c:365
+#: src/main.c
 msgid "Restarts the receiver with the image of another slot."
 msgstr "يعيد تشغيل الجهاز بصورة النظام من فتحة أخرى."
 
-#: src/main.c:379
+#: src/main.c
 #, c-format
 msgid "Newest crash log: %s"
 msgstr "أحدث سجل أعطال: %s"
 
 #. TRANSLATORS: %s is the distribution, e.g. OpenATV.
-#: src/main.c:387
+#: src/main.c
 #, c-format
-msgid "Sends the crash report to the %s ticket system, so the developers can find the error. You see everything before it is sent."
-msgstr "يرسل تقرير العطل إلى نظام التذاكر لدى %s، حتى يتمكن المطورون من إيجاد الخطأ. سترى كل شيء قبل إرساله."
+msgid ""
+"Sends the crash report to the %s ticket system, so the developers can find "
+"the error. You see everything before it is sent."
+msgstr ""
+"يرسل تقرير العطل إلى نظام التذاكر لدى %s، حتى يتمكن المطورون من إيجاد الخطأ. "
+"سترى كل شيء قبل إرساله."
 
-#: src/main.c:412
+#: src/main.c
 #, c-format
 msgid "Restart in %d s, any key cancels"
 msgstr "إعادة التشغيل خلال %d ث، أي زر يلغيها"
 
-#: src/main.c:415 src/language.c:120
+#: src/main.c src/language.c
 msgid "Language"
 msgstr "اللغة"
 
-#: src/main.c:417 src/flash.c:1752
+#: src/main.c src/flash.c
 msgid "Open"
 msgstr "فتح"
 
-#: src/main.c:417 src/flash.c:1166 src/flash.c:1749 src/language.c:119
+#: src/main.c src/flash.c src/language.c
 msgid "Choose"
 msgstr "اختيار"
 
-#: src/main.c:418 src/remote.c:18
+#: src/main.c src/remote.c
 msgid "Remote Support"
 msgstr "Remote Support"
 
-#: src/main.c:419 src/about.c:14
+#: src/main.c src/about.c
 msgid "About"
 msgstr "حول"
 
-#: src/main.c:419
+#: src/main.c
 msgid "Reboot"
 msgstr "إعادة التشغيل"
 
-#: src/main.c:419
+#: src/main.c
 msgid "Shutdown"
 msgstr "إيقاف التشغيل"
 
-#: src/main.c:609
+#: src/main.c
 #, c-format
-msgid "%s %s (%s)\n%s %s, build %s (%s)\nEnigma2 revision %s"
-msgstr "%s %s (%s)\n%s %s، الإصدار %s (%s)\nمراجعة Enigma2 %s"
+msgid ""
+"%s %s (%s)\n"
+"%s %s, build %s (%s)\n"
+"Enigma2 revision %s"
+msgstr ""
+"%s %s (%s)\n"
+"%s %s، الإصدار %s (%s)\n"
+"مراجعة Enigma2 %s"
 
-#: src/remote.c:86
-msgid "End the Remote Support session? The supporter can then no longer work on the receiver."
-msgstr "إنهاء جلسة Remote Support؟ لن يتمكن فني الدعم عندها من العمل على الجهاز."
+#: src/remote.c
+msgid ""
+"End the Remote Support session? The supporter can then no longer work on the "
+"receiver."
+msgstr ""
+"إنهاء جلسة Remote Support؟ لن يتمكن فني الدعم عندها من العمل على الجهاز."
 
-#: src/remote.c:99 src/flash.c:1233 src/backup.c:573
+#: src/remote.c src/flash.c src/backup.c
 msgid "Cancel"
 msgstr "إلغاء"
 
-#: src/remote.c:100
+#: src/remote.c
 msgid "Starting the Remote Support session."
 msgstr "جارٍ بدء جلسة Remote Support."
 
-#: src/remote.c:101
+#: src/remote.c
 msgid "Connecting to the support server, this takes a few seconds."
 msgstr "جارٍ الاتصال بخادم الدعم، يستغرق ذلك بضع ثوانٍ."
 
-#: src/remote.c:107
-msgid "Scan the QR code with your phone and send the link to your supporter from there."
+#: src/remote.c
+msgid ""
+"Scan the QR code with your phone and send the link to your supporter from "
+"there."
 msgstr "امسح رمز QR بهاتفك وأرسل الرابط من هناك إلى فني الدعم."
 
-#: src/remote.c:108
+#: src/remote.c
 msgid "Send the link below to your supporter or let them scan the QR code."
 msgstr "أرسل الرابط أدناه إلى فني الدعم أو دعه يمسح رمز QR."
 
-#: src/remote.c:109
-msgid "Approved users can open terminals. Everybody who joins later has to be approved as well."
-msgstr "يمكن للمستخدمين الموافق عليهم فتح الطرفيات. كل من ينضم لاحقًا يحتاج إلى موافقة أيضًا."
+#: src/remote.c
+msgid ""
+"Approved users can open terminals. Everybody who joins later has to be "
+"approved as well."
+msgstr ""
+"يمكن للمستخدمين الموافق عليهم فتح الطرفيات. كل من ينضم لاحقًا يحتاج إلى "
+"موافقة أيضًا."
 
-#: src/remote.c:110
-msgid "When somebody joins the session, you have to approve the access with the remote control."
-msgstr "عندما ينضم أحد إلى الجلسة، عليك الموافقة على الوصول بجهاز التحكم عن بُعد."
+#: src/remote.c
+msgid ""
+"When somebody joins the session, you have to approve the access with the "
+"remote control."
+msgstr ""
+"عندما ينضم أحد إلى الجلسة، عليك الموافقة على الوصول بجهاز التحكم عن بُعد."
 
-#: src/remote.c:111
+#: src/remote.c
 msgid "The session keeps running in the menu and ends when Enigma2 starts."
 msgstr "تستمر الجلسة في القائمة وتنتهي عند تشغيل Enigma2."
 
-#: src/remote.c:112
+#: src/remote.c
 msgid "The session keeps running in the menu and after Enigma2 starts."
 msgstr "تستمر الجلسة في القائمة وبعد تشغيل Enigma2."
 
-#: src/remote.c:113
+#: src/remote.c
 msgid "Ending the session..."
 msgstr "جارٍ إنهاء الجلسة..."
 
-#: src/remote.c:114
+#: src/remote.c
 msgid "End session"
 msgstr "إنهاء الجلسة"
 
-#: src/remote.c:116
-msgid "Do not post the link or a screenshot of it in public forums: everybody who has it can try to join and sees the terminals until you deny the access."
-msgstr "لا تنشر الرابط أو لقطة شاشة له في المنتديات العامة: كل من لديه الرابط يمكنه محاولة الانضمام ويرى الطرفيات حتى ترفض الوصول."
+#: src/remote.c
+msgid ""
+"Do not post the link or a screenshot of it in public forums: everybody who "
+"has it can try to join and sees the terminals until you deny the access."
+msgstr ""
+"لا تنشر الرابط أو لقطة شاشة له في المنتديات العامة: كل من لديه الرابط يمكنه "
+"محاولة الانضمام ويرى الطرفيات حتى ترفض الوصول."
 
-#: src/remote.c:119
+#: src/remote.c
 msgid "Scan with your phone to send the link to your supporter"
 msgstr "امسح بهاتفك لإرسال الرابط إلى فني الدعم"
 
-#: src/remote.c:120
+#: src/remote.c
 msgid "Scan to open the support session"
 msgstr "امسح لفتح جلسة الدعم"
 
-#: src/remote.c:196
+#: src/remote.c
 #, c-format
-msgid "Users: %s\nTerminals: %d"
-msgstr "المستخدمون: %s\nالطرفيات: %d"
+msgid ""
+"Users: %s\n"
+"Terminals: %d"
+msgstr ""
+"المستخدمون: %s\n"
+"الطرفيات: %d"
 
-#: src/remote.c:256
-msgid "Not installed, it goes into RAM until the next restart, the flash stays as it is. Please wait..."
-msgstr "غير مثبّت، سيُحمَّل في RAM حتى إعادة التشغيل التالية، وتبقى الذاكرة الداخلية كما هي. يرجى الانتظار..."
+#: src/remote.c
+msgid ""
+"Not installed, it goes into RAM until the next restart, the flash stays as "
+"it is. Please wait..."
+msgstr ""
+"غير مثبّت، سيُحمَّل في RAM حتى إعادة التشغيل التالية، وتبقى الذاكرة الداخلية كما "
+"هي. يرجى الانتظار..."
 
-#: src/remote.c:258
+#: src/remote.c
 msgid "Installing into RAM"
 msgstr "التثبيت في RAM"
 
-#: src/remote.c:272
+#: src/remote.c
 msgid "Remote Support could not be installed."
 msgstr "تعذّر تثبيت Remote Support."
 
-#: src/remote.c:324
+#: src/remote.c
 msgid "Remote Support cannot be started."
 msgstr "لا يمكن بدء Remote Support."
 
-#: src/remote.c:369
-msgid "Start Remote Support? A supporter can then work on the receiver from the internet."
-msgstr "بدء Remote Support؟ سيتمكن فني الدعم عندها من العمل على الجهاز عبر الإنترنت."
+#: src/remote.c
+msgid ""
+"Start Remote Support? A supporter can then work on the receiver from the "
+"internet."
+msgstr ""
+"بدء Remote Support؟ سيتمكن فني الدعم عندها من العمل على الجهاز عبر الإنترنت."
 
-#: src/remote.c:397
+#: src/remote.c
 msgid "The Remote Support session ended."
 msgstr "انتهت جلسة Remote Support."
 
-#: src/reset.c:90 src/reset.c:105 src/plugins.c:330
+#: src/reset.c src/plugins.c
 #, c-format
 msgid "%s cannot be moved: %s"
 msgstr "لا يمكن نقل %s: %s"
 
-#: src/reset.c:100
+#: src/reset.c
 #, c-format
 msgid "%s cannot be created: %s"
 msgstr "لا يمكن إنشاء %s: %s"
 
-#: src/reset.c:130
+#: src/reset.c
 msgid "Only the settings (channel lists and timers stay)"
 msgstr "الإعدادات فقط (تبقى قوائم القنوات والمؤقتات)"
 
-#: src/reset.c:131
+#: src/reset.c
 msgid "Everything, including channel lists and timers"
 msgstr "كل شيء، بما في ذلك قوائم القنوات والمؤقتات"
 
-#: src/reset.c:132
+#: src/reset.c
 #, c-format
-msgid "What should be reset? Enigma2 then starts with the wizard, which offers to restore a backup. The files are kept in a folder next to %s, the network settings stay."
-msgstr "ما الذي تريد إعادة ضبطه؟ سيبدأ Enigma2 بعدها بمعالج الإعداد الذي يعرض استعادة نسخة احتياطية. تُحفظ الملفات في مجلد بجانب %s، وتبقى إعدادات الشبكة."
+msgid ""
+"What should be reset? Enigma2 then starts with the wizard, which offers to "
+"restore a backup. The files are kept in a folder next to %s, the network "
+"settings stay."
+msgstr ""
+"ما الذي تريد إعادة ضبطه؟ سيبدأ Enigma2 بعدها بمعالج الإعداد الذي يعرض "
+"استعادة نسخة احتياطية. تُحفظ الملفات في مجلد بجانب %s، وتبقى إعدادات الشبكة."
 
-#: src/reset.c:134
+#: src/reset.c
 msgid "Reset"
 msgstr "إعادة ضبط"
 
-#: src/reset.c:141
-msgid "Reset everything now? Enigma2 then starts like new, without channel lists and timers. Your old files are kept."
-msgstr "إعادة ضبط كل شيء الآن؟ سيبدأ Enigma2 كأنه جديد، بدون قوائم القنوات والمؤقتات. ستُحفظ ملفاتك القديمة."
+#: src/reset.c
+msgid ""
+"Reset everything now? Enigma2 then starts like new, without channel lists "
+"and timers. Your old files are kept."
+msgstr ""
+"إعادة ضبط كل شيء الآن؟ سيبدأ Enigma2 كأنه جديد، بدون قوائم القنوات "
+"والمؤقتات. ستُحفظ ملفاتك القديمة."
 
-#: src/reset.c:142
-msgid "Reset the settings now? Your channel lists and timers stay, all other settings start from the beginning. Your old settings are kept."
-msgstr "إعادة ضبط الإعدادات الآن؟ تبقى قوائم القنوات والمؤقتات، وتبدأ كل الإعدادات الأخرى من جديد. ستُحفظ إعداداتك القديمة."
+#: src/reset.c
+msgid ""
+"Reset the settings now? Your channel lists and timers stay, all other "
+"settings start from the beginning. Your old settings are kept."
+msgstr ""
+"إعادة ضبط الإعدادات الآن؟ تبقى قوائم القنوات والمؤقتات، وتبدأ كل الإعدادات "
+"الأخرى من جديد. ستُحفظ إعداداتك القديمة."
 
-#: src/reset.c:151
+#: src/reset.c
 #, c-format
 msgid "The files of Enigma2 were reset, the old ones are kept in %s."
 msgstr "تمت إعادة ضبط ملفات Enigma2، والملفات القديمة محفوظة في %s."
 
-#: src/reset.c:152
+#: src/reset.c
 #, c-format
 msgid "The settings were reset, the old file is kept in %s."
 msgstr "تمت إعادة ضبط الإعدادات، والملف القديم محفوظ في %s."
 
-#: src/reset.c:154
+#: src/reset.c
 msgid "Restart Enigma2 in the menu to start with the wizard."
 msgstr "أعد تشغيل Enigma2 من القائمة للبدء بمعالج الإعداد."
 
-#: src/flash.c:654
+#: src/flash.c
 msgid "Backup images"
 msgstr "صور النسخ الاحتياطي"
 
-#: src/flash.c:655
+#: src/flash.c
 msgid "Local images"
 msgstr "الصور المحلية"
 
-#: src/flash.c:1099
+#: src/flash.c
 #, c-format
 msgid "%d image"
 msgid_plural "%d images"
@@ -445,464 +516,499 @@ msgstr[3] "%d صور"
 msgstr[4] "%d صورةً"
 msgstr[5] "%d صورة"
 
-#: src/flash.c:1132
+#: src/flash.c
 msgid "No images found"
 msgstr "لم يتم العثور على صور"
 
-#: src/flash.c:1142
+#: src/flash.c
 #, c-format
 msgid "Loading the images of %s."
 msgstr "جارٍ تحميل صور %s."
 
-#: src/flash.c:1143 src/flash.c:1148 src/flash.c:1313 src/flash.c:1314
-#: src/flash.c:1734 src/flash.c:1815 src/backup.c:557 src/crash.c:219
-#: src/slots.c:177 src/slots.c:193 src/slots.c:239 src/slots.c:311
-#: src/update.c:328 src/update.c:337 src/update.c:357 src/viewer.c:153
-#: src/viewer.c:176
+#: src/flash.c src/backup.c src/crash.c src/slots.c src/update.c src/viewer.c
 msgid "Please wait..."
 msgstr "يرجى الانتظار..."
 
-#: src/flash.c:1148
+#: src/flash.c
 msgid "Looking for images on the media."
 msgstr "جارٍ البحث عن صور على وسائط التخزين."
 
-#: src/flash.c:1166 src/flash.c:1668
+#: src/flash.c
 msgid "Images"
 msgstr "الصور"
 
-#: src/flash.c:1167 src/flash.c:1836
+#: src/flash.c
 msgid "Distribution"
 msgstr "التوزيعة"
 
-#: src/flash.c:1168
+#: src/flash.c
 msgid "Which distribution should the images come from?"
 msgstr "من أي توزيعة تريد الصور؟"
 
-#: src/flash.c:1219
+#: src/flash.c
 #, c-format
 msgid "Downloading %s"
 msgstr "جارٍ تنزيل %s"
 
-#: src/flash.c:1230
+#: src/flash.c
 #, c-format
 msgid "%lld of %lld MB"
 msgstr "%lld من %lld MB"
 
-#: src/flash.c:1232
+#: src/flash.c
 #, c-format
 msgid "%lld MB"
 msgstr "%lld MB"
 
-#: src/flash.c:1400
+#: src/flash.c
 #, c-format
 msgid "Unzipping %s"
 msgstr "جارٍ فك ضغط %s"
 
-#: src/flash.c:1430 src/flash.c:1634 src/flash.c:1668
+#: src/flash.c
 msgid "Check"
 msgstr "فحص"
 
-#: src/flash.c:1431
+#: src/flash.c
 msgid "Please wait, ofgwrite checks the image..."
 msgstr "يرجى الانتظار، ofgwrite يفحص الصورة..."
 
-#: src/flash.c:1484
+#: src/flash.c
 msgid "the running image"
 msgstr "الصورة الحالية"
 
-#: src/flash.c:1486
+#: src/flash.c
 #, c-format
 msgid "%s (%s on %s), the running image"
 msgstr "%s (%s على %s)، الصورة الحالية"
 
-#: src/flash.c:1489
+#: src/flash.c
 #, c-format
 msgid "%s (%s), the running image"
 msgstr "%s (%s)، الصورة الحالية"
 
-#: src/flash.c:1513
+#: src/flash.c
 msgid "Flashing finished, restart the receiver in the menu."
 msgstr "اكتمل التثبيت، أعد تشغيل الجهاز من القائمة."
 
-#: src/flash.c:1515
+#: src/flash.c
 #, c-format
 msgid "Flashing failed, see %s."
 msgstr "فشل التثبيت، راجع %s."
 
-#: src/flash.c:1519 src/flash.c:1642
+#: src/flash.c
 msgid "ofgwrite wrote nothing."
 msgstr "لم يُخرج ofgwrite أي شيء."
 
-#: src/flash.c:1570
+#: src/flash.c
 msgid "Flashing"
 msgstr "التثبيت"
 
-#: src/flash.c:1588
+#: src/flash.c
 msgid "flashed too, kernel A of all slots"
 msgstr "يُثبَّت أيضًا، النواة A لكل الفتحات"
 
-#: src/flash.c:1590 src/flash.c:1592 src/flash.c:1594
+#: src/flash.c
 #, c-format
 msgid "flashed too (%s)"
 msgstr "يُثبَّت أيضًا (%s)"
 
-#: src/flash.c:1596
+#: src/flash.c
 msgid "flashed too"
 msgstr "يُثبَّت أيضًا"
 
-#: src/flash.c:1599
+#: src/flash.c
 msgid "stays as it is"
 msgstr "يبقى كما هو"
 
-#: src/flash.c:1608 src/flash.c:1839
+#: src/flash.c
 msgid "Image"
 msgstr "الصورة"
 
-#: src/flash.c:1611 src/flash.c:1614
+#: src/flash.c
 msgid "Location"
 msgstr "الموقع"
 
-#: src/flash.c:1615
+#: src/flash.c
 msgid "Slot"
 msgstr "الفتحة"
 
-#: src/flash.c:1617
+#: src/flash.c
 msgid "Kernel"
 msgstr "النواة"
 
-#: src/flash.c:1618
+#: src/flash.c
 msgid "Command"
 msgstr "الأمر"
 
-#: src/flash.c:1635
+#: src/flash.c
 msgid "The check was successful"
 msgstr "نجح الفحص"
 
-#: src/flash.c:1635
+#: src/flash.c
 msgid "The check failed"
 msgstr "فشل الفحص"
 
-#: src/flash.c:1637
+#: src/flash.c
 msgid "Flash now"
 msgstr "ثبّت الآن"
 
-#: src/flash.c:1645
-msgid "Flash the image now? The running image is replaced and the receiver restarts. Do not switch it off while it flashes."
-msgstr "تثبيت الصورة الآن؟ ستُستبدل الصورة الحالية ويُعاد تشغيل الجهاز. لا تُطفئه أثناء التثبيت."
+#: src/flash.c
+msgid ""
+"Flash the image now? The running image is replaced and the receiver "
+"restarts. Do not switch it off while it flashes."
+msgstr ""
+"تثبيت الصورة الآن؟ ستُستبدل الصورة الحالية ويُعاد تشغيل الجهاز. لا تُطفئه أثناء "
+"التثبيت."
 
-#: src/flash.c:1665
-msgid "Clean flash: all settings are lost, after the restart the most recent backup can be restored."
-msgstr "تثبيت نظيف: تُفقد كل الإعدادات، ويمكن بعد إعادة التشغيل استعادة أحدث نسخة احتياطية."
+#: src/flash.c
+msgid ""
+"Clean flash: all settings are lost, after the restart the most recent backup "
+"can be restored."
+msgstr ""
+"تثبيت نظيف: تُفقد كل الإعدادات، ويمكن بعد إعادة التشغيل استعادة أحدث نسخة "
+"احتياطية."
 
-#: src/flash.c:1666
-msgid "The check only tests the image and writes nothing. After a successful check, OK starts flashing."
+#: src/flash.c
+msgid ""
+"The check only tests the image and writes nothing. After a successful check, "
+"OK starts flashing."
 msgstr "الفحص يختبر الصورة فقط ولا يكتب شيئًا. بعد نجاح الفحص، يبدأ OK التثبيت."
 
-#: src/flash.c:1705
+#: src/flash.c
 #, c-format
 msgid "There is not enough free space on %s, it needs %lld MB."
 msgstr "لا توجد مساحة فارغة كافية على %s، المطلوب %lld MB."
 
-#: src/flash.c:1716
+#: src/flash.c
 msgid "The image could not be downloaded."
 msgstr "تعذّر تنزيل الصورة."
 
-#: src/flash.c:1722
+#: src/flash.c
 msgid "The image could not be unzipped or holds no image for ofgwrite."
 msgstr "تعذّر فك ضغط الصورة، أو أنها لا تحتوي على صورة لـ ofgwrite."
 
-#: src/flash.c:1734
+#: src/flash.c
 msgid "Loading the list of distributions."
 msgstr "جارٍ تحميل قائمة التوزيعات."
 
-#: src/flash.c:1751
+#: src/flash.c
 msgid "Close"
 msgstr "إغلاق"
 
-#: src/flash.c:1759
+#: src/flash.c
 msgid "The chosen image replaces the running image."
 msgstr "تحل الصورة المختارة محل الصورة الحالية."
 
-#: src/flash.c:1761
+#: src/flash.c
 #, c-format
 msgid "The chosen image replaces the running image in slot %s (%s on %s)."
 msgstr "تحل الصورة المختارة محل الصورة الحالية في الفتحة %s (%s على %s)."
 
-#: src/flash.c:1764
+#: src/flash.c
 #, c-format
 msgid "The chosen image replaces the running image in slot %s (%s)."
 msgstr "تحل الصورة المختارة محل الصورة الحالية في الفتحة %s (%s)."
 
-#: src/flash.c:1766
+#: src/flash.c
 #, c-format
 msgid "%s%s Downloaded images are saved on the USB stick (%s/images)."
 msgstr "%s%s تُحفظ الصور المنزّلة على ذاكرة USB (%s/images)."
 
-#: src/flash.c:1767
+#: src/flash.c
 #, c-format
 msgid "%s%s Downloaded images are saved on the hard disk (%s/images)."
 msgstr "%s%s تُحفظ الصور المنزّلة على القرص الصلب (%s/images)."
 
-#: src/flash.c:1768
+#: src/flash.c
 msgid "The images of the distribution could not be loaded. "
 msgstr "تعذّر تحميل صور التوزيعة. "
 
-#: src/flash.c:1804
+#: src/flash.c
 msgid "ofgwrite is not installed, an image cannot be flashed."
 msgstr "ofgwrite غير مثبّت، لا يمكن تثبيت صورة."
 
-#: src/flash.c:1808
-msgid "Neither /media/hdd nor /media/usb is mounted, the image needs one of them. Please attach a USB stick or a hard disk."
-msgstr "لم يتم تركيب /media/hdd ولا /media/usb، والصورة تحتاج إلى أحدهما. يرجى توصيل ذاكرة USB أو قرص صلب."
+#: src/flash.c
+msgid ""
+"Neither /media/hdd nor /media/usb is mounted, the image needs one of them. "
+"Please attach a USB stick or a hard disk."
+msgstr ""
+"لم يتم تركيب /media/hdd ولا /media/usb، والصورة تحتاج إلى أحدهما. يرجى توصيل "
+"ذاكرة USB أو قرص صلب."
 
-#: src/flash.c:1815
+#: src/flash.c
 msgid "Looking for the running slot."
 msgstr "جارٍ البحث عن الفتحة الحالية."
 
-#: src/backup.c:488
+#: src/backup.c
 #, c-format
 msgid "%s\t%lld MB"
 msgstr "%s\t%lld MB"
 
-#: src/backup.c:495
+#: src/backup.c
 #, c-format
-msgid "There is not enough free space on any medium. The backup needs about %lld MB."
-msgstr "لا توجد مساحة فارغة كافية على أي وسيط تخزين. تحتاج النسخة الاحتياطية إلى نحو %lld MB."
+msgid ""
+"There is not enough free space on any medium. The backup needs about %lld MB."
+msgstr ""
+"لا توجد مساحة فارغة كافية على أي وسيط تخزين. تحتاج النسخة الاحتياطية إلى نحو "
+"%lld MB."
 
-#: src/backup.c:500
+#: src/backup.c
 #, c-format
-msgid "Saves the running image as a zip file, which Flash online/local can flash again. It needs about %lld MB. Where should it be saved?"
-msgstr "يحفظ الصورة الحالية كملف zip يمكن تثبيته مجددًا عبر «تثبيت صورة عبر الإنترنت/محليًا». يحتاج إلى نحو %lld MB. أين تريد حفظه؟"
+msgid ""
+"Saves the running image as a zip file, which Flash online/local can flash "
+"again. It needs about %lld MB. Where should it be saved?"
+msgstr ""
+"يحفظ الصورة الحالية كملف zip يمكن تثبيته مجددًا عبر «تثبيت صورة عبر الإنترنت/"
+"محليًا». يحتاج إلى نحو %lld MB. أين تريد حفظه؟"
 
-#: src/backup.c:502
+#: src/backup.c
 msgid "Medium"
 msgstr "الوسيط"
 
-#: src/backup.c:502
+#: src/backup.c
 msgid "Free"
 msgstr "متاح"
 
-#: src/backup.c:505
+#: src/backup.c
 msgid "Back up"
 msgstr "نسخ احتياطي"
 
-#: src/backup.c:534
+#: src/backup.c
 msgid "Cancel the backup? What is done so far is deleted."
 msgstr "إلغاء النسخ الاحتياطي؟ سيُحذف ما تم إنجازه حتى الآن."
 
-#: src/backup.c:557
+#: src/backup.c
 msgid "Measuring the running image."
 msgstr "جارٍ حساب حجم الصورة الحالية."
 
-#: src/backup.c:563
+#: src/backup.c
 msgid "No medium is mounted, the backup needs a USB stick or a hard disk."
-msgstr "لا يوجد وسيط تخزين مركّب، يحتاج النسخ الاحتياطي إلى ذاكرة USB أو قرص صلب."
+msgstr ""
+"لا يوجد وسيط تخزين مركّب، يحتاج النسخ الاحتياطي إلى ذاكرة USB أو قرص صلب."
 
-#: src/backup.c:569
+#: src/backup.c
 msgid "The backup cannot be prepared."
 msgstr "لا يمكن تجهيز النسخة الاحتياطية."
 
-#: src/backup.c:573 src/update.c:374
+#: src/backup.c src/update.c
 msgid "Please wait, do not switch off the receiver..."
 msgstr "يرجى الانتظار، لا تُطفئ الجهاز..."
 
-#: src/backup.c:584
+#: src/backup.c
 #, c-format
 msgid "The backup is saved as %s/images/%s."
 msgstr "تم حفظ النسخة الاحتياطية باسم %s/images/%s."
 
-#: src/backup.c:586
+#: src/backup.c
 msgid "The backup was cancelled."
 msgstr "تم إلغاء النسخ الاحتياطي."
 
-#: src/backup.c:586
+#: src/backup.c
 msgid "The backup failed."
 msgstr "فشل النسخ الاحتياطي."
 
-#: src/crash.c:17
+#: src/crash.c
 msgid "Crash report"
 msgstr "تقرير العطل"
 
-#: src/crash.c:171
+#: src/crash.c
 msgid "Crash log only"
 msgstr "سجل الأعطال فقط"
 
-#: src/crash.c:172
+#: src/crash.c
 msgid "Crash log and more details (recommended)"
 msgstr "سجل الأعطال ومزيد من التفاصيل (موصى به)"
 
-#: src/crash.c:173 src/viewer.c:73
+#: src/crash.c src/viewer.c
 msgid "Confirm"
 msgstr "تأكيد"
 
 #. TRANSLATORS: %s is the distribution, e.g. OpenATV.
-#: src/crash.c:175
+#: src/crash.c
 #, c-format
-msgid "Which information should be sent to the %s ticket system? You see everything before it is sent."
-msgstr "ما المعلومات التي تريد إرسالها إلى نظام التذاكر لدى %s؟ سترى كل شيء قبل إرساله."
+msgid ""
+"Which information should be sent to the %s ticket system? You see everything "
+"before it is sent."
+msgstr ""
+"ما المعلومات التي تريد إرسالها إلى نظام التذاكر لدى %s؟ سترى كل شيء قبل "
+"إرساله."
 
-#: src/crash.c:198
+#: src/crash.c
 msgid "Crash reports are not installed. The CrashReport plugin provides them."
 msgstr "تقارير الأعطال غير مثبّتة. توفرها إضافة CrashReport."
 
-#: src/crash.c:211
+#: src/crash.c
 msgid "crashreport cannot be started."
 msgstr "لا يمكن تشغيل crashreport."
 
-#: src/crash.c:218
+#: src/crash.c
 msgid "Sending the crash report."
 msgstr "جارٍ إرسال تقرير العطل."
 
-#: src/crash.c:218
+#: src/crash.c
 msgid "Preparing the crash report."
 msgstr "جارٍ تجهيز تقرير العطل."
 
-#: src/crash.c:222
+#: src/crash.c
 #, c-format
-msgid "Tracking number: %s\n\nScan the QR code or open the link on a phone or PC. Sign in and describe what happened, so the developers can help. The report stays open for 48 hours."
-msgstr "رقم التتبع: %s\n\nامسح رمز QR أو افتح الرابط على هاتف أو حاسوب. سجّل الدخول وصِف ما حدث، حتى يتمكن المطورون من المساعدة. يبقى التقرير مفتوحًا لمدة 48 ساعة."
+msgid ""
+"Tracking number: %s\n"
+"\n"
+"Scan the QR code or open the link on a phone or PC. Sign in and describe "
+"what happened, so the developers can help. The report stays open for 48 "
+"hours."
+msgstr ""
+"رقم التتبع: %s\n"
+"\n"
+"امسح رمز QR أو افتح الرابط على هاتف أو حاسوب. سجّل الدخول وصِف ما حدث، حتى "
+"يتمكن المطورون من المساعدة. يبقى التقرير مفتوحًا لمدة 48 ساعة."
 
-#: src/crash.c:228
+#: src/crash.c
 msgid "The crash report was not sent."
 msgstr "لم يتم إرسال تقرير العطل."
 
-#: src/console.c:88 src/viewer.c:71
+#: src/console.c src/viewer.c
 msgid "Yes"
 msgstr "نعم"
 
-#: src/console.c:89 src/viewer.c:72
+#: src/console.c src/viewer.c
 msgid "No"
 msgstr "لا"
 
-#: src/console.c:90
+#: src/console.c
 msgid "Answer"
 msgstr "رد"
 
-#: src/slots.c:176 src/slots.c:193
+#: src/slots.c
 msgid "Loading the multiboot selector from GitHub."
 msgstr "جارٍ تحميل أداة اختيار الإقلاع المتعدد من GitHub."
 
-#: src/slots.c:177
+#: src/slots.c
 msgid "Looking for the newest release..."
 msgstr "جارٍ البحث عن أحدث إصدار..."
 
-#: src/slots.c:238
+#: src/slots.c
 msgid "Looking for the images in the slots."
 msgstr "جارٍ البحث عن الصور في الفتحات."
 
-#: src/slots.c:251
+#: src/slots.c
 msgid "Boot"
 msgstr "إقلاع"
 
-#: src/slots.c:253
+#: src/slots.c
 #, c-format
 msgid "Slot %s: %s"
 msgstr "الفتحة %s: %s"
 
-#: src/slots.c:256
+#: src/slots.c
 msgid "Which slot should the receiver start?"
 msgstr "من أي فتحة يجب أن يقلع الجهاز؟"
 
-#: src/slots.c:280
-msgid "The multiboot selector could not be loaded from GitHub. The receiver needs a network connection for it."
-msgstr "تعذّر تحميل أداة اختيار الإقلاع المتعدد من GitHub. يحتاج الجهاز لذلك إلى اتصال بالشبكة."
+#: src/slots.c
+msgid ""
+"The multiboot selector could not be loaded from GitHub. The receiver needs a "
+"network connection for it."
+msgstr ""
+"تعذّر تحميل أداة اختيار الإقلاع المتعدد من GitHub. يحتاج الجهاز لذلك إلى "
+"اتصال بالشبكة."
 
-#: src/slots.c:297
+#: src/slots.c
 msgid "The slots could not be read."
 msgstr "تعذّرت قراءة الفتحات."
 
-#: src/slots.c:302
+#: src/slots.c
 msgid "There is no slot to boot."
 msgstr "لا توجد فتحة للإقلاع منها."
 
-#: src/slots.c:311
+#: src/slots.c
 msgid "Switching to the slot."
 msgstr "جارٍ التبديل إلى الفتحة."
 
-#: src/slots.c:318
+#: src/slots.c
 msgid "The slot could not be switched."
 msgstr "تعذّر تبديل الفتحة."
 
-#: src/plugins.c:33
+#: src/plugins.c
 msgid "Plugin"
 msgstr "إضافة"
 
-#: src/plugins.c:34
+#: src/plugins.c
 msgid "System plugin"
 msgstr "إضافة نظام"
 
-#: src/plugins.c:35
+#: src/plugins.c
 msgid "Screen"
 msgstr "شاشة"
 
-#: src/plugins.c:36
+#: src/plugins.c
 msgid "Tool"
 msgstr "أداة"
 
-#: src/plugins.c:37
+#: src/plugins.c
 msgid "Converter"
 msgstr "Converter"
 
-#: src/plugins.c:38
+#: src/plugins.c
 msgid "Renderer"
 msgstr "Renderer"
 
-#: src/plugins.c:181
+#: src/plugins.c
 msgid "Stopped responding while loading"
 msgstr "توقف عن الاستجابة أثناء التحميل"
 
-#: src/plugins.c:183
+#: src/plugins.c
 msgid "Python error while loading"
 msgstr "خطأ Python أثناء التحميل"
 
-#: src/plugins.c:185
+#: src/plugins.c
 #, c-format
 msgid "Crashed while loading (%s)"
 msgstr "تعطّل أثناء التحميل (%s)"
 
-#: src/plugins.c:187
+#: src/plugins.c
 msgid "Crashed while loading"
 msgstr "تعطّل أثناء التحميل"
 
-#: src/plugins.c:238
+#: src/plugins.c
 #, c-format
 msgid "Needed by %.63s"
 msgstr "مطلوب من %.63s"
 
-#: src/plugins.c:274
+#: src/plugins.c
 #, c-format
 msgid "Needs %s (%s), which is disabled"
 msgstr "يحتاج إلى %s (%s)، وهو معطّل"
 
-#: src/plugins.c:277
+#: src/plugins.c
 #, c-format
 msgid "Failed to load: %.140s"
 msgstr "فشل التحميل: %.140s"
 
-#: src/plugins.c:277
+#: src/plugins.c
 msgid "unknown error"
 msgstr "خطأ غير معروف"
 
-#: src/plugins.c:306
+#: src/plugins.c
 msgid "In the traceback of the crash"
 msgstr "موجود في تتبع العطل"
 
-#: src/plugins.c:326
+#: src/plugins.c
 #, c-format
 msgid "%s is there twice, remove one of them first."
 msgstr "%s موجود مرتين، احذف إحدى النسختين أولاً."
 
-#: src/plugins.c:381
+#: src/plugins.c
 #, c-format
 msgid "No file of %s was found."
 msgstr "لم يتم العثور على أي ملف لـ %s."
 
-#: src/plugins.c:547
+#: src/plugins.c
 #, c-format
 msgid "the skin %s"
 msgstr "الواجهة %s"
 
-#: src/plugins.c:552
+#: src/plugins.c
 #, c-format
 msgid " and %d more"
 msgid_plural " and %d more"
@@ -913,46 +1019,57 @@ msgstr[3] " و%d أخرى"
 msgstr[4] " و%d أخرى"
 msgstr[5] " و%d أخرى"
 
-#: src/plugins.c:603
+#: src/plugins.c
 msgid "Enable"
 msgstr "تفعيل"
 
-#: src/plugins.c:603 src/plugins.c:649
+#: src/plugins.c
 msgid "Disable"
 msgstr "تعطيل"
 
-#: src/plugins.c:605
-msgid "The plugin that caused the problem is marked. Changes take effect when Enigma2 starts again."
-msgid_plural "The plugins that caused the problem are marked. Changes take effect when Enigma2 starts again."
-msgstr[0] "الإضافات التي سببت المشكلة محددة. تسري التغييرات عند تشغيل Enigma2 من جديد."
-msgstr[1] "الإضافة التي سببت المشكلة محددة. تسري التغييرات عند تشغيل Enigma2 من جديد."
-msgstr[2] "الإضافتان اللتان سببتا المشكلة محددتان. تسري التغييرات عند تشغيل Enigma2 من جديد."
-msgstr[3] "الإضافات التي سببت المشكلة محددة. تسري التغييرات عند تشغيل Enigma2 من جديد."
-msgstr[4] "الإضافات التي سببت المشكلة محددة. تسري التغييرات عند تشغيل Enigma2 من جديد."
-msgstr[5] "الإضافات التي سببت المشكلة محددة. تسري التغييرات عند تشغيل Enigma2 من جديد."
+#: src/plugins.c
+msgid ""
+"The plugin that caused the problem is marked. Changes take effect when "
+"Enigma2 starts again."
+msgid_plural ""
+"The plugins that caused the problem are marked. Changes take effect when "
+"Enigma2 starts again."
+msgstr[0] ""
+"الإضافات التي سببت المشكلة محددة. تسري التغييرات عند تشغيل Enigma2 من جديد."
+msgstr[1] ""
+"الإضافة التي سببت المشكلة محددة. تسري التغييرات عند تشغيل Enigma2 من جديد."
+msgstr[2] ""
+"الإضافتان اللتان سببتا المشكلة محددتان. تسري التغييرات عند تشغيل Enigma2 من "
+"جديد."
+msgstr[3] ""
+"الإضافات التي سببت المشكلة محددة. تسري التغييرات عند تشغيل Enigma2 من جديد."
+msgstr[4] ""
+"الإضافات التي سببت المشكلة محددة. تسري التغييرات عند تشغيل Enigma2 من جديد."
+msgstr[5] ""
+"الإضافات التي سببت المشكلة محددة. تسري التغييرات عند تشغيل Enigma2 من جديد."
 
-#: src/plugins.c:609
+#: src/plugins.c
 msgid "Changes take effect when Enigma2 starts again."
 msgstr "تسري التغييرات عند تشغيل Enigma2 من جديد."
 
-#: src/plugins.c:610
+#: src/plugins.c
 msgid "Name"
 msgstr "الاسم"
 
-#: src/plugins.c:610
+#: src/plugins.c
 msgid "Type"
 msgstr "النوع"
 
-#: src/plugins.c:610
+#: src/plugins.c
 msgid "Problem"
 msgstr "المشكلة"
 
-#: src/plugins.c:614
+#: src/plugins.c
 #, c-format
 msgid "%s (disabled)"
 msgstr "%s (معطّل)"
 
-#: src/plugins.c:630
+#: src/plugins.c
 #, c-format
 msgid "%s (%d disabled)"
 msgid_plural "%s (%d disabled)"
@@ -963,41 +1080,47 @@ msgstr[3] "%s (المعطّلة: %d)"
 msgstr[4] "%s (المعطّلة: %d)"
 msgstr[5] "%s (المعطّلة: %d)"
 
-#: src/plugins.c:643
+#: src/plugins.c
 msgid "Checking what uses it..."
 msgstr "جارٍ التحقق مما يستخدمه..."
 
-#: src/plugins.c:647
+#: src/plugins.c
 #, c-format
-msgid "%s is used by %s.\n\nThey will not load while it is disabled. Disable anyway?"
-msgstr "%s مستخدَم من قبل %s.\n\nلن يتم تحميلها ما دام معطّلاً. هل تريد التعطيل على أي حال؟"
+msgid ""
+"%s is used by %s.\n"
+"\n"
+"They will not load while it is disabled. Disable anyway?"
+msgstr ""
+"%s مستخدَم من قبل %s.\n"
+"\n"
+"لن يتم تحميلها ما دام معطّلاً. هل تريد التعطيل على أي حال؟"
 
-#: src/plugins.c:692
+#: src/plugins.c
 msgid "No plugins were found."
 msgstr "لم يتم العثور على إضافات."
 
-#: src/update.c:283
+#: src/update.c
 msgid "feed status unknown"
 msgstr "حالة المصدر غير معروفة"
 
-#: src/update.c:283
+#: src/update.c
 msgid "feed disabled"
 msgstr "المصدر معطّل"
 
-#: src/update.c:283
+#: src/update.c
 msgid "feed unstable"
 msgstr "المصدر غير مستقر"
 
-#: src/update.c:284
+#: src/update.c
 msgid "feed stable"
 msgstr "المصدر مستقر"
 
-#: src/update.c:297
+#: src/update.c
 #, c-format
 msgid "Warning: more than %d packages, flashing a new image is safer."
 msgstr "تحذير: أكثر من %d حزمة، تثبيت صورة جديدة أكثر أمانًا."
 
-#: src/update.c:304
+#: src/update.c
 #, c-format
 msgid "%d package"
 msgid_plural "%d packages"
@@ -1008,103 +1131,107 @@ msgstr[3] "%d حزم"
 msgstr[4] "%d حزمةً"
 msgstr[5] "%d حزمة"
 
-#: src/update.c:306
+#: src/update.c
 msgid "Package"
 msgstr "الحزمة"
 
-#: src/update.c:306
+#: src/update.c
 msgid "Installed"
 msgstr "المثبّت"
 
-#: src/update.c:306
+#: src/update.c
 msgid "New"
 msgstr "الجديد"
 
-#: src/update.c:307
+#: src/update.c
 msgid "Update now"
 msgstr "تحديث الآن"
 
-#: src/update.c:328
+#: src/update.c
 msgid "Checking the status of the feed."
 msgstr "جارٍ التحقق من حالة مصدر التحديثات."
 
-#: src/update.c:331
-msgid "The feed of this image is being updated or is disabled right now. Please try the update again later."
-msgstr "مصدر تحديثات هذه الصورة قيد التحديث أو معطّل حاليًا. يرجى إعادة محاولة التحديث لاحقًا."
+#: src/update.c
+msgid ""
+"The feed of this image is being updated or is disabled right now. Please try "
+"the update again later."
+msgstr ""
+"مصدر تحديثات هذه الصورة قيد التحديث أو معطّل حاليًا. يرجى إعادة محاولة التحديث "
+"لاحقًا."
 
-#: src/update.c:335
+#: src/update.c
 msgid "Updating the package lists"
 msgstr "جارٍ تحديث قوائم الحزم"
 
-#: src/update.c:348
+#: src/update.c
 msgid "The package lists could not be updated."
 msgstr "تعذّر تحديث قوائم الحزم."
 
-#: src/update.c:357
+#: src/update.c
 msgid "Looking for updates."
 msgstr "جارٍ البحث عن تحديثات."
 
-#: src/update.c:363
+#: src/update.c
 msgid "There are no updates available."
 msgstr "لا توجد تحديثات متاحة."
 
-#: src/update.c:372
+#: src/update.c
 msgid "Updating"
 msgstr "التحديث"
 
-#: src/update.c:397
+#: src/update.c
 msgid "The update is finished, restart the receiver in the menu."
 msgstr "اكتمل التحديث، أعد تشغيل الجهاز من القائمة."
 
-#: src/update.c:399
+#: src/update.c
 #, c-format
 msgid "The update failed, see %s."
 msgstr "فشل التحديث، راجع %s."
 
-#: src/about.c:55
+#: src/about.c
 msgid "The license is empty."
 msgstr "الترخيص فارغ."
 
-#: src/about.c:78
+#: src/about.c
 msgid "Free software under the GPLv3. OK shows the full license of each part."
 msgstr "برنامج حر بترخيص GPLv3. يعرض OK الترخيص الكامل لكل جزء."
 
-#: src/about.c:79
+#: src/about.c
 msgid "Component"
 msgstr "المكوّن"
 
-#: src/about.c:79
+#: src/about.c
 msgid "Part"
 msgstr "الجزء"
 
-#: src/about.c:79 src/about.c:80
+#: src/about.c
 msgid "License"
 msgstr "الترخيص"
 
-#: src/ui.c:1163
+#: src/ui.c
 msgid "Error"
 msgstr "خطأ"
 
-#: src/ui.c:1164
+#: src/ui.c
 msgid "ERROR"
 msgstr "خطأ"
 
-#: include/licenses.h:13
+#: include/licenses.h
 msgid "this application"
 msgstr "هذا التطبيق"
 
-#: include/licenses.h:688
+#: include/licenses.h
 msgid "the graphics library"
 msgstr "مكتبة الرسوميات"
 
-#: include/licenses.h:697
+#: include/licenses.h
 msgid "by Project Nayuki, part of LVGL"
 msgstr "من Project Nayuki، جزء من LVGL"
 
-#: include/licenses.h:706
+#: include/licenses.h
 msgid "the font"
 msgstr "الخط"
 
-#: include/licenses.h:808
+#: include/licenses.h
 msgid "the icons"
 msgstr "الأيقونات"
