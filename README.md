@@ -38,9 +38,10 @@ ORM speaks the language of Enigma2: `config.osd.language`, else
 another one until ORM ends. A language needs its catalog and its locale, else
 ORM stays English; the output of opkg, ofgwrite and the plugins stays as it is.
 
-`recovery-manager --manual` shows the same menu on request. For SSH or
-support, `touch /etc/enigma2/.orm-once` and a restart of Enigma2 open it once
-instead of Enigma2.
+`recovery-manager` shows the same menu on request, after `init 4`; while
+Enigma2 runs it only says so. From a shell, the first entry ends ORM, YELLOW
+reboots and RED powers off. For SSH or support, `touch /etc/enigma2/.orm-once`
+and a restart of Enigma2 open it once instead of Enigma2.
 
 ORM logs every message of the socket with its time to `/tmp/orm.log`,
 the log of the previous start is kept as `/tmp/orm.log.last`.

@@ -752,7 +752,7 @@ static void usage(FILE *out, const char *program)
 		"Steps in when Enigma2 does not start, e.g. after a broken update or plugin: shows where the start\n"
 		"stopped and offers to restart, disable plugins, update, reset, back up, flash and Remote Support.\n"
 		"\n"
-		"Usage: %s --manual              show the recovery menu on request\n"
+		"Usage: %s                       show the recovery menu, with Enigma2 stopped\n"
 		"       %s --crash RESULT [PID]  show the recovery menu after a failed start, PID ends the watch\n"
 		"       %s --watch RESULT        watch the start of enigma2 (from enigma2.sh)\n"
 		"       %s --version\n"
@@ -763,6 +763,24 @@ static void usage(FILE *out, const char *program)
 		"  printf 'failed=1\\nreason=crash\\nready=0\\nuptime=0\\nstep=Plugin AutoTimer\\ncrash=11\\n'"
 		" > /tmp/orm.result\n",
 		orm_version(), program, program, program, program, program);
+}
+
+/* The menu on request, from enigma2.sh or a shell. */
+static int run_manual(void)
+{
+	int action;
+	if (watch_enigma2_running()) {  /* Both would draw on the screen and read the remote control. */
+		fprintf(stderr, "Enigma2 is running, stop it first with init 4.\n");
+		return ACTION_START;
+	}
+	if ((from_shell = started_from_shell())) {
+		names[0] = N_("Exit");
+		icons[0] = UI_ICON_EXIT;
+	}
+	action = run_menu(NULL, 0);
+	if (from_shell)
+		power(action);
+	return action;
 }
 
 int main(int argc, char **argv)
@@ -781,17 +799,8 @@ int main(int argc, char **argv)
 			return ACTION_START;
 		return run_menu(&result, COUNTDOWN_SECONDS);
 	}
-	if (argc == 2 && strcmp(argv[1], "--manual") == 0) {
-		int action;
-		if ((from_shell = started_from_shell())) {
-			names[0] = N_("Exit");
-			icons[0] = UI_ICON_EXIT;
-		}
-		action = run_menu(NULL, 0);
-		if (from_shell)
-			power(action);
-		return action;
-	}
+	if (argc == 1 || (argc == 2 && strcmp(argv[1], "--manual") == 0))  /* enigma2.sh still passes --manual. */
+		return run_manual();
 	if (argc == 2 && strcmp(argv[1], "--version") == 0) {
 		printf("recovery-manager %s\n", orm_version());
 		return 0;

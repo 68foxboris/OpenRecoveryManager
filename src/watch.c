@@ -114,13 +114,15 @@ static void drain(int fd, struct watch_state *state)
 	}
 }
 
-/* The process enigma2 itself; enigma2.sh starts it in a subshell. */
-static void kill_enigma2(void)
+/* The processes enigma2 itself, killed when kill_them; enigma2.sh starts it in a subshell. Returns their
+ * number. */
+static int enigma2_processes(int kill_them)
 {
 	DIR *proc = opendir("/proc");
 	const struct dirent *entry;
+	int count = 0;
 	if (!proc)
-		return;
+		return 0;
 	while ((entry = readdir(proc))) {
 		char path[64];
 		char comm[32] = "";
@@ -132,11 +134,25 @@ static void kill_enigma2(void)
 		file = fopen(path, "r");
 		if (!file)
 			continue;
-		if (fgets(comm, sizeof(comm), file) && strcmp(comm, "enigma2\n") == 0)
-			kill((pid_t)pid, SIGKILL);
+		if (fgets(comm, sizeof(comm), file) && strcmp(comm, "enigma2\n") == 0) {
+			count++;
+			if (kill_them)
+				kill((pid_t)pid, SIGKILL);
+		}
 		fclose(file);
 	}
 	closedir(proc);
+	return count;
+}
+
+static void kill_enigma2(void)
+{
+	enigma2_processes(1);
+}
+
+int watch_enigma2_running(void)
+{
+	return enigma2_processes(0) > 0;
 }
 
 static int write_result(const char *path, const struct watch_state *state)
