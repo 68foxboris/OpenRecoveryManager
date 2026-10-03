@@ -4,6 +4,7 @@
 
 #include "i18n.h"
 #include "lvgl.h"
+#include "process.h"
 #include "qrcodegen.h"
 
 #include <errno.h>
@@ -399,17 +400,16 @@ static void busy_update(void)
 		elapsed = NULL;
 		return;
 	}
-	if (!spinner) {
-		spinner = lv_spinner_create(detail);
-		lv_spinner_set_anim_params(spinner, 1200, 240);
+	if (!spinner) {  /* Above the screens, a new one would start its turn again. */
+		spinner = lv_spinner_create(lv_layer_top());
+		lv_spinner_set_anim_params(spinner, 2000, 240);  /* Calm, one turn in two seconds. */
 		lv_obj_set_size(spinner, px(40), px(40));
-		lv_obj_set_floating(spinner, true);
-		lv_obj_align(spinner, i18n_rtl() ? LV_ALIGN_TOP_LEFT : LV_ALIGN_TOP_RIGHT, 0, 0);
 		lv_obj_set_style_arc_width(spinner, px(5), LV_PART_MAIN);
 		lv_obj_set_style_arc_width(spinner, px(5), LV_PART_INDICATOR);
 		lv_obj_set_style_arc_color(spinner, lv_color_hex(COLOR_LINE), LV_PART_MAIN);
 		lv_obj_set_style_arc_color(spinner, lv_color_hex(COLOR_FOCUS), LV_PART_INDICATOR);
 	}
+	lv_obj_align_to(spinner, detail, i18n_rtl() ? LV_ALIGN_TOP_LEFT : LV_ALIGN_TOP_RIGHT, 0, 0);
 	if (!elapsed) {
 		lv_obj_set_flex_grow(box(footer), 1);
 		elapsed = label(footer, "", FONT_SMALL, COLOR_MUTED);
@@ -423,6 +423,13 @@ static void busy_update(void)
 			lv_label_set_text(elapsed, text);
 	}
 	lv_timer_handler();  /* Turns the spinner. */
+}
+
+/* While a command runs. */
+static void animate(void)
+{
+	if (display && active && active->screen && busy)
+		busy_update();
 }
 
 int ui_offers_ok(void)
@@ -526,6 +533,8 @@ static void build_base(void)
 	lv_obj_t *screen = lv_screen_active();
 	lv_obj_t *body;
 	lv_obj_clean(screen);
+	if (spinner)
+		lv_obj_delete(spinner);
 	spinner = NULL;
 	elapsed = NULL;
 	footer_key_count = 0;
@@ -705,8 +714,6 @@ static lv_obj_t *page(const char *title)
 	lv_obj_t *parent = modal ? modal : detail;
 	lv_obj_t *root;
 	lv_obj_clean(parent);
-	if (parent == detail)
-		spinner = NULL;  /* Cleaned with it. */
 	root = column(parent, px(24));
 	if (!modal)
 		lv_obj_set_height(root, LV_PCT(100));
@@ -748,6 +755,7 @@ static void open_device(struct ui_context *ui)
 static int display_setup(const struct ui_context *ui)
 {
 	if (display) {  /* Another mode, e.g. after ofgwrite. */
+		spinner = NULL;  /* Deleted with its layer. */
 		lv_display_delete(display);
 		free(draw_buffer);
 	}
@@ -798,6 +806,7 @@ int ui_open(struct ui_context *ui)
 	if (!display) {
 		lv_init();
 		lv_tick_set_cb(milliseconds);
+		process_set_idle(animate, 30);
 	}
 	if (!display || screen_width != (int)ui->var.xres || screen_height != (int)ui->var.yres) {
 		if (!display_setup(ui))

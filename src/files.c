@@ -3,6 +3,7 @@
 #include "files.h"
 
 #include "i18n.h"
+#include "process.h"
 #include "viewer.h"
 
 #include <dirent.h>
@@ -50,6 +51,7 @@ static int add_size(const char *path, const struct stat *info, int type, struct 
 	(void)type;
 	(void)ftw;
 	walked += (long long)info->st_blocks * 512;
+	process_idle();  /* Turns the spinner. */
 	return 0;
 }
 
@@ -65,6 +67,7 @@ static int remove_one(const char *path, const struct stat *info, int type, struc
 	(void)info;
 	(void)type;
 	(void)ftw;
+	process_idle();
 	return remove(path) != 0 ? errno : 0;  /* NOSONAR deleting what the user chose is the purpose */
 }
 

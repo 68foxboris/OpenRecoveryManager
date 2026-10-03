@@ -2,6 +2,8 @@
 
 #include "input.h"
 
+#include "process.h"
+
 #include <dirent.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -172,7 +174,6 @@ static enum input_key read_device(const struct input_context *ctx, int i)
 enum input_key input_wait(const struct input_context *ctx, int timeout_ms)
 {
 	fd_set read_set;
-	struct timeval timeout;
 	int maximum;
 	int result;
 
@@ -184,10 +185,7 @@ enum input_key input_wait(const struct input_context *ctx, int timeout_ms)
 		return INPUT_NONE;
 	}
 	maximum = fill_set(ctx, &read_set);
-	timeout.tv_sec = timeout_ms / 1000;
-	timeout.tv_usec = (timeout_ms % 1000) * 1000;
-	result = select(maximum + 1, &read_set, NULL, NULL,
-		timeout_ms < 0 ? NULL : &timeout);
+	result = process_select(maximum, &read_set, timeout_ms);  /* Turns the spinner meanwhile. */
 	if (result <= 0)
 		return INPUT_NONE;
 	for (int i = 0; i < ctx->count; ++i) {
