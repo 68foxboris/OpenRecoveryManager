@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ORM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-01 22:28+0000\n"
+"POT-Creation-Date: 2026-10-03 11:03+0000\n"
 "PO-Revision-Date: 2026-09-30 08:40+0200\n"
 "Last-Translator: OE-Alliance Open Recovery Manager contributors\n"
 "Language-Team: German\n"
@@ -17,16 +17,36 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/main.c
-msgid "REQUESTED"
-msgstr "ANGEFORDERT"
+msgid "STARTED FROM THE CONSOLE"
+msgstr "ÜBER DIE KONSOLE GESTARTET"
 
 #: src/main.c
 msgid "Enigma2 is stopped"
-msgstr "Enigma2 ist beendet"
+msgstr "Enigma2 ist gestoppt"
 
 #: src/main.c
-msgid "The Open Recovery Manager was started on request."
-msgstr "Der Open Recovery Manager wurde auf Anforderung gestartet."
+msgid ""
+"Recovery Manager runs from a console session. After it ends, Enigma2 can be "
+"started again with init 3."
+msgstr ""
+"Recovery Manager läuft aus einer Konsolen-Sitzung. Nach dem Beenden kann "
+"Enigma2 mit init 3 neu gestartet werden."
+
+#: src/main.c
+msgid "OPENED FROM THE MENU"
+msgstr "AUS DEM MENÜ GEÖFFNET"
+
+#: src/main.c
+msgid "Enigma2 is paused"
+msgstr "Enigma2 pausiert"
+
+#: src/main.c
+msgid ""
+"Recovery Manager was opened from the menu. After it ends, Enigma2 starts "
+"again on its own."
+msgstr ""
+"Recovery Manager wurde über das Menü geöffnet. Nach dem Beenden startet "
+"Enigma2 automatisch neu."
 
 #: src/main.c
 msgid "ENIGMA2 STOPPED RESPONDING WHILE STARTING"
@@ -263,12 +283,8 @@ msgid "Restarts the receiver with the image of another slot."
 msgstr "Startet den Receiver mit dem Image eines anderen Slots neu."
 
 #: src/main.c
-msgid ""
-"Ends the Open Recovery Manager. Enigma2 stays stopped until it is started "
-"again, e.g. with init 3."
-msgstr ""
-"Beendet den Open Recovery Manager. Enigma2 bleibt beendet, bis es wieder "
-"gestartet wird, zum Beispiel mit init 3."
+msgid "Ends the Open Recovery Manager. Enigma2 stays stopped."
+msgstr "Beendet den Open Recovery Manager. Enigma2 bleibt beendet."
 
 #: src/main.c
 #, c-format

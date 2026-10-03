@@ -57,7 +57,7 @@ LV_FONT_DECLARE(orm_font_32)
 #define DRAW_ROWS 120  /* Of the screen, drawn at once. */
 
 enum font_role { FONT_LOG, FONT_SMALL, FONT_TEXT, FONT_ITEM, FONT_HEAD };
-enum card_kind { CARD_INFO, CARD_WARN, CARD_ERROR };
+enum card_kind { CARD_INFO, CARD_WARN, CARD_ERROR, CARD_MUTED };
 
 static struct ui_context *active;  /* The open framebuffer. */
 static lv_display_t *display;
@@ -327,9 +327,9 @@ static void scrollbar(lv_obj_t *parent, int height, int count, int first, int ro
 
 static void card(lv_obj_t *parent, const char *title, const char *text, enum card_kind kind, int large)
 {
-	static const uint32_t grounds[] = {COLOR_SURFACE, COLOR_WARN_GROUND, 0x2a1414};
-	static const uint32_t borders[] = {COLOR_LINE, COLOR_WARN_LINE, 0x6b2525};
-	static const uint32_t titles[] = {COLOR_BLUE, COLOR_WARN, COLOR_RED};
+	static const uint32_t grounds[] = {0x10223a, COLOR_WARN_GROUND, 0x2a1414, COLOR_SURFACE};
+	static const uint32_t borders[] = {0x24507f, COLOR_WARN_LINE, 0x6b2525, COLOR_LINE};
+	static const uint32_t titles[] = {COLOR_BLUE, COLOR_WARN, COLOR_RED, COLOR_MUTED};
 	lv_obj_t *obj = column(parent, px(8));
 	const char *rest = large ? strchr(text, '\n') : NULL;
 	fill(obj, grounds[kind]);
@@ -921,12 +921,17 @@ void ui_preview(const struct ui_context *ui, const struct ui_card_page *p)
 {
 	uint64_t hash = hash_int(14695981039346656037ULL, 8);
 	(void)ui;
-	hash = hash_text(hash_text(hash_text(hash_text(hash_text(hash_text(hash_int(hash, p->warn), p->title),
+	hash = hash_text(hash_text(hash_text(hash_text(hash_text(hash_text(hash_int(hash_int(hash, p->warn), p->muted), p->title),
 		p->card_title), p->card), p->body), p->info), p->footer);
 	if (display && !same_frame(hash)) {
 		lv_obj_t *root = page(NULL);
 		if (p->card) {
-			card(root, p->card_title, p->card, p->warn ? CARD_WARN : CARD_INFO, 1);
+			enum card_kind kind = CARD_INFO;
+			if (p->warn)
+				kind = CARD_WARN;
+			else if (p->muted)
+				kind = CARD_MUTED;
+			card(root, p->card_title, p->card, kind, 1);
 			root = column(root, px(24));  /* In line with the text of the card. */
 			lv_obj_set_width(root, LV_PCT(100));
 			lv_obj_set_style_pad_hor(root, px(30), 0);

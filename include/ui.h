@@ -58,7 +58,8 @@ struct ui_card_page {
 	const char *title;
 	const char *card_title;
 	const char *card;
-	int warn;
+	int warn;  /* Orange, e.g. a crash. */
+	int muted;  /* Grey, e.g. started from a console. */
 	const char *body;
 	const char *info;
 	const char *footer;
