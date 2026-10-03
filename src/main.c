@@ -59,14 +59,21 @@ static void signal_handler(int signal_number)
 }
 
 /* What happened for the card of the menu: its title and the last step, below it the signal. Without a
- * result ORM was started on request. */
+ * result ORM was opened from the menu of enigma2 or started from a console. */
 static void describe(const struct watch_result *result, char *title, size_t title_size, char *text,
 	size_t text_size)
 {
 	char detail[96] = "";
+	if (!result && from_shell) {
+		snprintf(title, title_size, "%s", _("STARTED FROM THE CONSOLE"));
+		snprintf(text, text_size, "%s\n%s", _("Enigma2 is stopped"), _("Recovery Manager runs from a console session. "
+			"After it ends, Enigma2 can be started again with init 3."));
+		return;
+	}
 	if (!result) {
-		snprintf(title, title_size, "%s", _("REQUESTED"));
-		snprintf(text, text_size, "%s\n%s", _("Enigma2 is stopped"), _("The Open Recovery Manager was started on request."));
+		snprintf(title, title_size, "%s", _("OPENED FROM THE MENU"));
+		snprintf(text, text_size, "%s\n%s", _("Enigma2 is paused"), _("Recovery Manager was opened from the menu. "
+			"After it ends, Enigma2 starts again on its own."));
 		return;
 	}
 	if (strcmp(result->reason, "hang") == 0)
@@ -376,8 +383,7 @@ static void preview(const struct ui_context *ui, int item, const struct watch_re
 	char card[512];
 	const char *extra = NULL;
 	if (from_shell)
-		texts[0] = N_("Ends the Open Recovery Manager. Enigma2 stays stopped until it is started again, e.g. with "
-			"init 3.");
+		texts[0] = N_("Ends the Open Recovery Manager. Enigma2 stays stopped.");
 	describe(result, card_title, sizeof(card_title), card, sizeof(card));
 	if (actions[item] == ACTION_START)
 		extra = info;
@@ -398,7 +404,7 @@ static void preview(const struct ui_context *ui, int item, const struct watch_re
 		snprintf(description, sizeof(description), "%s", _(texts[item]));
 	ui_preview(ui, &(struct ui_card_page){.title = _(names[item]),
 		.card_title = actions[item] == ACTION_START ? card_title : NULL,
-		.card = actions[item] == ACTION_START ? card : NULL, .warn = result != NULL,
+		.card = actions[item] == ACTION_START ? card : NULL, .warn = result != NULL, .muted = !result && from_shell,
 		.body = description, .info = extra, .footer = footer});
 }
 
@@ -752,7 +758,7 @@ static void usage(FILE *out, const char *program)
 		"Steps in when Enigma2 does not start, e.g. after a broken update or plugin: shows where the start\n"
 		"stopped and offers to restart, disable plugins, update, reset, back up, flash and Remote Support.\n"
 		"\n"
-		"Usage: %s --manual              show the recovery menu on request\n"
+		"Usage: %s                       show the recovery menu, with Enigma2 stopped\n"
 		"       %s --crash RESULT [PID]  show the recovery menu after a failed start, PID ends the watch\n"
 		"       %s --watch RESULT        watch the start of enigma2 (from enigma2.sh)\n"
 		"       %s --version\n"
@@ -763,6 +769,24 @@ static void usage(FILE *out, const char *program)
 		"  printf 'failed=1\\nreason=crash\\nready=0\\nuptime=0\\nstep=Plugin AutoTimer\\ncrash=11\\n'"
 		" > /tmp/orm.result\n",
 		orm_version(), program, program, program, program, program);
+}
+
+/* The menu on request, from enigma2.sh or a shell. */
+static int run_manual(void)
+{
+	int action;
+	if (watch_enigma2_running()) {  /* Both would draw on the screen and read the remote control. */
+		fprintf(stderr, "Enigma2 is running, stop it first with init 4.\n");
+		return ACTION_START;
+	}
+	if ((from_shell = started_from_shell())) {
+		names[0] = N_("Exit");
+		icons[0] = UI_ICON_EXIT;
+	}
+	action = run_menu(NULL, 0);
+	if (from_shell)
+		power(action);
+	return action;
 }
 
 int main(int argc, char **argv)
@@ -781,17 +805,8 @@ int main(int argc, char **argv)
 			return ACTION_START;
 		return run_menu(&result, COUNTDOWN_SECONDS);
 	}
-	if (argc == 2 && strcmp(argv[1], "--manual") == 0) {
-		int action;
-		if ((from_shell = started_from_shell())) {
-			names[0] = N_("Exit");
-			icons[0] = UI_ICON_EXIT;
-		}
-		action = run_menu(NULL, 0);
-		if (from_shell)
-			power(action);
-		return action;
-	}
+	if (argc == 1 || (argc == 2 && strcmp(argv[1], "--manual") == 0))  /* enigma2.sh still passes --manual. */
+		return run_manual();
 	if (argc == 2 && strcmp(argv[1], "--version") == 0) {
 		printf("recovery-manager %s\n", orm_version());
 		return 0;

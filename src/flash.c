@@ -556,6 +556,7 @@ static int remove_entry(const char *path, const struct stat *info, int flag, str
 	(void)info;
 	(void)flag;
 	(void)ftw;
+	process_idle();  /* Turns the spinner. */
 	return remove(path);
 }
 

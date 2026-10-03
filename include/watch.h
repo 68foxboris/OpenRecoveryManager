@@ -25,6 +25,8 @@ struct watch_result {
 int watch_run(const char *result_path);
 /* Ends the watch of pid and waits until it wrote the result. */
 void watch_stop(pid_t pid);
+/* 1 while an enigma2 process runs. */
+int watch_enigma2_running(void);
 int watch_read_result(const char *path, struct watch_result *result);
 /* SIGSEGV for "11" of crash=, NULL when unknown. */
 const char *watch_signal_name(const char *crash);

@@ -10,8 +10,8 @@
 #include <string.h>
 #include <unistd.h>
 
-/* The catalog folder, the locale and the name in the language itself. Languages whose script the
- * fonts lack are left out. */
+/* The catalog folder, the locale and the name in the language itself, by that name and script. Languages
+ * whose script the fonts lack are left out. */
 struct language {
 	const char *code;
 	const char *locale;
@@ -19,12 +19,12 @@ struct language {
 };
 
 static const struct language languages[] = {
-	{"en", "en_US", "English"},
 	{"ca", "ca_ES", "Català"},
 	{"cs", "cs_CZ", "Čeština"},
 	{"da", "da_DK", "Dansk"},
 	{"de", "de_DE", "Deutsch"},
 	{"et", "et_EE", "Eesti"},
+	{"en", "en_US", "English"},
 	{"es", "es_ES", "Español"},
 	{"fr", "fr_FR", "Français"},
 	{"hr", "hr_HR", "Hrvatski"},
@@ -43,13 +43,13 @@ static const struct language languages[] = {
 	{"sv", "sv_SE", "Svenska"},
 	{"tr", "tr_TR", "Türkçe"},
 	{"el", "el_GR", "Ελληνικά"},
-	{"ar", "ar_EG", "العربية"},
 	{"be", "be_BY", "Беларуская"},
 	{"bg", "bg_BG", "Български"},
 	{"mk", "mk_MK", "Македонски"},
 	{"ru", "ru_RU", "Русский"},
 	{"sr", "sr_RS", "Српски"},
 	{"uk", "uk_UA", "Українська"},
+	{"ar", "ar_EG", "العربية"},
 };
 #define LANGUAGE_COUNT (int)(sizeof(languages) / sizeof(languages[0]))
 
@@ -78,13 +78,14 @@ static int usable(const struct language *language)
 
 int language_other(void)
 {
-	for (int i = 1; i < LANGUAGE_COUNT; ++i)  /* Past English. */
-		if (usable(&languages[i]))
+	for (int i = 0; i < LANGUAGE_COUNT; ++i)
+		if (strcmp(languages[i].code, "en") && usable(&languages[i]))
 			return 1;
 	return 0;
 }
 
-/* The language of a locale like "de_DE" or "pt_BR.UTF-8": the one with that locale, else its language. */
+/* The language of a locale like "de_DE" or "pt_BR.UTF-8": the one with that locale, else its language, else
+ * English. */
 static int find(const char *locale)
 {
 	int i;
@@ -94,7 +95,7 @@ static int find(const char *locale)
 	for (i = 0; i < LANGUAGE_COUNT; ++i)
 		if (!strncmp(locale, languages[i].code, 2))
 			return i;
-	return 0;
+	return find("en_US");
 }
 
 void language_choose(const struct ui_context *ui, struct input_context *input, const volatile sig_atomic_t *stop)

@@ -4,6 +4,7 @@
 
 #include "boxinfo.h"
 #include "i18n.h"
+#include "process.h"
 
 #include <fcntl.h>
 #include <stdio.h>
@@ -189,14 +190,13 @@ static void read_output(struct console *c)
 int console_poll(struct console *c, int timeout_ms)
 {
 	fd_set read_set;
-	struct timeval timeout = {timeout_ms / 1000, (timeout_ms % 1000) * 1000};
 	if (waitpid(c->pid, NULL, WNOHANG) == c->pid) {
 		read_output(c);
 		return 1;
 	}
 	FD_ZERO(&read_set);
 	FD_SET(c->master, &read_set);
-	if (select(c->master + 1, &read_set, NULL, NULL, &timeout) > 0)
+	if (process_select(c->master, &read_set, timeout_ms) > 0)
 		read_output(c);
 	return 0;
 }

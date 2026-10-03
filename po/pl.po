@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ORM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-01 22:28+0000\n"
+"POT-Creation-Date: 2026-10-03 12:05+0000\n"
 "PO-Revision-Date: 2026-10-03 09:42+0100\n"
 "Last-Translator: StreamF\n"
 "Language-Team: Polish\n"
@@ -14,20 +14,41 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 3.9\n"
 
 #: src/main.c
-msgid "REQUESTED"
-msgstr "NA ŻĄDANIE"
+msgid "STARTED FROM THE CONSOLE"
+msgstr "URUCHOMIONO Z KONSOLI"
 
 #: src/main.c
 msgid "Enigma2 is stopped"
 msgstr "Enigma2 jest zatrzymana"
 
 #: src/main.c
-msgid "The Open Recovery Manager was started on request."
-msgstr "Open Recovery Manager został uruchomiony na żądanie."
+msgid ""
+"Recovery Manager runs from a console session. After it ends, Enigma2 can be "
+"started again with init 3."
+msgstr ""
+"Recovery Manager działa w sesji konsoli. Po jego zakończeniu Enigma2 można "
+"ponownie uruchomić poleceniem init 3."
+
+#: src/main.c
+msgid "OPENED FROM THE MENU"
+msgstr "OTWARTO Z MENU"
+
+#: src/main.c
+msgid "Enigma2 is paused"
+msgstr "Enigma2 jest wstrzymana"
+
+#: src/main.c
+msgid ""
+"Recovery Manager was opened from the menu. After it ends, Enigma2 starts "
+"again on its own."
+msgstr ""
+"Recovery Manager został otwarty z menu. Po jego zakończeniu Enigma2 uruchomi "
+"się ponownie automatycznie."
 
 #: src/main.c
 msgid "ENIGMA2 STOPPED RESPONDING WHILE STARTING"
@@ -85,7 +106,9 @@ msgstr "Plik"
 msgid "Size"
 msgstr "Rozmiar"
 
-#: src/main.c src/reset.c src/flash.c src/backup.c src/files.c src/crash.c src/console.c src/slots.c src/plugins.c src/about.c src/language.c src/viewer.c
+#: src/main.c src/reset.c src/flash.c src/backup.c src/files.c src/crash.c
+#: src/console.c src/slots.c src/plugins.c src/about.c src/language.c
+#: src/viewer.c
 msgid "Select"
 msgstr "Wybierz"
 
@@ -93,7 +116,8 @@ msgstr "Wybierz"
 msgid "Show"
 msgstr "Pokaż"
 
-#: src/main.c src/flash.c src/files.c src/plugins.c src/about.c src/language.c src/ui.c
+#: src/main.c src/flash.c src/files.c src/plugins.c src/about.c src/language.c
+#: src/ui.c
 msgid "Back"
 msgstr "Wstecz"
 
@@ -145,7 +169,8 @@ msgstr "Przełącz log"
 msgid "Socket log"
 msgstr "Log gniazda"
 
-#: src/main.c src/remote.c src/reset.c src/flash.c src/backup.c src/crash.c src/slots.c src/plugins.c src/update.c src/viewer.c
+#: src/main.c src/remote.c src/reset.c src/flash.c src/backup.c src/crash.c
+#: src/slots.c src/plugins.c src/update.c src/viewer.c
 msgid "Menu"
 msgstr "Menu"
 
@@ -198,40 +223,71 @@ msgid "Boot another slot"
 msgstr "Uruchom inny slot"
 
 #: src/main.c
-msgid "Starts Enigma2 again. If a plugin keeps it from starting, disable the plugin first."
-msgstr "Uruchamia ponownie Enigma2. Jeśli wtyczka blokuje uruchomienie, najpierw ją wyłącz."
+msgid ""
+"Starts Enigma2 again. If a plugin keeps it from starting, disable the plugin "
+"first."
+msgstr ""
+"Uruchamia ponownie Enigma2. Jeśli wtyczka blokuje uruchomienie, najpierw ją "
+"wyłącz."
 
 #: src/main.c
-msgid "Shows the newest crash log of Enigma2. BLUE shows the steps of the last start."
-msgstr "Pokazuje najnowszy log awarii Enigma2. NIEBIESKI pokazuje kroki ostatniego uruchomienia."
+msgid ""
+"Shows the newest crash log of Enigma2. BLUE shows the steps of the last "
+"start."
+msgstr ""
+"Pokazuje najnowszy log awarii Enigma2. NIEBIESKI pokazuje kroki ostatniego "
+"uruchomienia."
 
 #: src/main.c
-msgid "Keeps Enigma2 from loading a plugin, temporarily or permanently, and enables it again. A plugin that caused problems at the last start is marked and chosen at first."
-msgstr "Blokuje wczytywanie wtyczki przez Enigma2 tymczasowo lub na stałe oraz włącza ją ponownie. Wtyczka, która spowodowała problemy przy ostatnim uruchomieniu, jest oznaczona i wybrana jako pierwsza."
+msgid ""
+"Keeps Enigma2 from loading a plugin, temporarily or permanently, and enables "
+"it again. A plugin that caused problems at the last start is marked and "
+"chosen at first."
+msgstr ""
+"Blokuje wczytywanie wtyczki przez Enigma2 tymczasowo lub na stałe oraz "
+"włącza ją ponownie. Wtyczka, która spowodowała problemy przy ostatnim "
+"uruchomieniu, jest oznaczona i wybrana jako pierwsza."
 
 #: src/main.c
-msgid "Installs the latest updates for your receiver. You see the list and confirm before anything is installed."
-msgstr "Instaluje najnowsze aktualizacje odbiornika. Przed instalacją zobaczysz listę i potwierdzisz zmiany."
+msgid ""
+"Installs the latest updates for your receiver. You see the list and confirm "
+"before anything is installed."
+msgstr ""
+"Instaluje najnowsze aktualizacje odbiornika. Przed instalacją zobaczysz "
+"listę i potwierdzisz zmiany."
 
 #: src/main.c
-msgid "Resets Enigma2 to the state of a new installation. Your old settings are moved aside, so nothing is deleted for good."
-msgstr "Przywraca Enigma2 do stanu po nowej instalacji. Stare ustawienia są przenoszone na bok, więc nic nie zostaje trwale usunięte."
+msgid ""
+"Resets Enigma2 to the state of a new installation. Your old settings are "
+"moved aside, so nothing is deleted for good."
+msgstr ""
+"Przywraca Enigma2 do stanu po nowej instalacji. Stare ustawienia są "
+"przenoszone na bok, więc nic nie zostaje trwale usunięte."
 
 #: src/main.c
-msgid "Saves the running image as a zip file on a USB stick or hard disk, so it can be flashed again later."
-msgstr "Zapisuje uruchomiony obraz jako plik zip na pendrivie lub dysku twardym, aby można go było później ponownie wgrać."
+msgid ""
+"Saves the running image as a zip file on a USB stick or hard disk, so it can "
+"be flashed again later."
+msgstr ""
+"Zapisuje uruchomiony obraz jako plik zip na pendrivie lub dysku twardym, aby "
+"można go było później ponownie wgrać."
 
 #: src/main.c
-msgid "Flashes an image into the running slot, from the feed of the running distribution or from the media. A check with ofgwrite tests the image before anything is written."
-msgstr "Wgrywa obraz do uruchomionego slotu z repozytorium uruchomionej dystrybucji lub z nośnika. Przed zapisem obraz jest sprawdzany przez ofgwrite."
+msgid ""
+"Flashes an image into the running slot, from the feed of the running "
+"distribution or from the media. A check with ofgwrite tests the image before "
+"anything is written."
+msgstr ""
+"Wgrywa obraz do uruchomionego slotu z repozytorium uruchomionej dystrybucji "
+"lub z nośnika. Przed zapisem obraz jest sprawdzany przez ofgwrite."
 
 #: src/main.c
 msgid "Restarts the receiver with the image of another slot."
 msgstr "Uruchamia ponownie odbiornik z obrazem z innego slotu."
 
 #: src/main.c
-msgid "Ends the Open Recovery Manager. Enigma2 stays stopped until it is started again, e.g. with init 3."
-msgstr "Zamyka Open Recovery Manager. Enigma2 pozostaje zatrzymana do ponownego uruchomienia, np. poleceniem init 3."
+msgid "Ends the Open Recovery Manager. Enigma2 stays stopped."
+msgstr "Zamyka Open Recovery Manager. Enigma2 pozostaje zatrzymana."
 
 #: src/main.c
 #, c-format
@@ -241,8 +297,12 @@ msgstr "Najnowszy log awarii: %s"
 #. TRANSLATORS: %s is the distribution, e.g. OpenATV.
 #: src/main.c
 #, c-format
-msgid "Sends the crash report to the %s ticket system, so the developers can find the error. You see everything before it is sent."
-msgstr "Wysyła zgłoszenie awarii do systemu zgłoszeń %s, aby programiści mogli znaleźć błąd. Przed wysłaniem zobaczysz wszystkie dane."
+msgid ""
+"Sends the crash report to the %s ticket system, so the developers can find "
+"the error. You see everything before it is sent."
+msgstr ""
+"Wysyła zgłoszenie awarii do systemu zgłoszeń %s, aby programiści mogli "
+"znaleźć błąd. Przed wysłaniem zobaczysz wszystkie dane."
 
 #: src/main.c
 #, c-format
@@ -293,8 +353,12 @@ msgid "Exit"
 msgstr "Wyjdź"
 
 #: src/remote.c
-msgid "End the Remote Support session? The supporter can then no longer work on the receiver."
-msgstr "Zakończyć sesję zdalnej pomocy? Osoba pomagająca nie będzie mogła dalej pracować na odbiorniku."
+msgid ""
+"End the Remote Support session? The supporter can then no longer work on the "
+"receiver."
+msgstr ""
+"Zakończyć sesję zdalnej pomocy? Osoba pomagająca nie będzie mogła dalej "
+"pracować na odbiorniku."
 
 #: src/remote.c src/flash.c src/backup.c
 msgid "Cancel"
@@ -309,19 +373,28 @@ msgid "Connecting to the support server, this takes a few seconds."
 msgstr "Łączenie z serwerem pomocy, to potrwa kilka sekund."
 
 #: src/remote.c
-msgid "Scan the QR code with your phone and send the link to your supporter from there."
+msgid ""
+"Scan the QR code with your phone and send the link to your supporter from "
+"there."
 msgstr "Zeskanuj kod QR telefonem i wyślij z niego link osobie pomagającej."
 
 #: src/remote.c
 msgid "Send the link below to your supporter or let them scan the QR code."
-msgstr "Wyślij poniższy link osobie pomagającej lub pozwól jej zeskanować kod QR."
+msgstr ""
+"Wyślij poniższy link osobie pomagającej lub pozwól jej zeskanować kod QR."
 
 #: src/remote.c
-msgid "Approved users can open terminals. Everybody who joins later has to be approved as well."
-msgstr "Zatwierdzeni użytkownicy mogą otwierać terminale. Każdy, kto dołączy później, również musi zostać zatwierdzony."
+msgid ""
+"Approved users can open terminals. Everybody who joins later has to be "
+"approved as well."
+msgstr ""
+"Zatwierdzeni użytkownicy mogą otwierać terminale. Każdy, kto dołączy "
+"później, również musi zostać zatwierdzony."
 
 #: src/remote.c
-msgid "When somebody joins the session, you have to approve the access with the remote control."
+msgid ""
+"When somebody joins the session, you have to approve the access with the "
+"remote control."
 msgstr "Gdy ktoś dołączy do sesji, musisz zatwierdzić dostęp pilotem."
 
 #: src/remote.c
@@ -341,8 +414,13 @@ msgid "End session"
 msgstr "Zakończ sesję"
 
 #: src/remote.c
-msgid "Do not post the link or a screenshot of it in public forums: everybody who has it can try to join and sees the terminals until you deny the access."
-msgstr "Nie publikuj linku ani jego zrzutu ekranu na publicznych forach: każdy, kto go ma, może spróbować dołączyć i widzi terminale, dopóki nie odmówisz dostępu."
+msgid ""
+"Do not post the link or a screenshot of it in public forums: everybody who "
+"has it can try to join and sees the terminals until you deny the access."
+msgstr ""
+"Nie publikuj linku ani jego zrzutu ekranu na publicznych forach: każdy, kto "
+"go ma, może spróbować dołączyć i widzi terminale, dopóki nie odmówisz "
+"dostępu."
 
 #: src/remote.c
 msgid "Scan with your phone to send the link to your supporter"
@@ -362,8 +440,12 @@ msgstr ""
 "Terminale: %d"
 
 #: src/remote.c
-msgid "Not installed, it goes into RAM until the next restart, the flash stays as it is. Please wait..."
-msgstr "Nie jest instalowane na stałe, trafia do pamięci RAM do następnego uruchomienia, pamięć flash pozostaje bez zmian. Proszę czekać..."
+msgid ""
+"Not installed, it goes into RAM until the next restart, the flash stays as "
+"it is. Please wait..."
+msgstr ""
+"Nie jest instalowane na stałe, trafia do pamięci RAM do następnego "
+"uruchomienia, pamięć flash pozostaje bez zmian. Proszę czekać..."
 
 #: src/remote.c
 msgid "Installing into RAM"
@@ -378,8 +460,12 @@ msgid "Remote Support cannot be started."
 msgstr "Nie można uruchomić zdalnej pomocy."
 
 #: src/remote.c
-msgid "Start Remote Support? A supporter can then work on the receiver from the internet."
-msgstr "Uruchomić zdalną pomoc? Osoba pomagająca będzie mogła wtedy pracować na odbiorniku przez internet."
+msgid ""
+"Start Remote Support? A supporter can then work on the receiver from the "
+"internet."
+msgstr ""
+"Uruchomić zdalną pomoc? Osoba pomagająca będzie mogła wtedy pracować na "
+"odbiorniku przez internet."
 
 #: src/remote.c
 msgid "The Remote Support session ended."
@@ -405,20 +491,34 @@ msgstr "Wszystko, łącznie z listami kanałów i timerami"
 
 #: src/reset.c
 #, c-format
-msgid "What should be reset? Enigma2 then starts with the wizard, which offers to restore a backup. The files are kept in a folder next to %s, the network settings stay."
-msgstr "Co zresetować? Enigma2 uruchomi się z kreatorem, który zaproponuje przywrócenie kopii zapasowej. Pliki zostaną zachowane w folderze obok %s, ustawienia sieci pozostaną bez zmian."
+msgid ""
+"What should be reset? Enigma2 then starts with the wizard, which offers to "
+"restore a backup. The files are kept in a folder next to %s, the network "
+"settings stay."
+msgstr ""
+"Co zresetować? Enigma2 uruchomi się z kreatorem, który zaproponuje "
+"przywrócenie kopii zapasowej. Pliki zostaną zachowane w folderze obok %s, "
+"ustawienia sieci pozostaną bez zmian."
 
 #: src/reset.c
 msgid "Reset"
 msgstr "Resetuj"
 
 #: src/reset.c
-msgid "Reset everything now? Enigma2 then starts like new, without channel lists and timers. Your old files are kept."
-msgstr "Zresetować teraz wszystko? Enigma2 uruchomi się jak nowa, bez list kanałów i timerów. Stare pliki zostaną zachowane."
+msgid ""
+"Reset everything now? Enigma2 then starts like new, without channel lists "
+"and timers. Your old files are kept."
+msgstr ""
+"Zresetować teraz wszystko? Enigma2 uruchomi się jak nowa, bez list kanałów i "
+"timerów. Stare pliki zostaną zachowane."
 
 #: src/reset.c
-msgid "Reset the settings now? Your channel lists and timers stay, all other settings start from the beginning. Your old settings are kept."
-msgstr "Zresetować teraz ustawienia? Listy kanałów i timery zostaną, wszystkie inne ustawienia zaczną się od nowa. Stare ustawienia zostaną zachowane."
+msgid ""
+"Reset the settings now? Your channel lists and timers stay, all other "
+"settings start from the beginning. Your old settings are kept."
+msgstr ""
+"Zresetować teraz ustawienia? Listy kanałów i timery zostaną, wszystkie inne "
+"ustawienia zaczną się od nowa. Stare ustawienia zostaną zachowane."
 
 #: src/reset.c
 #, c-format
@@ -464,7 +564,8 @@ msgstr "Nie znaleziono obrazów"
 msgid "Loading the images of %s."
 msgstr "Wczytywanie obrazów %s."
 
-#: src/flash.c src/backup.c src/files.c src/crash.c src/slots.c src/update.c src/viewer.c
+#: src/flash.c src/backup.c src/files.c src/crash.c src/slots.c src/update.c
+#: src/viewer.c
 msgid "Please wait..."
 msgstr "Proszę czekać..."
 
@@ -593,21 +694,36 @@ msgid "Flash now"
 msgstr "Wgraj teraz"
 
 #: src/flash.c
-msgid "Flash the image now? The running image is replaced and the receiver restarts. Do not switch it off while it flashes."
-msgstr "Wgrać obraz teraz? Uruchomiony obraz zostanie zastąpiony, a odbiornik uruchomi się ponownie. Nie wyłączaj go podczas wgrywania."
+msgid ""
+"Flash the image now? The running image is replaced and the receiver "
+"restarts. Do not switch it off while it flashes."
+msgstr ""
+"Wgrać obraz teraz? Uruchomiony obraz zostanie zastąpiony, a odbiornik "
+"uruchomi się ponownie. Nie wyłączaj go podczas wgrywania."
 
 #: src/flash.c
-msgid "Clean flash: all settings are lost, after the restart the most recent backup can be restored."
-msgstr "Czyste wgranie: wszystkie ustawienia zostaną utracone, po ponownym uruchomieniu można przywrócić najnowszą kopię zapasową."
+msgid ""
+"Clean flash: all settings are lost, after the restart the most recent backup "
+"can be restored."
+msgstr ""
+"Czyste wgranie: wszystkie ustawienia zostaną utracone, po ponownym "
+"uruchomieniu można przywrócić najnowszą kopię zapasową."
 
 #: src/flash.c
-msgid "The check only tests the image and writes nothing. After a successful check, OK starts flashing."
-msgstr "Sprawdzanie tylko testuje obraz i niczego nie zapisuje. Po udanym sprawdzeniu OK rozpoczyna wgrywanie."
+msgid ""
+"The check only tests the image and writes nothing. After a successful check, "
+"OK starts flashing."
+msgstr ""
+"Sprawdzanie tylko testuje obraz i niczego nie zapisuje. Po udanym "
+"sprawdzeniu OK rozpoczyna wgrywanie."
 
 #: src/flash.c
 #, c-format
-msgid "There is not enough free space on %s, it needs %lld MB. YELLOW frees up space."
-msgstr "Za mało wolnego miejsca na %s, potrzeba %lld MB. ŻÓŁTY zwalnia miejsce."
+msgid ""
+"There is not enough free space on %s, it needs %lld MB. YELLOW frees up "
+"space."
+msgstr ""
+"Za mało wolnego miejsca na %s, potrzeba %lld MB. ŻÓŁTY zwalnia miejsce."
 
 #: src/flash.c src/backup.c src/files.c
 msgid "Free up space"
@@ -667,8 +783,12 @@ msgid "ofgwrite is not installed, an image cannot be flashed."
 msgstr "ofgwrite nie jest zainstalowany, nie można wgrać obrazu."
 
 #: src/flash.c
-msgid "Neither /media/hdd nor /media/usb is mounted, the image needs one of them. Please attach a USB stick or a hard disk."
-msgstr "Ani /media/hdd, ani /media/usb nie jest zamontowany, a obraz wymaga jednego z nich. Podłącz pendrive lub dysk twardy."
+msgid ""
+"Neither /media/hdd nor /media/usb is mounted, the image needs one of them. "
+"Please attach a USB stick or a hard disk."
+msgstr ""
+"Ani /media/hdd, ani /media/usb nie jest zamontowany, a obraz wymaga jednego "
+"z nich. Podłącz pendrive lub dysk twardy."
 
 #: src/flash.c
 msgid "Looking for the running slot."
@@ -689,13 +809,21 @@ msgstr "Wolne"
 
 #: src/backup.c
 #, c-format
-msgid "There is not enough free space on any medium. The backup needs about %lld MB. YELLOW frees up space on the chosen medium."
-msgstr "Na żadnym nośniku nie ma wystarczająco wolnego miejsca. Kopia zapasowa wymaga około %lld MB. ŻÓŁTY zwalnia miejsce na wybranym nośniku."
+msgid ""
+"There is not enough free space on any medium. The backup needs about %lld "
+"MB. YELLOW frees up space on the chosen medium."
+msgstr ""
+"Na żadnym nośniku nie ma wystarczająco wolnego miejsca. Kopia zapasowa "
+"wymaga około %lld MB. ŻÓŁTY zwalnia miejsce na wybranym nośniku."
 
 #: src/backup.c
 #, c-format
-msgid "Saves the running image as a zip file, which Flash online/local can flash again. It needs about %lld MB. Where should it be saved?"
-msgstr "Zapisuje uruchomiony obraz jako plik zip, który można ponownie wgrać przez Wgraj obraz online/lokalnie. Wymaga około %lld MB. Gdzie go zapisać?"
+msgid ""
+"Saves the running image as a zip file, which Flash online/local can flash "
+"again. It needs about %lld MB. Where should it be saved?"
+msgstr ""
+"Zapisuje uruchomiony obraz jako plik zip, który można ponownie wgrać przez "
+"Wgraj obraz online/lokalnie. Wymaga około %lld MB. Gdzie go zapisać?"
 
 #: src/backup.c
 msgid "Back up"
@@ -711,7 +839,9 @@ msgstr "Mierzenie rozmiaru uruchomionego obrazu."
 
 #: src/backup.c
 msgid "No medium is mounted, the backup needs a USB stick or a hard disk."
-msgstr "Żaden nośnik nie jest zamontowany, kopia zapasowa wymaga pendrive'a lub dysku twardego."
+msgstr ""
+"Żaden nośnik nie jest zamontowany, kopia zapasowa wymaga pendrive'a lub "
+"dysku twardego."
 
 #: src/backup.c
 msgid "The backup cannot be prepared."
@@ -780,7 +910,8 @@ msgstr "Usuń"
 #: src/files.c
 #, c-format
 msgid "Delete the folder %s with everything in it (%s)? This cannot be undone."
-msgstr "Usunąć folder %s z całą zawartością (%s)? Tej operacji nie można cofnąć."
+msgstr ""
+"Usunąć folder %s z całą zawartością (%s)? Tej operacji nie można cofnąć."
 
 #: src/files.c
 #, c-format
@@ -815,12 +946,17 @@ msgstr "Potwierdź"
 #. TRANSLATORS: %s is the distribution, e.g. OpenATV.
 #: src/crash.c
 #, c-format
-msgid "Which information should be sent to the %s ticket system? You see everything before it is sent."
-msgstr "Jakie informacje wysłać do systemu zgłoszeń %s? Przed wysłaniem zobaczysz wszystkie dane."
+msgid ""
+"Which information should be sent to the %s ticket system? You see everything "
+"before it is sent."
+msgstr ""
+"Jakie informacje wysłać do systemu zgłoszeń %s? Przed wysłaniem zobaczysz "
+"wszystkie dane."
 
 #: src/crash.c
 msgid "Crash reports are not installed. The CrashReport plugin provides them."
-msgstr "Zgłoszenia awarii nie są zainstalowane. Zapewnia je wtyczka CrashReport."
+msgstr ""
+"Zgłoszenia awarii nie są zainstalowane. Zapewnia je wtyczka CrashReport."
 
 #: src/crash.c
 msgid "crashreport cannot be started."
@@ -839,11 +975,15 @@ msgstr "Przygotowywanie zgłoszenia awarii."
 msgid ""
 "Tracking number: %s\n"
 "\n"
-"Scan the QR code or open the link on a phone or PC. Sign in and describe what happened, so the developers can help. The report stays open for 48 hours."
+"Scan the QR code or open the link on a phone or PC. Sign in and describe "
+"what happened, so the developers can help. The report stays open for 48 "
+"hours."
 msgstr ""
 "Numer zgłoszenia: %s\n"
 "\n"
-"Zeskanuj kod QR lub otwórz link na telefonie lub komputerze. Zaloguj się i opisz, co się stało, aby programiści mogli pomóc. Zgłoszenie pozostaje otwarte przez 48 godzin."
+"Zeskanuj kod QR lub otwórz link na telefonie lub komputerze. Zaloguj się i "
+"opisz, co się stało, aby programiści mogli pomóc. Zgłoszenie pozostaje "
+"otwarte przez 48 godzin."
 
 #: src/crash.c
 msgid "The crash report was not sent."
@@ -887,8 +1027,12 @@ msgid "Which slot should the receiver start?"
 msgstr "Który slot ma uruchomić odbiornik?"
 
 #: src/slots.c
-msgid "The multiboot selector could not be loaded from GitHub. The receiver needs a network connection for it."
-msgstr "Nie można wczytać selektora multiboot z GitHuba. Odbiornik potrzebuje do tego połączenia z siecią."
+msgid ""
+"The multiboot selector could not be loaded from GitHub. The receiver needs a "
+"network connection for it."
+msgstr ""
+"Nie można wczytać selektora multiboot z GitHuba. Odbiornik potrzebuje do "
+"tego połączenia z siecią."
 
 #: src/slots.c
 msgid "The slots could not be read."
@@ -989,19 +1133,32 @@ msgid "Disable"
 msgstr "Wyłącz"
 
 #: src/plugins.c
-msgid "The plugin that caused the problem is marked. Changes take effect when Enigma2 starts again."
-msgid_plural "The plugins that caused the problem are marked. Changes take effect when Enigma2 starts again."
-msgstr[0] "Wtyczka, która spowodowała problem, jest oznaczona. Zmiany zostaną zastosowane po ponownym uruchomieniu Enigma2."
-msgstr[1] "Wtyczki, które spowodowały problem, są oznaczone. Zmiany zostaną zastosowane po ponownym uruchomieniu Enigma2."
-msgstr[2] "Wtyczki, które spowodowały problem, są oznaczone. Zmiany zostaną zastosowane po ponownym uruchomieniu Enigma2."
+msgid ""
+"The plugin that caused the problem is marked. Changes take effect when "
+"Enigma2 starts again."
+msgid_plural ""
+"The plugins that caused the problem are marked. Changes take effect when "
+"Enigma2 starts again."
+msgstr[0] ""
+"Wtyczka, która spowodowała problem, jest oznaczona. Zmiany zostaną "
+"zastosowane po ponownym uruchomieniu Enigma2."
+msgstr[1] ""
+"Wtyczki, które spowodowały problem, są oznaczone. Zmiany zostaną zastosowane "
+"po ponownym uruchomieniu Enigma2."
+msgstr[2] ""
+"Wtyczki, które spowodowały problem, są oznaczone. Zmiany zostaną zastosowane "
+"po ponownym uruchomieniu Enigma2."
 
 #: src/plugins.c
 msgid "Changes take effect when Enigma2 starts again."
 msgstr "Zmiany zostaną zastosowane po ponownym uruchomieniu Enigma2."
 
 #: src/plugins.c
-msgid "Plugins disabled temporarily are enabled again when the receiver restarts."
-msgstr "Wtyczki wyłączone tymczasowo zostaną ponownie włączone po ponownym uruchomieniu odbiornika."
+msgid ""
+"Plugins disabled temporarily are enabled again when the receiver restarts."
+msgstr ""
+"Wtyczki wyłączone tymczasowo zostaną ponownie włączone po ponownym "
+"uruchomieniu odbiornika."
 
 #: src/plugins.c
 msgid "Type"
@@ -1067,7 +1224,8 @@ msgstr "repozytorium stabilne"
 #: src/update.c
 #, c-format
 msgid "Warning: more than %d packages, flashing a new image is safer."
-msgstr "Uwaga: liczba pakietów przekracza %d, bezpieczniej jest wgrać nowy obraz."
+msgstr ""
+"Uwaga: liczba pakietów przekracza %d, bezpieczniej jest wgrać nowy obraz."
 
 #: src/update.c
 #, c-format
@@ -1098,8 +1256,12 @@ msgid "Checking the status of the feed."
 msgstr "Sprawdzanie stanu repozytorium."
 
 #: src/update.c
-msgid "The feed of this image is being updated or is disabled right now. Please try the update again later."
-msgstr "Repozytorium tego obrazu jest właśnie aktualizowane lub wyłączone. Spróbuj zaktualizować później."
+msgid ""
+"The feed of this image is being updated or is disabled right now. Please try "
+"the update again later."
+msgstr ""
+"Repozytorium tego obrazu jest właśnie aktualizowane lub wyłączone. Spróbuj "
+"zaktualizować później."
 
 #: src/update.c
 msgid "Updating the package lists"
@@ -1136,7 +1298,9 @@ msgstr "Licencja jest pusta."
 
 #: src/about.c
 msgid "Free software under the GPLv3. OK shows the full license of each part."
-msgstr "Wolne oprogramowanie na licencji GPLv3. OK pokazuje pełną licencję każdej części."
+msgstr ""
+"Wolne oprogramowanie na licencji GPLv3. OK pokazuje pełną licencję każdej "
+"części."
 
 #: src/about.c
 msgid "Component"
@@ -1184,7 +1348,9 @@ msgstr "Recovery Manager"
 
 #: plugin/plugin.py
 msgid "Enigma2 stops and the Open Recovery Manager starts instead. Continue?"
-msgstr "Enigma2 zostanie zatrzymana, a zamiast niej uruchomi się Open Recovery Manager. Kontynuować?"
+msgstr ""
+"Enigma2 zostanie zatrzymana, a zamiast niej uruchomi się Open Recovery "
+"Manager. Kontynuować?"
 
 #: plugin/plugin.py
 msgid "Restarts Enigma2 into the Open Recovery Manager."

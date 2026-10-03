@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ORM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-01 22:28+0000\n"
+"POT-Creation-Date: 2026-10-03 11:03+0000\n"
 "PO-Revision-Date: 2026-09-30 09:30+0200\n"
 "Last-Translator: OE-Alliance Open Recovery Manager contributors\n"
 "Language-Team: Arabic\n"
@@ -18,16 +18,35 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 
 #: src/main.c
-msgid "REQUESTED"
-msgstr "بناءً على الطلب"
+msgid "STARTED FROM THE CONSOLE"
+msgstr "تم التشغيل من سطر الأوامر"
 
 #: src/main.c
 msgid "Enigma2 is stopped"
 msgstr "Enigma2 متوقف"
 
 #: src/main.c
-msgid "The Open Recovery Manager was started on request."
-msgstr "تم تشغيل Open Recovery Manager بناءً على الطلب."
+msgid ""
+"Recovery Manager runs from a console session. After it ends, Enigma2 can be "
+"started again with init 3."
+msgstr ""
+"يعمل Recovery Manager من جلسة سطر أوامر. بعد إنهائه يمكن إعادة تشغيل Enigma2 "
+"باستخدام init 3."
+
+#: src/main.c
+msgid "OPENED FROM THE MENU"
+msgstr "تم الفتح من القائمة"
+
+#: src/main.c
+msgid "Enigma2 is paused"
+msgstr "Enigma2 متوقف مؤقتًا"
+
+#: src/main.c
+msgid ""
+"Recovery Manager was opened from the menu. After it ends, Enigma2 starts "
+"again on its own."
+msgstr ""
+"تم فتح Recovery Manager من القائمة. بعد إنهائه يُعاد تشغيل Enigma2 تلقائيًا."
 
 #: src/main.c
 msgid "ENIGMA2 STOPPED RESPONDING WHILE STARTING"
@@ -264,12 +283,8 @@ msgid "Restarts the receiver with the image of another slot."
 msgstr "يعيد تشغيل الجهاز بصورة النظام من فتحة أخرى."
 
 #: src/main.c
-msgid ""
-"Ends the Open Recovery Manager. Enigma2 stays stopped until it is started "
-"again, e.g. with init 3."
-msgstr ""
-"يُنهي Open Recovery Manager. يبقى Enigma2 متوقفًا حتى يتم تشغيله مرة أخرى، "
-"مثلًا باستخدام init 3."
+msgid "Ends the Open Recovery Manager. Enigma2 stays stopped."
+msgstr "يُنهي Open Recovery Manager. يبقى Enigma2 متوقفًا."
 
 #: src/main.c
 #, c-format

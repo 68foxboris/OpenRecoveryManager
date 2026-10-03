@@ -16,6 +16,10 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+static void (*idle_call)(void);
+static unsigned int idle_ms;
+static uint64_t idle_next;
+
 static uint64_t current_milliseconds(void)
 {
 	struct timeval now;
@@ -23,6 +27,51 @@ static uint64_t current_milliseconds(void)
 		return 0;
 	return (uint64_t)now.tv_sec * 1000ULL +
 		(uint64_t)now.tv_usec / 1000ULL;
+}
+
+void process_set_idle(void (*idle)(void), unsigned int ms)
+{
+	idle_call = idle;
+	idle_ms = ms;
+}
+
+void process_idle(void)
+{
+	uint64_t now;
+	if (!idle_call)
+		return;
+	now = current_milliseconds();
+	if (now >= idle_next) {
+		idle_call();
+		idle_next = now + idle_ms;
+	}
+}
+
+int process_select(int maximum, fd_set *read_set, int timeout_ms)
+{
+	uint64_t end = current_milliseconds() + (uint64_t)(timeout_ms < 0 ? 0 : timeout_ms);
+	for (;;) {
+		fd_set ready = *read_set;
+		struct timeval timeout;
+		uint64_t now;
+		uint64_t wait;
+		int result;
+		process_idle();
+		now = current_milliseconds();
+		if (timeout_ms < 0)
+			wait = UINT64_MAX;
+		else
+			wait = end > now ? end - now : 0;
+		if (idle_call && wait > idle_ms)
+			wait = idle_next > now ? idle_next - now : 0;
+		timeout.tv_sec = (time_t)(wait / 1000ULL);
+		timeout.tv_usec = (suseconds_t)((wait % 1000ULL) * 1000ULL);
+		result = select(maximum + 1, &ready, NULL, NULL, wait == UINT64_MAX ? NULL : &timeout);
+		if (result != 0 || (timeout_ms >= 0 && current_milliseconds() >= end)) {
+			*read_set = ready;
+			return result;
+		}
+	}
 }
 
 static void emit_lines(char *pending, size_t *pending_length,
@@ -164,6 +213,12 @@ static uint64_t wait_time(struct run_state *state)
 		if (remaining > 250)
 			remaining = 250;
 	}
+	if (idle_call) {
+		uint64_t now = current_milliseconds();
+		uint64_t until_idle = idle_next > now ? idle_next - now : 0;
+		if (remaining > until_idle)
+			remaining = until_idle;
+	}
 	if (state->child_reaped)
 		remaining = 0;
 	return remaining;
@@ -194,6 +249,7 @@ static int run_step(struct run_state *state)
 
 	if (!check_child(state))
 		return 0;
+	process_idle();
 	remaining = wait_time(state);
 	FD_ZERO(&read_set);
 	FD_SET(state->fd, &read_set);
