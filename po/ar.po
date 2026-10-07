@@ -983,12 +983,12 @@ msgstr ""
 "إرساله."
 
 #: src/crash.c
-msgid "Crash reports are not installed. The CrashReport plugin provides them."
-msgstr "تقارير الأعطال غير مثبّتة. توفرها إضافة CrashReport."
+msgid "Crash reports are not installed. The CrashReporter plugin provides them."
+msgstr "تقارير الأعطال غير مثبّتة. توفرها إضافة CrashReporter."
 
 #: src/crash.c
-msgid "crashreport cannot be started."
-msgstr "لا يمكن تشغيل crashreport."
+msgid "crashreporter cannot be started."
+msgstr "لا يمكن تشغيل crashreporter."
 
 #: src/crash.c
 msgid "Sending the crash report."

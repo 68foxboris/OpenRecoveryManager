@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ORM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-06 18:26+0000\n"
+"POT-Creation-Date: 2026-10-08 00:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -917,11 +917,12 @@ msgid ""
 msgstr ""
 
 #: src/crash.c
-msgid "Crash reports are not installed. The CrashReport plugin provides them."
+msgid ""
+"Crash reports are not installed. The CrashReporter plugin provides them."
 msgstr ""
 
 #: src/crash.c
-msgid "crashreport cannot be started."
+msgid "crashreporter cannot be started."
 msgstr ""
 
 #: src/crash.c

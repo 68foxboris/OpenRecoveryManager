@@ -56,7 +56,7 @@ Enigma2 takes the session over when it starts. OK ends the session.
 The crash log view shows the newest crash log of Enigma2 and starts at the end
 of its log, which the blue screen showed before. BLUE chooses another crash log,
 the newest first, YELLOW shows the messages of the last start. A crash report is sent with
-`crashreport` of the CrashReport plugin, run like `remotesupport`: the crash log
+`crashreporter` of the CrashReporter plugin, run like `remotesupport`: the crash log
 alone or with the debug log and diagnostics, confirmed on the TV. Its tracking
 number and link are shown with a QR code.
 

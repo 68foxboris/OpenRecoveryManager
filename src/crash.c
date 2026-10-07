@@ -164,7 +164,7 @@ int crash_logs(struct log_file *logs, int max)
 
 struct report {
 	struct console console;
-	char context[2048];  /* What crashreport printed before its question. */
+	char context[2048];  /* What crashreporter printed before its question. */
 	char status[256];
 	char tracking[64];
 	int answered;
@@ -232,14 +232,14 @@ static int choose_logs(const struct ui_context *ui, struct input_context *input,
 void crash_report(const struct ui_context *ui, struct input_context *input,
 	const volatile sig_atomic_t *stop)
 {
-	static char *const only_crash[] = {"crashreport", "--no-debug", "--no-diagnostics", NULL};
-	static char *const everything[] = {"crashreport", NULL};
+	static char *const only_crash[] = {"crashreporter", "--client", "orm", "--no-debug", "--no-diagnostics", NULL};
+	static char *const everything[] = {"crashreporter", "--client", "orm", NULL};
 	struct report *r;
 	char footer[64];
 	int choice;
 	ui_keys(footer, sizeof(footer), &(struct ui_key_names){.ok = _("Menu")});
 	if (access(CRASHREPORT, X_OK) != 0) {
-		ui_error(ui, TITLE, _("Crash reports are not installed. The CrashReport plugin provides them."));
+		ui_error(ui, TITLE, _("Crash reports are not installed. The CrashReporter plugin provides them."));
 		wait_key(input, stop);
 		return;
 	}
@@ -252,7 +252,7 @@ void crash_report(const struct ui_context *ui, struct input_context *input,
 	r->console = (struct console){.ui = ui, .input = input, .stop = stop, .master = -1,
 		.line = handle_line, .question = handle_question, .data = r};
 	if (!console_start(&r->console, CRASHREPORT, choice ? everything : only_crash)) {
-		ui_error(ui, TITLE, _("crashreport cannot be started."));
+		ui_error(ui, TITLE, _("crashreporter cannot be started."));
 		wait_key(input, stop);
 		console_close(&r->console);
 		free(r);

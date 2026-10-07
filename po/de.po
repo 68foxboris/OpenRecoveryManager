@@ -1003,14 +1003,14 @@ msgstr ""
 "siehst alles, bevor es gesendet wird."
 
 #: src/crash.c
-msgid "Crash reports are not installed. The CrashReport plugin provides them."
+msgid "Crash reports are not installed. The CrashReporter plugin provides them."
 msgstr ""
-"Crash-Reports sind nicht installiert. Das CrashReport-Plugin stellt sie "
+"Crash-Reports sind nicht installiert. Das CrashReporter-Plugin stellt sie "
 "bereit."
 
 #: src/crash.c
-msgid "crashreport cannot be started."
-msgstr "crashreport kann nicht gestartet werden."
+msgid "crashreporter cannot be started."
+msgstr "crashreporter kann nicht gestartet werden."
 
 #: src/crash.c
 msgid "Sending the crash report."

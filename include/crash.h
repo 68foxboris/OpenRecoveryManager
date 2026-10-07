@@ -9,8 +9,8 @@
 #include "input.h"
 #include "ui.h"
 
-/* The command line of the CrashReport plugin, run on a pseudo terminal. */
-#define CRASHREPORT "/usr/bin/crashreport"
+/* The command line of the CrashReporter plugin, run on a pseudo terminal. */
+#define CRASHREPORT "/usr/bin/crashreporter"
 
 /* The newest crash or debug log of enigma2 in its log folders, 0 when there is none. */
 int crash_log_path(char *path, size_t size);

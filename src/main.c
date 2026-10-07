@@ -417,7 +417,7 @@ static void preview(const struct ui_context *ui, int item, const struct watch_re
 		.body = description, .info = extra, .footer = footer});
 }
 
-/* Grey and not selectable: not every image has the command line of CrashReport, not every receiver multiboot. */
+/* Grey and not selectable: not every image has the command line of CrashReporter, not every receiver multiboot. */
 static void mark_items(char *marks)
 {
 	for (int i = 0; i < ITEM_COUNT; ++i) {
