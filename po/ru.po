@@ -537,11 +537,6 @@ msgid "The settings were reset, the old file is kept in %s."
 msgstr "Настройки были сброшены, старый файл сохранен в %s."
 
 #: src/reset.c
-#, c-format
-msgid "The files of Enigma2 were reset, the old ones are kept in %s."
-msgstr "Файлы Enigma2 были сброшены, старые сохранены в %s."
-
-#: src/reset.c
 msgid "Restart Enigma2 in the menu to start with the standard skin."
 msgstr "Перезапустите Enigma2 через меню, чтобы начать работу со стандартным скином."
 
