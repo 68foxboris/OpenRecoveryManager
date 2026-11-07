@@ -1,0 +1,468 @@
+# Ukrainian translation of ORM.
+# Copyright (C) 2026 OE-Alliance Open Recovery Manager contributors
+# This file is distributed under the same license as the ORM package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ORM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-25 10:38+0100\n"
+"PO-Revision-Date: 2026-11-07 08:00+0200\n"
+"Last-Translator: User\n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "STARTED FROM THE CONSOLE"
+msgstr "ЗАПУЩЕНО З КОНСОЛІ"
+
+msgid "Enigma2 is stopped"
+msgstr "Enigma2 зупинено"
+
+msgid "Recovery Manager runs from a console session. After it ends, Enigma2 can be started again with init 3."
+msgstr "Recovery Manager запущено з консольної сесії. Після завершення Enigma2 можна знову запустити командою init 3."
+
+msgid "OPENED FROM THE MENU"
+msgstr "ВІДКРИТО З МЕНЮ"
+
+msgid "Enigma2 is paused"
+msgstr "Enigma2 призупинено"
+
+msgid "Recovery Manager was opened from the menu. After it ends, Enigma2 starts again on its own."
+msgstr "Recovery Manager відкрито з меню. Після завершення Enigma2 автоматично перезапуститься."
+
+msgid "ENIGMA2 STOPPED RESPONDING WHILE STARTING"
+msgstr "ENIGMA2 ПЕРЕСТАЛА ВІДПОВІДАТИ ПІД ЧАС ЗАПУСКУ"
+
+msgid "ENIGMA2 STOPPED WITH A PYTHON ERROR SHORTLY AFTER THE START"
+msgstr "ENIGMA2 ЗУПИНИЛАСЯ З ПОМИЛКОЮ PYTHON НЕВДОВЗІ ПІСЛЯ ЗАПУСКУ"
+
+msgid "ENIGMA2 STOPPED WITH A PYTHON ERROR WHILE STARTING"
+msgstr "ENIGMA2 ЗУПИНИЛАСЯ З ПОМИЛКОЮ PYTHON ПІД ЧАС ЗАПУСКУ"
+
+msgid "ENIGMA2 CRASHED SHORTLY AFTER THE START"
+msgstr "ENIGMA2 ЗАЗНАЛА ЗБОЮ НЕВДОВЗІ ПІСЛЯ ЗАПУСКУ"
+
+msgid "ENIGMA2 CRASHED WHILE STARTING"
+msgstr "ENIGMA2 ЗАЗНАЛА ЗБОЮ ПІД ЧАС ЗАПУСКУ"
+
+msgid "Signal %s"
+msgstr "Сигнал %s"
+
+msgid "Last step: %s"
+msgstr "Останній крок: %s"
+
+msgid "unknown"
+msgstr "невідомо"
+
+msgid "Cause: Enigma2 itself, %s is missing"
+msgstr "Причина: Сама Enigma2, %s відсутній"
+
+msgid "%s (current)"
+msgstr "%s (поточний)"
+
+msgid "Crash logs (%d)"
+msgstr "Логи збоїв (%d)"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "File"
+msgstr "Файл"
+
+msgid "Size"
+msgstr "Розмір"
+
+msgid "Select"
+msgstr "Вибрати"
+
+msgid "Show"
+msgstr "Показати"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Which crash log should be shown? The newest is at the top."
+msgstr "Який лог збою показати? Найновіший зверху."
+
+msgid "none"
+msgstr "немає"
+
+msgid "Time"
+msgstr "Час"
+
+msgid "Duration"
+msgstr "Тривалість"
+
+msgid "Message"
+msgstr "Повідомлення"
+
+msgid "Scroll"
+msgstr "Прокрутка"
+
+msgid "Switch log"
+msgstr "Змінити лог"
+
+msgid "Socket log"
+msgstr "Лог сокета"
+
+msgid "Menu"
+msgstr "Меню"
+
+msgid "Crash log"
+msgstr "Лог збою"
+
+msgid "There is no log of the last start."
+msgstr "Немає логу останнього запуску."
+
+msgid "There is no crash log."
+msgstr "Немає логів збоїв."
+
+msgid "Restart Enigma2"
+msgstr "Перезапустити Enigma2"
+
+msgid "Show crash log"
+msgstr "Показати лог збою"
+
+msgid "Send crash report"
+msgstr "Надіслати звіт про збій"
+
+msgid "Repair Enigma2"
+msgstr "Відновити Enigma2"
+
+msgid "Software update"
+msgstr "Оновлення ПЗ"
+
+msgid "Reset settings"
+msgstr "Скинути налаштування"
+
+msgid "Back up image"
+msgstr "Резервна копія іміджу"
+
+msgid "Flash online/local"
+msgstr "Прошивка онлайн/локально"
+
+msgid "Boot another slot"
+msgstr "Завантажити інший слот"
+
+msgid "Starts Enigma2 again. If a plugin or a file of a skin keeps it from starting, repair Enigma2 first. You can disable faulty plugins and install Enigma2 again."
+msgstr "Запускає Enigma2 знову. Якщо плагін або файл скіна заважають запуску, спочатку відновіть Enigma2. Ви можете вимкнути несправні плагіни та інсталювати Enigma2 заново."
+
+msgid "Shows the newest crash log of Enigma2. BLUE shows the steps of the last start."
+msgstr "Показує найновіший лог збою Enigma2. СИНІЙ показує кроки останнього запуску."
+
+msgid "Restores the original files of Enigma2 and keeps it from loading a plugin, temporarily or permanently. A plugin that caused problems at the last start is marked and chosen at first. The settings stay."
+msgstr "Відновлює оригінальні файли Enigma2 та запобігає завантаженню плагіна, тимчасово або постійно. Плагін, який спричинив проблеми під час останнього запуску, буде позначено та вибрано першим. Налаштування зберігаються."
+
+msgid "Installs the latest updates for your receiver. You see the list and confirm before anything is installed."
+msgstr "Встановлює найновіші оновлення для вашого ресивера. Ви побачите список і підтвердите перед встановленням."
+
+msgid "Resets the skin, the settings or all of Enigma2 to the state of a new installation. Your old settings are moved aside, so nothing is deleted for good."
+msgstr "Скидає скін, налаштування або всю Enigma2 до стану нової інсталяції. Ваші старі налаштування будуть перенесені, тому нічого не видаляється остаточно."
+
+msgid "Saves the running image as a zip file on a USB stick or hard disk, so it can be flashed again later."
+msgstr "Зберігає поточний імідж як zip-файл на USB-флешку або жорсткий диск, щоб його можна було прошити пізніше."
+
+msgid "Flashes an image into the running slot, from the feed of the running distribution or from the media. A check with ofgwrite tests the image before anything is written."
+msgstr "Прошиває імідж у поточний слот із фіда дистрибутива або з носія. Перевірка за допомогою ofgwrite тестує імідж перед записом."
+
+msgid "Restarts the receiver with the image of another slot."
+msgstr "Перезапускає ресивер з іміджем іншого слота."
+
+msgid "Ends the Open Recovery Manager. Enigma2 stays stopped."
+msgstr "Завершує роботу Open Recovery Manager. Enigma2 залишається зупиненою."
+
+msgid "Newest crash log: %s"
+msgstr "Найновіший лог збою: %s"
+
+msgid "Sends the crash report to the %s ticket system, so the developers can find the error. You see everything before it is sent."
+msgstr "Надсилає звіт про збій у тікет-систему %s, щоб розробники могли знайти помилку. Ви побачите все перед відправкою."
+
+msgid "Restart in %d s, any key cancels"
+msgstr "Перезапуск через %d сек, будь-яка кнопка скасовує"
+
+msgid "Language"
+msgstr "Мова"
+
+msgid "Open"
+msgstr "Відкрити"
+
+msgid "Choose"
+msgstr "Вибрати"
+
+msgid "Remote Support"
+msgstr "Віддалена підтримка"
+
+msgid "About"
+msgstr "Про програму"
+
+msgid "Reboot"
+msgstr "Перезавантаження"
+
+msgid "Shutdown"
+msgstr "Вимкнення"
+
+msgid "Exit"
+msgstr "Вихід"
+
+msgid "End the Remote Support session? The supporter can then no longer work on the receiver."
+msgstr "Завершити сесію віддаленої підтримки? Після цього помічник більше не зможе працювати з ресивером."
+
+msgid "Cancel"
+msgstr "Скасувати"
+
+msgid "Starting the Remote Support session."
+msgstr "Запуск сесії віддаленої підтримки."
+
+msgid "Connecting to the support server, this takes a few seconds."
+msgstr "Підключення до сервера підтримки, це займе кілька секунд."
+
+msgid "Scan the QR code with your phone and send the link to your supporter from there."
+msgstr "Відскануйте QR-код телефоном та надішліть посилання вашому помічнику."
+
+msgid "Send the link below to your supporter or let them scan the QR code."
+msgstr "Надішліть посилання нижче вашому помічнику або дайте йому відсканувати QR-код."
+
+msgid "Approved users can open terminals. Everybody who joins later has to be approved as well."
+msgstr "Затверджені користувачі можуть відкривати термінали. Кожен, хто приєднається пізніше, також має бути затверджений."
+
+msgid "When somebody joins the session, you have to approve the access with the remote control."
+msgstr "Коли хтось приєднується до сесії, ви повинні підтвердити доступ за допомогою пульта."
+
+msgid "The session keeps running in the menu and ends when Enigma2 starts."
+msgstr "Сесія продовжує працювати в меню і завершиться після запуску Enigma2."
+
+msgid "The session keeps running in the menu and after Enigma2 starts."
+msgstr "Сесія продовжує працювати в меню і після запуску Enigma2."
+
+msgid "Ending the session..."
+msgstr "Завершення сесії..."
+
+msgid "End session"
+msgstr "Завершити сесію"
+
+msgid "Do not post the link or a screenshot of it in public forums: everybody who has it can try to join and sees the terminals until you deny the access."
+msgstr "Не публікуйте посилання чи його скріншот на публічних форумах: кожен, хто його має, може спробувати приєднатися та бачитиме термінали, поки ви не відхилите доступ."
+
+msgid "Scan with your phone to send the link to your supporter"
+msgstr "Відскануйте телефоном, щоб надіслати посилання помічнику"
+
+msgid "Scan to open the support session"
+msgstr "Відскануйте, щоб відкрити сесію підтримки"
+
+msgid "Installing into RAM"
+msgstr "Встановлення в ОЗП (RAM)"
+
+msgid "Remote Support could not be installed."
+msgstr "Не вдалося встановити віддалену підтримку."
+
+msgid "Remote Support cannot be started."
+msgstr "Не вдалося запустити віддалену підтримку."
+
+msgid "Start Remote Support? A supporter can then work on the receiver from the internet."
+msgstr "Запустити віддалену підтримку? Помічник зможе працювати з ресивером через інтернет."
+
+msgid "The Remote Support session ended."
+msgstr "Сесію віддаленої підтримки завершено."
+
+msgid "Only the skin (all other settings stay)"
+msgstr "Тільки скін (всі інші налаштування залишаються)"
+
+msgid "Only the settings (channel lists and timers stay)"
+msgstr "Тільки налаштування (списки каналів та таймери залишаються)"
+
+msgid "Everything, including channel lists and timers"
+msgstr "Усе, включаючи списки каналів та таймери"
+
+msgid "Reset"
+msgstr "Скинути"
+
+msgid "Backup images"
+msgstr "Резервні копії іміджів"
+
+msgid "Local images"
+msgstr "Локальні іміджі"
+
+msgid "No images found"
+msgstr "Іміджів не знайдено"
+
+msgid "Please wait..."
+msgstr "Будь ласка, зачекайте..."
+
+msgid "Looking for images on the media."
+msgstr "Пошук іміджів на носіях."
+
+msgid "Images"
+msgstr "Іміджі"
+
+msgid "Distribution"
+msgstr "Дистрибутив"
+
+msgid "Check"
+msgstr "Перевірка"
+
+msgid "the running image"
+msgstr "поточний імідж"
+
+msgid "Flashing finished, restart the receiver in the menu."
+msgstr "Прошивку завершено, перезапустіть ресивер через меню."
+
+msgid "Flashing failed, see %s."
+msgstr "Помилка прошивки, див. %s."
+
+msgid "Flashing"
+msgstr "Прошивка"
+
+msgid "stays as it is"
+msgstr "залишається без змін"
+
+msgid "Image"
+msgstr "Імідж"
+
+msgid "Location"
+msgstr "Місцезнаходження"
+
+msgid "Slot"
+msgstr "Слот"
+
+msgid "Kernel"
+msgstr "Ядро"
+
+msgid "Command"
+msgstr "Команда"
+
+msgid "The check was successful"
+msgstr "Перевірка пройшла успішно"
+
+msgid "The check failed"
+msgstr "Перевірка не вдалася"
+
+msgid "Flash now"
+msgstr "Прошити зараз"
+
+msgid "Free up space"
+msgstr "Звільнити місце"
+
+msgid "Close"
+msgstr "Закрити"
+
+msgid "Medium"
+msgstr "Носій"
+
+msgid "Free"
+msgstr "Вільно"
+
+msgid "Back up"
+msgstr "Зберегти копію"
+
+msgid "The backup failed"
+msgstr "Помилка створення резервної копії"
+
+msgid "Deleting..."
+msgstr "Видалення..."
+
+msgid "Crash report"
+msgstr "Звіт про збій"
+
+msgid "Crash log only"
+msgstr "Тільки лог збою"
+
+msgid "Confirm"
+msgstr "Підтвердити"
+
+msgid "Yes"
+msgstr "Так"
+
+msgid "No"
+msgstr "Ні"
+
+msgid "Boot"
+msgstr "Завантажити"
+
+msgid "Plugin"
+msgstr "Плагін"
+
+msgid "System plugin"
+msgstr "Системний плагін"
+
+msgid "unknown error"
+msgstr "невідома помилка"
+
+msgid "Enable"
+msgstr "Увімкнути"
+
+msgid "Disable"
+msgstr "Вимкнути"
+
+msgid "System"
+msgstr "Система"
+
+msgid "Repair"
+msgstr "Відновити"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Problem"
+msgstr "Проблема"
+
+msgid "feed status unknown"
+msgstr "статус фіда невідомий"
+
+msgid "feed disabled"
+msgstr "фід вимкнено"
+
+msgid "feed unstable"
+msgstr "фід нестабільний"
+
+msgid "feed stable"
+msgstr "фід стабільний"
+
+msgid "Package"
+msgstr "Пакет"
+
+msgid "Installed"
+msgstr "Встановлено"
+
+msgid "New"
+msgstr "Новий"
+
+msgid "Update now"
+msgstr "Оновити зараз"
+
+msgid "Updating"
+msgstr "Оновлення"
+
+msgid "Component"
+msgstr "Компонент"
+
+msgid "Part"
+msgstr "Частина"
+
+msgid "License"
+msgstr "Ліцензія"
+
+msgid "Error"
+msgstr "Помилка"
+
+msgid "ERROR"
+msgstr "ПОМИЛКА"
+
+msgid "this application"
+msgstr "цей додаток"
+
+msgid "the graphics library"
+msgstr "графічна бібліотека"
+
+msgid "the font"
+msgstr "шрифт"
+
+msgid "the icons"
+msgstr "іконки"
+
+msgid "Recovery Manager"
+msgstr "Менеджер відновлення"
+
